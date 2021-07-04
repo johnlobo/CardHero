@@ -1,6 +1,6 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
-                              3 ; Version 3.6.8 #9946 (Mac OS X x86_64)
+                              3 ; Version 3.6.8 #9946 (Linux)
                               4 ;--------------------------------------------------------
                               5 	.module text
                               6 	.optsdcc -mz80
@@ -51,1012 +51,1012 @@
                              51 ;	---------------------------------
                              52 ; Function strLength
                              53 ; ---------------------------------
-   4AD2                      54 _strLength::
+   0B95                      54 _strLength::
                              55 ;src/text/text.c:58: while (str[result] != '\0')
-   4AD2 0E 00         [ 7]   56 	ld	c, #0x00
-   4AD4                      57 00101$:
-   4AD4 21 02 00      [10]   58 	ld	hl, #2
-   4AD7 39            [11]   59 	add	hl, sp
-   4AD8 7E            [ 7]   60 	ld	a, (hl)
-   4AD9 23            [ 6]   61 	inc	hl
-   4ADA 66            [ 7]   62 	ld	h, (hl)
-   4ADB 6F            [ 4]   63 	ld	l, a
-   4ADC 06 00         [ 7]   64 	ld	b, #0x00
-   4ADE 09            [11]   65 	add	hl, bc
-   4ADF 7E            [ 7]   66 	ld	a, (hl)
-   4AE0 B7            [ 4]   67 	or	a, a
-   4AE1 28 03         [12]   68 	jr	Z,00103$
+   0B95 0E 00         [ 7]   56 	ld	c, #0x00
+   0B97                      57 00101$:
+   0B97 21 02 00      [10]   58 	ld	hl, #2
+   0B9A 39            [11]   59 	add	hl, sp
+   0B9B 7E            [ 7]   60 	ld	a, (hl)
+   0B9C 23            [ 6]   61 	inc	hl
+   0B9D 66            [ 7]   62 	ld	h, (hl)
+   0B9E 6F            [ 4]   63 	ld	l, a
+   0B9F 06 00         [ 7]   64 	ld	b, #0x00
+   0BA1 09            [11]   65 	add	hl, bc
+   0BA2 7E            [ 7]   66 	ld	a, (hl)
+   0BA3 B7            [ 4]   67 	or	a, a
+   0BA4 28 03         [12]   68 	jr	Z,00103$
                              69 ;src/text/text.c:60: result++;
-   4AE3 0C            [ 4]   70 	inc	c
-   4AE4 18 EE         [12]   71 	jr	00101$
-   4AE6                      72 00103$:
+   0BA6 0C            [ 4]   70 	inc	c
+   0BA7 18 EE         [12]   71 	jr	00101$
+   0BA9                      72 00103$:
                              73 ;src/text/text.c:62: return result;
-   4AE6 69            [ 4]   74 	ld	l, c
-   4AE7 C9            [10]   75 	ret
-   4AE8                      76 _swapColors:
-   4AE8 55                   77 	.db #0x55	; 85	'U'
-   4AE9 EE                   78 	.db #0xee	; 238
-   4AEA DD                   79 	.db #0xdd	; 221
-   4AEB FF                   80 	.db #0xff	; 255
-   4AEC 14                   81 	.db #0x14	; 20
-   4AED 6C                   82 	.db #0x6c	; 108	'l'
-   4AEE 9C                   83 	.db #0x9c	; 156
-   4AEF 3C                   84 	.db #0x3c	; 60
-   4AF0 50                   85 	.db #0x50	; 80	'P'
-   4AF1 E4                   86 	.db #0xe4	; 228
-   4AF2 D8                   87 	.db #0xd8	; 216
-   4AF3 F0                   88 	.db #0xf0	; 240
-   4AF4 11                   89 	.db #0x11	; 17
-   4AF5 66                   90 	.db #0x66	; 102	'f'
-   4AF6 99                   91 	.db #0x99	; 153
-   4AF7 33                   92 	.db #0x33	; 51	'3'
-   4AF8 10                   93 	.db #0x10	; 16
-   4AF9 35                   94 	.db #0x35	; 53	'5'
-   4AFA 3A                   95 	.db #0x3a	; 58
-   4AFB 30                   96 	.db #0x30	; 48	'0'
-   4AFC 45                   97 	.db #0x45	; 69	'E'
-   4AFD CE                   98 	.db #0xce	; 206
-   4AFE CD                   99 	.db #0xcd	; 205
-   4AFF CF                  100 	.db #0xcf	; 207
+   0BA9 69            [ 4]   74 	ld	l, c
+   0BAA C9            [10]   75 	ret
+   0BAB                      76 _swapColors:
+   0BAB 55                   77 	.db #0x55	; 85	'U'
+   0BAC EE                   78 	.db #0xee	; 238
+   0BAD DD                   79 	.db #0xdd	; 221
+   0BAE FF                   80 	.db #0xff	; 255
+   0BAF 14                   81 	.db #0x14	; 20
+   0BB0 6C                   82 	.db #0x6c	; 108	'l'
+   0BB1 9C                   83 	.db #0x9c	; 156
+   0BB2 3C                   84 	.db #0x3c	; 60
+   0BB3 50                   85 	.db #0x50	; 80	'P'
+   0BB4 E4                   86 	.db #0xe4	; 228
+   0BB5 D8                   87 	.db #0xd8	; 216
+   0BB6 F0                   88 	.db #0xf0	; 240
+   0BB7 11                   89 	.db #0x11	; 17
+   0BB8 66                   90 	.db #0x66	; 102	'f'
+   0BB9 99                   91 	.db #0x99	; 153
+   0BBA 33                   92 	.db #0x33	; 51	'3'
+   0BBB 10                   93 	.db #0x10	; 16
+   0BBC 35                   94 	.db #0x35	; 53	'5'
+   0BBD 3A                   95 	.db #0x3a	; 58
+   0BBE 30                   96 	.db #0x30	; 48	'0'
+   0BBF 45                   97 	.db #0x45	; 69	'E'
+   0BC0 CE                   98 	.db #0xce	; 206
+   0BC1 CD                   99 	.db #0xcd	; 205
+   0BC2 CF                  100 	.db #0xcf	; 207
                             101 ;src/text/text.c:75: void strCopy(u8 source[], u8 dest[])
                             102 ;	---------------------------------
                             103 ; Function strCopy
                             104 ; ---------------------------------
-   4B00                     105 _strCopy::
-   4B00 DD E5         [15]  106 	push	ix
-   4B02 DD 21 00 00   [14]  107 	ld	ix,#0
-   4B06 DD 39         [15]  108 	add	ix,sp
+   0BC3                     105 _strCopy::
+   0BC3 DD E5         [15]  106 	push	ix
+   0BC5 DD 21 00 00   [14]  107 	ld	ix,#0
+   0BC9 DD 39         [15]  108 	add	ix,sp
                             109 ;src/text/text.c:78: while ((dest[i] = source[i]) != '\0')
-   4B08 0E 00         [ 7]  110 	ld	c, #0x00
-   4B0A                     111 00101$:
-   4B0A DD 7E 06      [19]  112 	ld	a, 6 (ix)
-   4B0D 81            [ 4]  113 	add	a, c
-   4B0E 5F            [ 4]  114 	ld	e, a
-   4B0F DD 7E 07      [19]  115 	ld	a, 7 (ix)
-   4B12 CE 00         [ 7]  116 	adc	a, #0x00
-   4B14 57            [ 4]  117 	ld	d, a
-   4B15 DD 6E 04      [19]  118 	ld	l,4 (ix)
-   4B18 DD 66 05      [19]  119 	ld	h,5 (ix)
-   4B1B 06 00         [ 7]  120 	ld	b, #0x00
-   4B1D 09            [11]  121 	add	hl, bc
-   4B1E 7E            [ 7]  122 	ld	a, (hl)
-   4B1F 12            [ 7]  123 	ld	(de), a
-   4B20 B7            [ 4]  124 	or	a, a
-   4B21 28 03         [12]  125 	jr	Z,00104$
+   0BCB 0E 00         [ 7]  110 	ld	c, #0x00
+   0BCD                     111 00101$:
+   0BCD DD 7E 06      [19]  112 	ld	a, 6 (ix)
+   0BD0 81            [ 4]  113 	add	a, c
+   0BD1 5F            [ 4]  114 	ld	e, a
+   0BD2 DD 7E 07      [19]  115 	ld	a, 7 (ix)
+   0BD5 CE 00         [ 7]  116 	adc	a, #0x00
+   0BD7 57            [ 4]  117 	ld	d, a
+   0BD8 DD 6E 04      [19]  118 	ld	l,4 (ix)
+   0BDB DD 66 05      [19]  119 	ld	h,5 (ix)
+   0BDE 06 00         [ 7]  120 	ld	b, #0x00
+   0BE0 09            [11]  121 	add	hl, bc
+   0BE1 7E            [ 7]  122 	ld	a, (hl)
+   0BE2 12            [ 7]  123 	ld	(de), a
+   0BE3 B7            [ 4]  124 	or	a, a
+   0BE4 28 03         [12]  125 	jr	Z,00104$
                             126 ;src/text/text.c:80: i++;
-   4B23 0C            [ 4]  127 	inc	c
-   4B24 18 E4         [12]  128 	jr	00101$
-   4B26                     129 00104$:
-   4B26 DD E1         [14]  130 	pop	ix
-   4B28 C9            [10]  131 	ret
+   0BE6 0C            [ 4]  127 	inc	c
+   0BE7 18 E4         [12]  128 	jr	00101$
+   0BE9                     129 00104$:
+   0BE9 DD E1         [14]  130 	pop	ix
+   0BEB C9            [10]  131 	ret
                             132 ;src/text/text.c:94: u8 strCmp(u8 str1[], u8 str2[])
                             133 ;	---------------------------------
                             134 ; Function strCmp
                             135 ; ---------------------------------
-   4B29                     136 _strCmp::
+   0BEC                     136 _strCmp::
                             137 ;src/text/text.c:99: while ((str1[i] == str2[i]) && ((str1[i] != '\0') && (str2[i] != '\0')))
-   4B29 0E 00         [ 7]  138 	ld	c, #0x00
-   4B2B                     139 00103$:
-   4B2B 21 02 00      [10]  140 	ld	hl, #2
-   4B2E 39            [11]  141 	add	hl, sp
-   4B2F 7E            [ 7]  142 	ld	a, (hl)
-   4B30 23            [ 6]  143 	inc	hl
-   4B31 66            [ 7]  144 	ld	h, (hl)
-   4B32 6F            [ 4]  145 	ld	l, a
-   4B33 06 00         [ 7]  146 	ld	b, #0x00
-   4B35 09            [11]  147 	add	hl, bc
-   4B36 46            [ 7]  148 	ld	b, (hl)
-   4B37 FD 21 04 00   [14]  149 	ld	iy, #4
-   4B3B FD 39         [15]  150 	add	iy, sp
-   4B3D FD 7E 00      [19]  151 	ld	a, 0 (iy)
-   4B40 81            [ 4]  152 	add	a, c
-   4B41 5F            [ 4]  153 	ld	e, a
-   4B42 FD 7E 01      [19]  154 	ld	a, 1 (iy)
-   4B45 CE 00         [ 7]  155 	adc	a, #0x00
-   4B47 57            [ 4]  156 	ld	d, a
-   4B48 1A            [ 7]  157 	ld	a, (de)
-   4B49 57            [ 4]  158 	ld	d, a
-   4B4A 78            [ 4]  159 	ld	a, b
-   4B4B 92            [ 4]  160 	sub	a, d
-   4B4C 20 04         [12]  161 	jr	NZ,00132$
-   4B4E 3E 01         [ 7]  162 	ld	a,#0x01
-   4B50 18 01         [12]  163 	jr	00133$
-   4B52                     164 00132$:
-   4B52 AF            [ 4]  165 	xor	a,a
-   4B53                     166 00133$:
-   4B53 5F            [ 4]  167 	ld	e,a
-   4B54 B7            [ 4]  168 	or	a, a
-   4B55 28 0B         [12]  169 	jr	Z,00105$
-   4B57 78            [ 4]  170 	ld	a, b
-   4B58 B7            [ 4]  171 	or	a, a
-   4B59 28 07         [12]  172 	jr	Z,00105$
-   4B5B 7A            [ 4]  173 	ld	a, d
-   4B5C B7            [ 4]  174 	or	a, a
-   4B5D 28 03         [12]  175 	jr	Z,00105$
+   0BEC 0E 00         [ 7]  138 	ld	c, #0x00
+   0BEE                     139 00103$:
+   0BEE 21 02 00      [10]  140 	ld	hl, #2
+   0BF1 39            [11]  141 	add	hl, sp
+   0BF2 7E            [ 7]  142 	ld	a, (hl)
+   0BF3 23            [ 6]  143 	inc	hl
+   0BF4 66            [ 7]  144 	ld	h, (hl)
+   0BF5 6F            [ 4]  145 	ld	l, a
+   0BF6 06 00         [ 7]  146 	ld	b, #0x00
+   0BF8 09            [11]  147 	add	hl, bc
+   0BF9 46            [ 7]  148 	ld	b, (hl)
+   0BFA FD 21 04 00   [14]  149 	ld	iy, #4
+   0BFE FD 39         [15]  150 	add	iy, sp
+   0C00 FD 7E 00      [19]  151 	ld	a, 0 (iy)
+   0C03 81            [ 4]  152 	add	a, c
+   0C04 5F            [ 4]  153 	ld	e, a
+   0C05 FD 7E 01      [19]  154 	ld	a, 1 (iy)
+   0C08 CE 00         [ 7]  155 	adc	a, #0x00
+   0C0A 57            [ 4]  156 	ld	d, a
+   0C0B 1A            [ 7]  157 	ld	a, (de)
+   0C0C 57            [ 4]  158 	ld	d, a
+   0C0D 78            [ 4]  159 	ld	a, b
+   0C0E 92            [ 4]  160 	sub	a, d
+   0C0F 20 04         [12]  161 	jr	NZ,00132$
+   0C11 3E 01         [ 7]  162 	ld	a,#0x01
+   0C13 18 01         [12]  163 	jr	00133$
+   0C15                     164 00132$:
+   0C15 AF            [ 4]  165 	xor	a,a
+   0C16                     166 00133$:
+   0C16 5F            [ 4]  167 	ld	e,a
+   0C17 B7            [ 4]  168 	or	a, a
+   0C18 28 0B         [12]  169 	jr	Z,00105$
+   0C1A 78            [ 4]  170 	ld	a, b
+   0C1B B7            [ 4]  171 	or	a, a
+   0C1C 28 07         [12]  172 	jr	Z,00105$
+   0C1E 7A            [ 4]  173 	ld	a, d
+   0C1F B7            [ 4]  174 	or	a, a
+   0C20 28 03         [12]  175 	jr	Z,00105$
                             176 ;src/text/text.c:101: i++;
-   4B5F 0C            [ 4]  177 	inc	c
-   4B60 18 C9         [12]  178 	jr	00103$
-   4B62                     179 00105$:
+   0C22 0C            [ 4]  177 	inc	c
+   0C23 18 C9         [12]  178 	jr	00103$
+   0C25                     179 00105$:
                             180 ;src/text/text.c:103: if (str1[i] == str2[i])
-   4B62 7B            [ 4]  181 	ld	a, e
-   4B63 B7            [ 4]  182 	or	a, a
-   4B64 28 03         [12]  183 	jr	Z,00107$
+   0C25 7B            [ 4]  181 	ld	a, e
+   0C26 B7            [ 4]  182 	or	a, a
+   0C27 28 03         [12]  183 	jr	Z,00107$
                             184 ;src/text/text.c:105: return YES;
-   4B66 2E 01         [ 7]  185 	ld	l, #0x01
-   4B68 C9            [10]  186 	ret
-   4B69                     187 00107$:
+   0C29 2E 01         [ 7]  185 	ld	l, #0x01
+   0C2B C9            [10]  186 	ret
+   0C2C                     187 00107$:
                             188 ;src/text/text.c:109: return NO;
-   4B69 2E 00         [ 7]  189 	ld	l, #0x00
-   4B6B C9            [10]  190 	ret
+   0C2C 2E 00         [ 7]  189 	ld	l, #0x00
+   0C2E C9            [10]  190 	ret
                             191 ;src/text/text.c:125: void drawTextM1(u8 *text, u8 xPos, u8 yPos, u8 size)
                             192 ;	---------------------------------
                             193 ; Function drawTextM1
                             194 ; ---------------------------------
-   4B6C                     195 _drawTextM1::
-   4B6C DD E5         [15]  196 	push	ix
-   4B6E DD 21 00 00   [14]  197 	ld	ix,#0
-   4B72 DD 39         [15]  198 	add	ix,sp
-   4B74 21 CC FF      [10]  199 	ld	hl, #-52
-   4B77 39            [11]  200 	add	hl, sp
-   4B78 F9            [ 6]  201 	ld	sp, hl
+   0C2F                     195 _drawTextM1::
+   0C2F DD E5         [15]  196 	push	ix
+   0C31 DD 21 00 00   [14]  197 	ld	ix,#0
+   0C35 DD 39         [15]  198 	add	ix,sp
+   0C37 21 CC FF      [10]  199 	ld	hl, #-52
+   0C3A 39            [11]  200 	add	hl, sp
+   0C3B F9            [ 6]  201 	ld	sp, hl
                             202 ;src/text/text.c:140: character = text[x];
-   4B79 DD 7E 04      [19]  203 	ld	a, 4 (ix)
-   4B7C DD 77 FE      [19]  204 	ld	-2 (ix), a
-   4B7F DD 7E 05      [19]  205 	ld	a, 5 (ix)
-   4B82 DD 77 FF      [19]  206 	ld	-1 (ix), a
-   4B85 DD 6E FE      [19]  207 	ld	l,-2 (ix)
-   4B88 DD 66 FF      [19]  208 	ld	h,-1 (ix)
-   4B8B 7E            [ 7]  209 	ld	a, (hl)
-   4B8C DD 77 FD      [19]  210 	ld	-3 (ix), a
+   0C3C DD 7E 04      [19]  203 	ld	a, 4 (ix)
+   0C3F DD 77 FA      [19]  204 	ld	-6 (ix), a
+   0C42 DD 7E 05      [19]  205 	ld	a, 5 (ix)
+   0C45 DD 77 FB      [19]  206 	ld	-5 (ix), a
+   0C48 DD 6E FA      [19]  207 	ld	l,-6 (ix)
+   0C4B DD 66 FB      [19]  208 	ld	h,-5 (ix)
+   0C4E 7E            [ 7]  209 	ld	a, (hl)
+   0C4F DD 77 FD      [19]  210 	ld	-3 (ix), a
                             211 ;src/text/text.c:142: while (character != '\0')
-   4B8F 21 01 00      [10]  212 	ld	hl, #0x0001
-   4B92 39            [11]  213 	add	hl, sp
-   4B93 DD 75 FB      [19]  214 	ld	-5 (ix), l
-   4B96 DD 74 FC      [19]  215 	ld	-4 (ix), h
-   4B99 DD 7E FB      [19]  216 	ld	a, -5 (ix)
-   4B9C DD 77 F9      [19]  217 	ld	-7 (ix), a
-   4B9F DD 7E FC      [19]  218 	ld	a, -4 (ix)
-   4BA2 DD 77 FA      [19]  219 	ld	-6 (ix), a
-   4BA5 DD 7E 08      [19]  220 	ld	a, 8 (ix)
-   4BA8 3D            [ 4]  221 	dec	a
-   4BA9 20 04         [12]  222 	jr	NZ,00246$
-   4BAB 3E 01         [ 7]  223 	ld	a,#0x01
-   4BAD 18 01         [12]  224 	jr	00247$
-   4BAF                     225 00246$:
-   4BAF AF            [ 4]  226 	xor	a,a
-   4BB0                     227 00247$:
-   4BB0 DD 77 F8      [19]  228 	ld	-8 (ix), a
-   4BB3 DD 7E 08      [19]  229 	ld	a, 8 (ix)
-   4BB6 4F            [ 4]  230 	ld	c, a
-   4BB7 87            [ 4]  231 	add	a, a
-   4BB8 87            [ 4]  232 	add	a, a
-   4BB9 87            [ 4]  233 	add	a, a
-   4BBA 81            [ 4]  234 	add	a, c
-   4BBB DD 77 F7      [19]  235 	ld	-9 (ix), a
-   4BBE DD 7E FB      [19]  236 	ld	a, -5 (ix)
-   4BC1 DD 77 F5      [19]  237 	ld	-11 (ix), a
-   4BC4 DD 7E FC      [19]  238 	ld	a, -4 (ix)
-   4BC7 DD 77 F6      [19]  239 	ld	-10 (ix), a
-   4BCA DD 36 F1 00   [19]  240 	ld	-15 (ix), #0x00
-   4BCE                     241 00133$:
-   4BCE DD 7E FD      [19]  242 	ld	a, -3 (ix)
-   4BD1 B7            [ 4]  243 	or	a, a
-   4BD2 CA 79 4D      [10]  244 	jp	Z, 00138$
+   0C52 21 03 00      [10]  212 	ld	hl, #0x0003
+   0C55 39            [11]  213 	add	hl, sp
+   0C56 DD 75 F4      [19]  214 	ld	-12 (ix), l
+   0C59 DD 74 F5      [19]  215 	ld	-11 (ix), h
+   0C5C DD 7E F4      [19]  216 	ld	a, -12 (ix)
+   0C5F DD 77 FE      [19]  217 	ld	-2 (ix), a
+   0C62 DD 7E F5      [19]  218 	ld	a, -11 (ix)
+   0C65 DD 77 FF      [19]  219 	ld	-1 (ix), a
+   0C68 DD 7E 08      [19]  220 	ld	a, 8 (ix)
+   0C6B 3D            [ 4]  221 	dec	a
+   0C6C 20 04         [12]  222 	jr	NZ,00246$
+   0C6E 3E 01         [ 7]  223 	ld	a,#0x01
+   0C70 18 01         [12]  224 	jr	00247$
+   0C72                     225 00246$:
+   0C72 AF            [ 4]  226 	xor	a,a
+   0C73                     227 00247$:
+   0C73 DD 77 FC      [19]  228 	ld	-4 (ix), a
+   0C76 DD 7E 08      [19]  229 	ld	a, 8 (ix)
+   0C79 4F            [ 4]  230 	ld	c, a
+   0C7A 87            [ 4]  231 	add	a, a
+   0C7B 87            [ 4]  232 	add	a, a
+   0C7C 87            [ 4]  233 	add	a, a
+   0C7D 81            [ 4]  234 	add	a, c
+   0C7E DD 77 F9      [19]  235 	ld	-7 (ix), a
+   0C81 DD 7E F4      [19]  236 	ld	a, -12 (ix)
+   0C84 DD 77 F7      [19]  237 	ld	-9 (ix), a
+   0C87 DD 7E F5      [19]  238 	ld	a, -11 (ix)
+   0C8A DD 77 F8      [19]  239 	ld	-8 (ix), a
+   0C8D DD 36 F3 00   [19]  240 	ld	-13 (ix), #0x00
+   0C91                     241 00133$:
+   0C91 DD 7E FD      [19]  242 	ld	a, -3 (ix)
+   0C94 B7            [ 4]  243 	or	a, a
+   0C95 CA 3C 0E      [10]  244 	jp	Z, 00138$
                             245 ;src/text/text.c:145: if ((character == 33) ||                        // !
-   4BD5 DD 7E FD      [19]  246 	ld	a, -3 (ix)
-   4BD8 D6 21         [ 7]  247 	sub	a, #0x21
-   4BDA 20 04         [12]  248 	jr	NZ,00248$
-   4BDC 3E 01         [ 7]  249 	ld	a,#0x01
-   4BDE 18 01         [12]  250 	jr	00249$
-   4BE0                     251 00248$:
-   4BE0 AF            [ 4]  252 	xor	a,a
-   4BE1                     253 00249$:
-   4BE1 4F            [ 4]  254 	ld	c,a
-   4BE2 B7            [ 4]  255 	or	a, a
-   4BE3 20 2C         [12]  256 	jr	NZ,00125$
+   0C98 DD 7E FD      [19]  246 	ld	a, -3 (ix)
+   0C9B D6 21         [ 7]  247 	sub	a, #0x21
+   0C9D 20 04         [12]  248 	jr	NZ,00248$
+   0C9F 3E 01         [ 7]  249 	ld	a,#0x01
+   0CA1 18 01         [12]  250 	jr	00249$
+   0CA3                     251 00248$:
+   0CA3 AF            [ 4]  252 	xor	a,a
+   0CA4                     253 00249$:
+   0CA4 4F            [ 4]  254 	ld	c,a
+   0CA5 B7            [ 4]  255 	or	a, a
+   0CA6 20 2C         [12]  256 	jr	NZ,00125$
                             257 ;src/text/text.c:146: ((character > 43) && (character < 47)) ||   // ,-.
-   4BE5 3E 2B         [ 7]  258 	ld	a, #0x2b
-   4BE7 DD 96 FD      [19]  259 	sub	a, -3 (ix)
-   4BEA 30 07         [12]  260 	jr	NC,00130$
-   4BEC DD 7E FD      [19]  261 	ld	a, -3 (ix)
-   4BEF D6 2F         [ 7]  262 	sub	a, #0x2f
-   4BF1 38 1E         [12]  263 	jr	C,00125$
-   4BF3                     264 00130$:
+   0CA8 3E 2B         [ 7]  258 	ld	a, #0x2b
+   0CAA DD 96 FD      [19]  259 	sub	a, -3 (ix)
+   0CAD 30 07         [12]  260 	jr	NC,00130$
+   0CAF DD 7E FD      [19]  261 	ld	a, -3 (ix)
+   0CB2 D6 2F         [ 7]  262 	sub	a, #0x2f
+   0CB4 38 1E         [12]  263 	jr	C,00125$
+   0CB6                     264 00130$:
                             265 ;src/text/text.c:147: ((character > 47) && (character < 59)) ||   // 0123456789:
-   4BF3 3E 2F         [ 7]  266 	ld	a, #0x2f
-   4BF5 DD 96 FD      [19]  267 	sub	a, -3 (ix)
-   4BF8 30 07         [12]  268 	jr	NC,00132$
-   4BFA DD 7E FD      [19]  269 	ld	a, -3 (ix)
-   4BFD D6 3B         [ 7]  270 	sub	a, #0x3b
-   4BFF 38 10         [12]  271 	jr	C,00125$
-   4C01                     272 00132$:
+   0CB6 3E 2F         [ 7]  266 	ld	a, #0x2f
+   0CB8 DD 96 FD      [19]  267 	sub	a, -3 (ix)
+   0CBB 30 07         [12]  268 	jr	NC,00132$
+   0CBD DD 7E FD      [19]  269 	ld	a, -3 (ix)
+   0CC0 D6 3B         [ 7]  270 	sub	a, #0x3b
+   0CC2 38 10         [12]  271 	jr	C,00125$
+   0CC4                     272 00132$:
                             273 ;src/text/text.c:148: ((character > 62) && (character < 91)))     // ABCDEFGHIJKLMNOPQRSTUVWXYZ
-   4C01 3E 3E         [ 7]  274 	ld	a, #0x3e
-   4C03 DD 96 FD      [19]  275 	sub	a, -3 (ix)
-   4C06 D2 5F 4D      [10]  276 	jp	NC, 00126$
-   4C09 DD 7E FD      [19]  277 	ld	a, -3 (ix)
-   4C0C D6 5B         [ 7]  278 	sub	a, #0x5b
-   4C0E D2 5F 4D      [10]  279 	jp	NC, 00126$
-   4C11                     280 00125$:
+   0CC4 3E 3E         [ 7]  274 	ld	a, #0x3e
+   0CC6 DD 96 FD      [19]  275 	sub	a, -3 (ix)
+   0CC9 D2 22 0E      [10]  276 	jp	NC, 00126$
+   0CCC DD 7E FD      [19]  277 	ld	a, -3 (ix)
+   0CCF D6 5B         [ 7]  278 	sub	a, #0x5b
+   0CD1 D2 22 0E      [10]  279 	jp	NC, 00126$
+   0CD4                     280 00125$:
                             281 ;src/text/text.c:152: switch (character)
-   4C11 79            [ 4]  282 	ld	a, c
-   4C12 B7            [ 4]  283 	or	a, a
-   4C13 20 64         [12]  284 	jr	NZ,00101$
-   4C15 DD 7E FD      [19]  285 	ld	a, -3 (ix)
-   4C18 D6 2C         [ 7]  286 	sub	a, #0x2c
-   4C1A 28 63         [12]  287 	jr	Z,00104$
-   4C1C DD 7E FD      [19]  288 	ld	a, -3 (ix)
-   4C1F D6 2D         [ 7]  289 	sub	a, #0x2d
-   4C21 28 5C         [12]  290 	jr	Z,00104$
-   4C23 DD 7E FD      [19]  291 	ld	a, -3 (ix)
-   4C26 D6 2E         [ 7]  292 	sub	a, #0x2e
-   4C28 28 55         [12]  293 	jr	Z,00104$
-   4C2A DD 7E FD      [19]  294 	ld	a, -3 (ix)
-   4C2D D6 30         [ 7]  295 	sub	a, #0x30
-   4C2F 28 58         [12]  296 	jr	Z,00115$
-   4C31 DD 7E FD      [19]  297 	ld	a, -3 (ix)
-   4C34 D6 31         [ 7]  298 	sub	a, #0x31
-   4C36 28 51         [12]  299 	jr	Z,00115$
-   4C38 DD 7E FD      [19]  300 	ld	a, -3 (ix)
-   4C3B D6 32         [ 7]  301 	sub	a, #0x32
-   4C3D 28 4A         [12]  302 	jr	Z,00115$
-   4C3F DD 7E FD      [19]  303 	ld	a, -3 (ix)
-   4C42 D6 33         [ 7]  304 	sub	a, #0x33
-   4C44 28 43         [12]  305 	jr	Z,00115$
-   4C46 DD 7E FD      [19]  306 	ld	a, -3 (ix)
-   4C49 D6 34         [ 7]  307 	sub	a, #0x34
-   4C4B 28 3C         [12]  308 	jr	Z,00115$
-   4C4D DD 7E FD      [19]  309 	ld	a, -3 (ix)
-   4C50 D6 35         [ 7]  310 	sub	a, #0x35
-   4C52 28 35         [12]  311 	jr	Z,00115$
-   4C54 DD 7E FD      [19]  312 	ld	a, -3 (ix)
-   4C57 D6 36         [ 7]  313 	sub	a, #0x36
-   4C59 28 2E         [12]  314 	jr	Z,00115$
-   4C5B DD 7E FD      [19]  315 	ld	a, -3 (ix)
-   4C5E D6 37         [ 7]  316 	sub	a, #0x37
-   4C60 28 27         [12]  317 	jr	Z,00115$
-   4C62 DD 7E FD      [19]  318 	ld	a, -3 (ix)
-   4C65 D6 38         [ 7]  319 	sub	a, #0x38
-   4C67 28 20         [12]  320 	jr	Z,00115$
-   4C69 DD 7E FD      [19]  321 	ld	a, -3 (ix)
-   4C6C D6 39         [ 7]  322 	sub	a, #0x39
-   4C6E 28 19         [12]  323 	jr	Z,00115$
-   4C70 DD 7E FD      [19]  324 	ld	a, -3 (ix)
-   4C73 D6 3A         [ 7]  325 	sub	a, #0x3a
-   4C75 28 12         [12]  326 	jr	Z,00115$
-   4C77 18 1C         [12]  327 	jr	00116$
+   0CD4 79            [ 4]  282 	ld	a, c
+   0CD5 B7            [ 4]  283 	or	a, a
+   0CD6 20 64         [12]  284 	jr	NZ,00101$
+   0CD8 DD 7E FD      [19]  285 	ld	a, -3 (ix)
+   0CDB D6 2C         [ 7]  286 	sub	a, #0x2c
+   0CDD 28 63         [12]  287 	jr	Z,00104$
+   0CDF DD 7E FD      [19]  288 	ld	a, -3 (ix)
+   0CE2 D6 2D         [ 7]  289 	sub	a, #0x2d
+   0CE4 28 5C         [12]  290 	jr	Z,00104$
+   0CE6 DD 7E FD      [19]  291 	ld	a, -3 (ix)
+   0CE9 D6 2E         [ 7]  292 	sub	a, #0x2e
+   0CEB 28 55         [12]  293 	jr	Z,00104$
+   0CED DD 7E FD      [19]  294 	ld	a, -3 (ix)
+   0CF0 D6 30         [ 7]  295 	sub	a, #0x30
+   0CF2 28 58         [12]  296 	jr	Z,00115$
+   0CF4 DD 7E FD      [19]  297 	ld	a, -3 (ix)
+   0CF7 D6 31         [ 7]  298 	sub	a, #0x31
+   0CF9 28 51         [12]  299 	jr	Z,00115$
+   0CFB DD 7E FD      [19]  300 	ld	a, -3 (ix)
+   0CFE D6 32         [ 7]  301 	sub	a, #0x32
+   0D00 28 4A         [12]  302 	jr	Z,00115$
+   0D02 DD 7E FD      [19]  303 	ld	a, -3 (ix)
+   0D05 D6 33         [ 7]  304 	sub	a, #0x33
+   0D07 28 43         [12]  305 	jr	Z,00115$
+   0D09 DD 7E FD      [19]  306 	ld	a, -3 (ix)
+   0D0C D6 34         [ 7]  307 	sub	a, #0x34
+   0D0E 28 3C         [12]  308 	jr	Z,00115$
+   0D10 DD 7E FD      [19]  309 	ld	a, -3 (ix)
+   0D13 D6 35         [ 7]  310 	sub	a, #0x35
+   0D15 28 35         [12]  311 	jr	Z,00115$
+   0D17 DD 7E FD      [19]  312 	ld	a, -3 (ix)
+   0D1A D6 36         [ 7]  313 	sub	a, #0x36
+   0D1C 28 2E         [12]  314 	jr	Z,00115$
+   0D1E DD 7E FD      [19]  315 	ld	a, -3 (ix)
+   0D21 D6 37         [ 7]  316 	sub	a, #0x37
+   0D23 28 27         [12]  317 	jr	Z,00115$
+   0D25 DD 7E FD      [19]  318 	ld	a, -3 (ix)
+   0D28 D6 38         [ 7]  319 	sub	a, #0x38
+   0D2A 28 20         [12]  320 	jr	Z,00115$
+   0D2C DD 7E FD      [19]  321 	ld	a, -3 (ix)
+   0D2F D6 39         [ 7]  322 	sub	a, #0x39
+   0D31 28 19         [12]  323 	jr	Z,00115$
+   0D33 DD 7E FD      [19]  324 	ld	a, -3 (ix)
+   0D36 D6 3A         [ 7]  325 	sub	a, #0x3a
+   0D38 28 12         [12]  326 	jr	Z,00115$
+   0D3A 18 1C         [12]  327 	jr	00116$
                             328 ;src/text/text.c:155: case 33:
-   4C79                     329 00101$:
+   0D3C                     329 00101$:
                             330 ;src/text/text.c:156: character = 48;
-   4C79 DD 36 FD 30   [19]  331 	ld	-3 (ix), #0x30
+   0D3C DD 36 FD 30   [19]  331 	ld	-3 (ix), #0x30
                             332 ;src/text/text.c:157: break;
-   4C7D 18 16         [12]  333 	jr	00116$
+   0D40 18 16         [12]  333 	jr	00116$
                             334 ;src/text/text.c:162: case 46:
-   4C7F                     335 00104$:
+   0D42                     335 00104$:
                             336 ;src/text/text.c:163: character += 5;
-   4C7F DD 7E FD      [19]  337 	ld	a, -3 (ix)
-   4C82 C6 05         [ 7]  338 	add	a, #0x05
-   4C84 DD 77 FD      [19]  339 	ld	-3 (ix), a
+   0D42 DD 7E FD      [19]  337 	ld	a, -3 (ix)
+   0D45 C6 05         [ 7]  338 	add	a, #0x05
+   0D47 DD 77 FD      [19]  339 	ld	-3 (ix), a
                             340 ;src/text/text.c:164: break;
-   4C87 18 0C         [12]  341 	jr	00116$
+   0D4A 18 0C         [12]  341 	jr	00116$
                             342 ;src/text/text.c:177: case 58:
-   4C89                     343 00115$:
+   0D4C                     343 00115$:
                             344 ;src/text/text.c:178: character += 4;
-   4C89 DD 34 FD      [23]  345 	inc	-3 (ix)
-   4C8C DD 34 FD      [23]  346 	inc	-3 (ix)
-   4C8F DD 34 FD      [23]  347 	inc	-3 (ix)
-   4C92 DD 34 FD      [23]  348 	inc	-3 (ix)
+   0D4C DD 34 FD      [23]  345 	inc	-3 (ix)
+   0D4F DD 34 FD      [23]  346 	inc	-3 (ix)
+   0D52 DD 34 FD      [23]  347 	inc	-3 (ix)
+   0D55 DD 34 FD      [23]  348 	inc	-3 (ix)
                             349 ;src/text/text.c:180: }
-   4C95                     350 00116$:
+   0D58                     350 00116$:
                             351 ;src/text/text.c:183: character -= 48;
-   4C95 DD 7E FD      [19]  352 	ld	a, -3 (ix)
-   4C98 C6 D0         [ 7]  353 	add	a, #0xd0
-   4C9A 4F            [ 4]  354 	ld	c, a
+   0D58 DD 7E FD      [19]  352 	ld	a, -3 (ix)
+   0D5B C6 D0         [ 7]  353 	add	a, #0xd0
+   0D5D 4F            [ 4]  354 	ld	c, a
                             355 ;src/text/text.c:186: for (i = 0; i < 9; i++)
-   4C9B 06 00         [ 7]  356 	ld	b,#0x00
-   4C9D 69            [ 4]  357 	ld	l, c
-   4C9E 60            [ 4]  358 	ld	h, b
-   4C9F 29            [11]  359 	add	hl, hl
-   4CA0 29            [11]  360 	add	hl, hl
-   4CA1 29            [11]  361 	add	hl, hl
-   4CA2 09            [11]  362 	add	hl, bc
-   4CA3 45            [ 4]  363 	ld	b, l
-   4CA4 54            [ 4]  364 	ld	d, h
-   4CA5 1E 00         [ 7]  365 	ld	e, #0x00
-   4CA7                     366 00136$:
+   0D5E 06 00         [ 7]  356 	ld	b,#0x00
+   0D60 69            [ 4]  357 	ld	l, c
+   0D61 60            [ 4]  358 	ld	h, b
+   0D62 29            [11]  359 	add	hl, hl
+   0D63 29            [11]  360 	add	hl, hl
+   0D64 29            [11]  361 	add	hl, hl
+   0D65 09            [11]  362 	add	hl, bc
+   0D66 45            [ 4]  363 	ld	b, l
+   0D67 54            [ 4]  364 	ld	d, h
+   0D68 1E 00         [ 7]  365 	ld	e, #0x00
+   0D6A                     366 00136$:
                             367 ;src/text/text.c:188: pChar = (u8 *)s_fonts_1 + (character * 9) + i;
-   4CA7 3E 00         [ 7]  368 	ld	a, #<(_s_fonts_1)
-   4CA9 80            [ 4]  369 	add	a, b
-   4CAA 6F            [ 4]  370 	ld	l, a
-   4CAB 3E 40         [ 7]  371 	ld	a, #>(_s_fonts_1)
-   4CAD 8A            [ 4]  372 	adc	a, d
-   4CAE 67            [ 4]  373 	ld	h, a
-   4CAF 7D            [ 4]  374 	ld	a, l
-   4CB0 83            [ 4]  375 	add	a, e
-   4CB1 6F            [ 4]  376 	ld	l, a
-   4CB2 7C            [ 4]  377 	ld	a, h
-   4CB3 CE 00         [ 7]  378 	adc	a, #0x00
-   4CB5 67            [ 4]  379 	ld	h, a
+   0D6A 3E 40         [ 7]  368 	ld	a, #<(_s_fonts_1)
+   0D6C 80            [ 4]  369 	add	a, b
+   0D6D 6F            [ 4]  370 	ld	l, a
+   0D6E 3E 00         [ 7]  371 	ld	a, #>(_s_fonts_1)
+   0D70 8A            [ 4]  372 	adc	a, d
+   0D71 67            [ 4]  373 	ld	h, a
+   0D72 7D            [ 4]  374 	ld	a, l
+   0D73 83            [ 4]  375 	add	a, e
+   0D74 6F            [ 4]  376 	ld	l, a
+   0D75 7C            [ 4]  377 	ld	a, h
+   0D76 CE 00         [ 7]  378 	adc	a, #0x00
+   0D78 67            [ 4]  379 	ld	h, a
                             380 ;src/text/text.c:193: colorchar[i] = *pChar;
-   4CB6 DD 75 F2      [19]  381 	ld	-14 (ix), l
-   4CB9 DD 74 F3      [19]  382 	ld	-13 (ix), h
-   4CBC 7E            [ 7]  383 	ld	a, (hl)
-   4CBD DD 77 F4      [19]  384 	ld	-12 (ix), a
+   0D79 DD 75 CD      [19]  381 	ld	-51 (ix), l
+   0D7C DD 74 CE      [19]  382 	ld	-50 (ix), h
+   0D7F 7E            [ 7]  383 	ld	a, (hl)
+   0D80 DD 77 F6      [19]  384 	ld	-10 (ix), a
                             385 ;src/text/text.c:190: if (size == 1)
-   4CC0 DD 7E F8      [19]  386 	ld	a, -8 (ix)
-   4CC3 B7            [ 4]  387 	or	a, a
-   4CC4 28 11         [12]  388 	jr	Z,00118$
+   0D83 DD 7E FC      [19]  386 	ld	a, -4 (ix)
+   0D86 B7            [ 4]  387 	or	a, a
+   0D87 28 11         [12]  388 	jr	Z,00118$
                             389 ;src/text/text.c:193: colorchar[i] = *pChar;
-   4CC6 DD 7E F9      [19]  390 	ld	a, -7 (ix)
-   4CC9 83            [ 4]  391 	add	a, e
-   4CCA 6F            [ 4]  392 	ld	l, a
-   4CCB DD 7E FA      [19]  393 	ld	a, -6 (ix)
-   4CCE CE 00         [ 7]  394 	adc	a, #0x00
-   4CD0 67            [ 4]  395 	ld	h, a
-   4CD1 DD 7E F4      [19]  396 	ld	a, -12 (ix)
-   4CD4 77            [ 7]  397 	ld	(hl), a
-   4CD5 18 4A         [12]  398 	jr	00137$
-   4CD7                     399 00118$:
+   0D89 DD 7E FE      [19]  390 	ld	a, -2 (ix)
+   0D8C 83            [ 4]  391 	add	a, e
+   0D8D 6F            [ 4]  392 	ld	l, a
+   0D8E DD 7E FF      [19]  393 	ld	a, -1 (ix)
+   0D91 CE 00         [ 7]  394 	adc	a, #0x00
+   0D93 67            [ 4]  395 	ld	h, a
+   0D94 DD 7E F6      [19]  396 	ld	a, -10 (ix)
+   0D97 77            [ 7]  397 	ld	(hl), a
+   0D98 18 4A         [12]  398 	jr	00137$
+   0D9A                     399 00118$:
                             400 ;src/text/text.c:198: pos = (i * size) - (i % FONT_1_W);
-   4CD7 D5            [11]  401 	push	de
-   4CD8 C5            [11]  402 	push	bc
-   4CD9 DD 66 08      [19]  403 	ld	h, 8 (ix)
-   4CDC 2E 00         [ 7]  404 	ld	l, #0x00
-   4CDE 55            [ 4]  405 	ld	d, l
-   4CDF 06 08         [ 7]  406 	ld	b, #0x08
-   4CE1                     407 00264$:
-   4CE1 29            [11]  408 	add	hl, hl
-   4CE2 30 01         [12]  409 	jr	NC,00265$
-   4CE4 19            [11]  410 	add	hl, de
-   4CE5                     411 00265$:
-   4CE5 10 FA         [13]  412 	djnz	00264$
-   4CE7 C1            [10]  413 	pop	bc
-   4CE8 D1            [10]  414 	pop	de
-   4CE9 26 00         [ 7]  415 	ld	h, #0x00
-   4CEB 7D            [ 4]  416 	ld	a, l
-   4CEC 94            [ 4]  417 	sub	a, h
-   4CED DD 77 CC      [19]  418 	ld	-52 (ix), a
+   0D9A D5            [11]  401 	push	de
+   0D9B C5            [11]  402 	push	bc
+   0D9C DD 66 08      [19]  403 	ld	h, 8 (ix)
+   0D9F 2E 00         [ 7]  404 	ld	l, #0x00
+   0DA1 55            [ 4]  405 	ld	d, l
+   0DA2 06 08         [ 7]  406 	ld	b, #0x08
+   0DA4                     407 00264$:
+   0DA4 29            [11]  408 	add	hl, hl
+   0DA5 30 01         [12]  409 	jr	NC,00265$
+   0DA7 19            [11]  410 	add	hl, de
+   0DA8                     411 00265$:
+   0DA8 10 FA         [13]  412 	djnz	00264$
+   0DAA C1            [10]  413 	pop	bc
+   0DAB D1            [10]  414 	pop	de
+   0DAC 26 00         [ 7]  415 	ld	h, #0x00
+   0DAE 7D            [ 4]  416 	ld	a, l
+   0DAF 94            [ 4]  417 	sub	a, h
+   0DB0 DD 77 CC      [19]  418 	ld	-52 (ix), a
                             419 ;src/text/text.c:200: colorchar[pos] = *pChar;
-   4CF0 DD 7E FB      [19]  420 	ld	a, -5 (ix)
-   4CF3 DD 86 CC      [19]  421 	add	a, -52 (ix)
-   4CF6 6F            [ 4]  422 	ld	l, a
-   4CF7 DD 7E FC      [19]  423 	ld	a, -4 (ix)
-   4CFA CE 00         [ 7]  424 	adc	a, #0x00
-   4CFC 67            [ 4]  425 	ld	h, a
-   4CFD DD 7E F4      [19]  426 	ld	a, -12 (ix)
-   4D00 77            [ 7]  427 	ld	(hl), a
+   0DB3 DD 7E F4      [19]  420 	ld	a, -12 (ix)
+   0DB6 DD 86 CC      [19]  421 	add	a, -52 (ix)
+   0DB9 6F            [ 4]  422 	ld	l, a
+   0DBA DD 7E F5      [19]  423 	ld	a, -11 (ix)
+   0DBD CE 00         [ 7]  424 	adc	a, #0x00
+   0DBF 67            [ 4]  425 	ld	h, a
+   0DC0 DD 7E F6      [19]  426 	ld	a, -10 (ix)
+   0DC3 77            [ 7]  427 	ld	(hl), a
                             428 ;src/text/text.c:201: colorchar[pos + FONT_1_W] = *pChar;
-   4D01 DD 6E CC      [19]  429 	ld	l, -52 (ix)
-   4D04 2C            [ 4]  430 	inc	l
-   4D05 E5            [11]  431 	push	hl
-   4D06 DD 6E FB      [19]  432 	ld	l, -5 (ix)
-   4D09 DD 66 FC      [19]  433 	ld	h, -4 (ix)
-   4D0C E5            [11]  434 	push	hl
-   4D0D FD E1         [14]  435 	pop	iy
-   4D0F E1            [10]  436 	pop	hl
-   4D10 C5            [11]  437 	push	bc
-   4D11 4D            [ 4]  438 	ld	c,l
-   4D12 06 00         [ 7]  439 	ld	b,#0x00
-   4D14 FD 09         [15]  440 	add	iy, bc
-   4D16 C1            [10]  441 	pop	bc
-   4D17 DD 6E F2      [19]  442 	ld	l,-14 (ix)
-   4D1A DD 66 F3      [19]  443 	ld	h,-13 (ix)
-   4D1D 6E            [ 7]  444 	ld	l, (hl)
-   4D1E FD 75 00      [19]  445 	ld	0 (iy), l
-   4D21                     446 00137$:
+   0DC4 DD 6E CC      [19]  429 	ld	l, -52 (ix)
+   0DC7 2C            [ 4]  430 	inc	l
+   0DC8 E5            [11]  431 	push	hl
+   0DC9 DD 6E F4      [19]  432 	ld	l, -12 (ix)
+   0DCC DD 66 F5      [19]  433 	ld	h, -11 (ix)
+   0DCF E5            [11]  434 	push	hl
+   0DD0 FD E1         [14]  435 	pop	iy
+   0DD2 E1            [10]  436 	pop	hl
+   0DD3 C5            [11]  437 	push	bc
+   0DD4 4D            [ 4]  438 	ld	c,l
+   0DD5 06 00         [ 7]  439 	ld	b,#0x00
+   0DD7 FD 09         [15]  440 	add	iy, bc
+   0DD9 C1            [10]  441 	pop	bc
+   0DDA DD 6E CD      [19]  442 	ld	l,-51 (ix)
+   0DDD DD 66 CE      [19]  443 	ld	h,-50 (ix)
+   0DE0 6E            [ 7]  444 	ld	l, (hl)
+   0DE1 FD 75 00      [19]  445 	ld	0 (iy), l
+   0DE4                     446 00137$:
                             447 ;src/text/text.c:186: for (i = 0; i < 9; i++)
-   4D21 1C            [ 4]  448 	inc	e
-   4D22 7B            [ 4]  449 	ld	a, e
-   4D23 D6 09         [ 7]  450 	sub	a, #0x09
-   4D25 DA A7 4C      [10]  451 	jp	C, 00136$
+   0DE4 1C            [ 4]  448 	inc	e
+   0DE5 7B            [ 4]  449 	ld	a, e
+   0DE6 D6 09         [ 7]  450 	sub	a, #0x09
+   0DE8 DA 6A 0D      [10]  451 	jp	C, 00136$
                             452 ;src/text/text.c:205: pvideo = cpct_getScreenPtr(CPCT_VMEM_START, xPos, yPos);
-   4D28 C5            [11]  453 	push	bc
-   4D29 DD 66 07      [19]  454 	ld	h, 7 (ix)
-   4D2C DD 6E 06      [19]  455 	ld	l, 6 (ix)
-   4D2F E5            [11]  456 	push	hl
-   4D30 21 00 C0      [10]  457 	ld	hl, #0xc000
-   4D33 E5            [11]  458 	push	hl
-   4D34 CD D6 53      [17]  459 	call	_cpct_getScreenPtr
-   4D37 C1            [10]  460 	pop	bc
+   0DEB C5            [11]  453 	push	bc
+   0DEC DD 66 07      [19]  454 	ld	h, 7 (ix)
+   0DEF DD 6E 06      [19]  455 	ld	l, 6 (ix)
+   0DF2 E5            [11]  456 	push	hl
+   0DF3 21 00 C0      [10]  457 	ld	hl, #0xc000
+   0DF6 E5            [11]  458 	push	hl
+   0DF7 CD 16 15      [17]  459 	call	_cpct_getScreenPtr
+   0DFA C1            [10]  460 	pop	bc
                             461 ;src/text/text.c:209: cpct_drawSprite(colorchar, pvideo, FONT_1_W, FONT_H * size);
-   4D38 E5            [11]  462 	push	hl
-   4D39 FD E1         [14]  463 	pop	iy
-   4D3B DD 5E F5      [19]  464 	ld	e,-11 (ix)
-   4D3E DD 56 F6      [19]  465 	ld	d,-10 (ix)
-   4D41 C5            [11]  466 	push	bc
-   4D42 DD 46 F7      [19]  467 	ld	b, -9 (ix)
-   4D45 0E 01         [ 7]  468 	ld	c,#0x01
-   4D47 C5            [11]  469 	push	bc
-   4D48 FD E5         [15]  470 	push	iy
-   4D4A D5            [11]  471 	push	de
-   4D4B CD 7C 51      [17]  472 	call	_cpct_drawSprite
-   4D4E C1            [10]  473 	pop	bc
+   0DFB E5            [11]  462 	push	hl
+   0DFC FD E1         [14]  463 	pop	iy
+   0DFE DD 5E F7      [19]  464 	ld	e,-9 (ix)
+   0E01 DD 56 F8      [19]  465 	ld	d,-8 (ix)
+   0E04 C5            [11]  466 	push	bc
+   0E05 DD 46 F9      [19]  467 	ld	b, -7 (ix)
+   0E08 0E 01         [ 7]  468 	ld	c,#0x01
+   0E0A C5            [11]  469 	push	bc
+   0E0B FD E5         [15]  470 	push	iy
+   0E0D D5            [11]  471 	push	de
+   0E0E CD 3F 12      [17]  472 	call	_cpct_drawSprite
+   0E11 C1            [10]  473 	pop	bc
                             474 ;src/text/text.c:212: if (character == 48 || character == 60 || character == 57)
-   4D4F 79            [ 4]  475 	ld	a,c
-   4D50 FE 30         [ 7]  476 	cp	a,#0x30
-   4D52 28 08         [12]  477 	jr	Z,00121$
-   4D54 FE 3C         [ 7]  478 	cp	a,#0x3c
-   4D56 28 04         [12]  479 	jr	Z,00121$
-   4D58 D6 39         [ 7]  480 	sub	a, #0x39
-   4D5A 20 03         [12]  481 	jr	NZ,00126$
-   4D5C                     482 00121$:
+   0E12 79            [ 4]  475 	ld	a,c
+   0E13 FE 30         [ 7]  476 	cp	a,#0x30
+   0E15 28 08         [12]  477 	jr	Z,00121$
+   0E17 FE 3C         [ 7]  478 	cp	a,#0x3c
+   0E19 28 04         [12]  479 	jr	Z,00121$
+   0E1B D6 39         [ 7]  480 	sub	a, #0x39
+   0E1D 20 03         [12]  481 	jr	NZ,00126$
+   0E1F                     482 00121$:
                             483 ;src/text/text.c:213: xPos--;
-   4D5C DD 35 06      [23]  484 	dec	6 (ix)
-   4D5F                     485 00126$:
+   0E1F DD 35 06      [23]  484 	dec	6 (ix)
+   0E22                     485 00126$:
                             486 ;src/text/text.c:215: character = text[++x];
-   4D5F DD 34 F1      [23]  487 	inc	-15 (ix)
-   4D62 DD 7E FE      [19]  488 	ld	a, -2 (ix)
-   4D65 DD 86 F1      [19]  489 	add	a, -15 (ix)
-   4D68 6F            [ 4]  490 	ld	l, a
-   4D69 DD 7E FF      [19]  491 	ld	a, -1 (ix)
-   4D6C CE 00         [ 7]  492 	adc	a, #0x00
-   4D6E 67            [ 4]  493 	ld	h, a
-   4D6F 7E            [ 7]  494 	ld	a, (hl)
-   4D70 DD 77 FD      [19]  495 	ld	-3 (ix), a
+   0E22 DD 34 F3      [23]  487 	inc	-13 (ix)
+   0E25 DD 7E FA      [19]  488 	ld	a, -6 (ix)
+   0E28 DD 86 F3      [19]  489 	add	a, -13 (ix)
+   0E2B 6F            [ 4]  490 	ld	l, a
+   0E2C DD 7E FB      [19]  491 	ld	a, -5 (ix)
+   0E2F CE 00         [ 7]  492 	adc	a, #0x00
+   0E31 67            [ 4]  493 	ld	h, a
+   0E32 7E            [ 7]  494 	ld	a, (hl)
+   0E33 DD 77 FD      [19]  495 	ld	-3 (ix), a
                             496 ;src/text/text.c:216: xPos += FONT_1_W;
-   4D73 DD 34 06      [23]  497 	inc	6 (ix)
-   4D76 C3 CE 4B      [10]  498 	jp	00133$
-   4D79                     499 00138$:
-   4D79 DD F9         [10]  500 	ld	sp, ix
-   4D7B DD E1         [14]  501 	pop	ix
-   4D7D C9            [10]  502 	ret
+   0E36 DD 34 06      [23]  497 	inc	6 (ix)
+   0E39 C3 91 0C      [10]  498 	jp	00133$
+   0E3C                     499 00138$:
+   0E3C DD F9         [10]  500 	ld	sp, ix
+   0E3E DD E1         [14]  501 	pop	ix
+   0E40 C9            [10]  502 	ret
                             503 ;src/text/text.c:232: void drawText(u8 *text, u8 xPos, u8 yPos, u8 color, u8 size)
                             504 ;	---------------------------------
                             505 ; Function drawText
                             506 ; ---------------------------------
-   4D7E                     507 _drawText::
-   4D7E DD E5         [15]  508 	push	ix
-   4D80 DD 21 00 00   [14]  509 	ld	ix,#0
-   4D84 DD 39         [15]  510 	add	ix,sp
-   4D86 21 B2 FF      [10]  511 	ld	hl, #-78
-   4D89 39            [11]  512 	add	hl, sp
-   4D8A F9            [ 6]  513 	ld	sp, hl
+   0E41                     507 _drawText::
+   0E41 DD E5         [15]  508 	push	ix
+   0E43 DD 21 00 00   [14]  509 	ld	ix,#0
+   0E47 DD 39         [15]  510 	add	ix,sp
+   0E49 21 B2 FF      [10]  511 	ld	hl, #-78
+   0E4C 39            [11]  512 	add	hl, sp
+   0E4D F9            [ 6]  513 	ld	sp, hl
                             514 ;src/text/text.c:245: color1 = swapColors[color][0];
-   4D8B 01 E8 4A      [10]  515 	ld	bc, #_swapColors+0
-   4D8E DD 6E 08      [19]  516 	ld	l, 8 (ix)
-   4D91 26 00         [ 7]  517 	ld	h, #0x00
-   4D93 29            [11]  518 	add	hl, hl
-   4D94 29            [11]  519 	add	hl, hl
-   4D95 09            [11]  520 	add	hl, bc
-   4D96 E5            [11]  521 	push	hl
-   4D97 FD E1         [14]  522 	pop	iy
-   4D99 FD 7E 00      [19]  523 	ld	a, 0 (iy)
-   4D9C DD 77 D9      [19]  524 	ld	-39 (ix), a
+   0E4E 01 AB 0B      [10]  515 	ld	bc, #_swapColors+0
+   0E51 DD 6E 08      [19]  516 	ld	l, 8 (ix)
+   0E54 26 00         [ 7]  517 	ld	h, #0x00
+   0E56 29            [11]  518 	add	hl, hl
+   0E57 29            [11]  519 	add	hl, hl
+   0E58 09            [11]  520 	add	hl, bc
+   0E59 E5            [11]  521 	push	hl
+   0E5A FD E1         [14]  522 	pop	iy
+   0E5C FD 7E 00      [19]  523 	ld	a, 0 (iy)
+   0E5F DD 77 D9      [19]  524 	ld	-39 (ix), a
                             525 ;src/text/text.c:246: color2 = swapColors[color][1];
-   4D9F FD E5         [15]  526 	push	iy
-   4DA1 E1            [10]  527 	pop	hl
-   4DA2 23            [ 6]  528 	inc	hl
-   4DA3 7E            [ 7]  529 	ld	a, (hl)
-   4DA4 DD 77 D8      [19]  530 	ld	-40 (ix), a
+   0E62 FD E5         [15]  526 	push	iy
+   0E64 E1            [10]  527 	pop	hl
+   0E65 23            [ 6]  528 	inc	hl
+   0E66 7E            [ 7]  529 	ld	a, (hl)
+   0E67 DD 77 D8      [19]  530 	ld	-40 (ix), a
                             531 ;src/text/text.c:247: color3 = swapColors[color][2];
-   4DA7 FD E5         [15]  532 	push	iy
-   4DA9 E1            [10]  533 	pop	hl
-   4DAA 23            [ 6]  534 	inc	hl
-   4DAB 23            [ 6]  535 	inc	hl
-   4DAC 7E            [ 7]  536 	ld	a, (hl)
-   4DAD DD 77 D7      [19]  537 	ld	-41 (ix), a
+   0E6A FD E5         [15]  532 	push	iy
+   0E6C E1            [10]  533 	pop	hl
+   0E6D 23            [ 6]  534 	inc	hl
+   0E6E 23            [ 6]  535 	inc	hl
+   0E6F 7E            [ 7]  536 	ld	a, (hl)
+   0E70 DD 77 D7      [19]  537 	ld	-41 (ix), a
                             538 ;src/text/text.c:248: color4 = swapColors[color][3];
-   4DB0 FD 7E 03      [19]  539 	ld	a, 3 (iy)
-   4DB3 DD 77 D6      [19]  540 	ld	-42 (ix), a
+   0E73 FD 7E 03      [19]  539 	ld	a, 3 (iy)
+   0E76 DD 77 D6      [19]  540 	ld	-42 (ix), a
                             541 ;src/text/text.c:253: character = text[x];
-   4DB6 DD 7E 04      [19]  542 	ld	a, 4 (ix)
-   4DB9 DD 77 FE      [19]  543 	ld	-2 (ix), a
-   4DBC DD 7E 05      [19]  544 	ld	a, 5 (ix)
-   4DBF DD 77 FF      [19]  545 	ld	-1 (ix), a
-   4DC2 DD 6E FE      [19]  546 	ld	l,-2 (ix)
-   4DC5 DD 66 FF      [19]  547 	ld	h,-1 (ix)
-   4DC8 7E            [ 7]  548 	ld	a, (hl)
-   4DC9 DD 77 FD      [19]  549 	ld	-3 (ix), a
+   0E79 DD 7E 04      [19]  542 	ld	a, 4 (ix)
+   0E7C DD 77 EB      [19]  543 	ld	-21 (ix), a
+   0E7F DD 7E 05      [19]  544 	ld	a, 5 (ix)
+   0E82 DD 77 EC      [19]  545 	ld	-20 (ix), a
+   0E85 DD 6E EB      [19]  546 	ld	l,-21 (ix)
+   0E88 DD 66 EC      [19]  547 	ld	h,-20 (ix)
+   0E8B 7E            [ 7]  548 	ld	a, (hl)
+   0E8C DD 77 EE      [19]  549 	ld	-18 (ix), a
                             550 ;src/text/text.c:255: while (character != '\0')
-   4DCC 21 00 00      [10]  551 	ld	hl, #0x0000
-   4DCF 39            [11]  552 	add	hl, sp
-   4DD0 DD 75 FB      [19]  553 	ld	-5 (ix), l
-   4DD3 DD 74 FC      [19]  554 	ld	-4 (ix), h
-   4DD6 DD 7E FB      [19]  555 	ld	a, -5 (ix)
-   4DD9 DD 77 F9      [19]  556 	ld	-7 (ix), a
-   4DDC DD 7E FC      [19]  557 	ld	a, -4 (ix)
-   4DDF DD 77 FA      [19]  558 	ld	-6 (ix), a
-   4DE2 DD 7E FB      [19]  559 	ld	a, -5 (ix)
-   4DE5 DD 77 F7      [19]  560 	ld	-9 (ix), a
-   4DE8 DD 7E FC      [19]  561 	ld	a, -4 (ix)
-   4DEB DD 77 F8      [19]  562 	ld	-8 (ix), a
-   4DEE DD 7E FB      [19]  563 	ld	a, -5 (ix)
-   4DF1 DD 77 F5      [19]  564 	ld	-11 (ix), a
-   4DF4 DD 7E FC      [19]  565 	ld	a, -4 (ix)
-   4DF7 DD 77 F6      [19]  566 	ld	-10 (ix), a
-   4DFA DD 7E FB      [19]  567 	ld	a, -5 (ix)
-   4DFD DD 77 F3      [19]  568 	ld	-13 (ix), a
-   4E00 DD 7E FC      [19]  569 	ld	a, -4 (ix)
-   4E03 DD 77 F4      [19]  570 	ld	-12 (ix), a
-   4E06 DD 7E FB      [19]  571 	ld	a, -5 (ix)
-   4E09 DD 77 F1      [19]  572 	ld	-15 (ix), a
-   4E0C DD 7E FC      [19]  573 	ld	a, -4 (ix)
-   4E0F DD 77 F2      [19]  574 	ld	-14 (ix), a
-   4E12 DD 7E FB      [19]  575 	ld	a, -5 (ix)
-   4E15 DD 77 EF      [19]  576 	ld	-17 (ix), a
-   4E18 DD 7E FC      [19]  577 	ld	a, -4 (ix)
-   4E1B DD 77 F0      [19]  578 	ld	-16 (ix), a
-   4E1E DD 7E FB      [19]  579 	ld	a, -5 (ix)
-   4E21 DD 77 ED      [19]  580 	ld	-19 (ix), a
-   4E24 DD 7E FC      [19]  581 	ld	a, -4 (ix)
-   4E27 DD 77 EE      [19]  582 	ld	-18 (ix), a
-   4E2A DD 7E FB      [19]  583 	ld	a, -5 (ix)
-   4E2D DD 77 EB      [19]  584 	ld	-21 (ix), a
-   4E30 DD 7E FC      [19]  585 	ld	a, -4 (ix)
-   4E33 DD 77 EC      [19]  586 	ld	-20 (ix), a
-   4E36 DD 7E FB      [19]  587 	ld	a, -5 (ix)
-   4E39 DD 77 E9      [19]  588 	ld	-23 (ix), a
-   4E3C DD 7E FC      [19]  589 	ld	a, -4 (ix)
-   4E3F DD 77 EA      [19]  590 	ld	-22 (ix), a
-   4E42 DD 7E 09      [19]  591 	ld	a, 9 (ix)
-   4E45 3D            [ 4]  592 	dec	a
-   4E46 20 04         [12]  593 	jr	NZ,00297$
-   4E48 3E 01         [ 7]  594 	ld	a,#0x01
-   4E4A 18 01         [12]  595 	jr	00298$
-   4E4C                     596 00297$:
-   4E4C AF            [ 4]  597 	xor	a,a
-   4E4D                     598 00298$:
-   4E4D DD 77 E8      [19]  599 	ld	-24 (ix), a
-   4E50 DD 7E 09      [19]  600 	ld	a, 9 (ix)
-   4E53 4F            [ 4]  601 	ld	c, a
-   4E54 87            [ 4]  602 	add	a, a
-   4E55 87            [ 4]  603 	add	a, a
-   4E56 87            [ 4]  604 	add	a, a
-   4E57 81            [ 4]  605 	add	a, c
-   4E58 DD 77 E7      [19]  606 	ld	-25 (ix), a
-   4E5B DD 7E FB      [19]  607 	ld	a, -5 (ix)
-   4E5E DD 77 E5      [19]  608 	ld	-27 (ix), a
-   4E61 DD 7E FC      [19]  609 	ld	a, -4 (ix)
-   4E64 DD 77 E6      [19]  610 	ld	-26 (ix), a
-   4E67 DD 36 DC 00   [19]  611 	ld	-36 (ix), #0x00
-   4E6B                     612 00156$:
-   4E6B DD 7E FD      [19]  613 	ld	a, -3 (ix)
-   4E6E B7            [ 4]  614 	or	a, a
-   4E6F CA 48 51      [10]  615 	jp	Z, 00161$
+   0E8F 21 00 00      [10]  551 	ld	hl, #0x0000
+   0E92 39            [11]  552 	add	hl, sp
+   0E93 DD 75 F1      [19]  553 	ld	-15 (ix), l
+   0E96 DD 74 F2      [19]  554 	ld	-14 (ix), h
+   0E99 DD 7E F1      [19]  555 	ld	a, -15 (ix)
+   0E9C DD 77 E7      [19]  556 	ld	-25 (ix), a
+   0E9F DD 7E F2      [19]  557 	ld	a, -14 (ix)
+   0EA2 DD 77 E8      [19]  558 	ld	-24 (ix), a
+   0EA5 DD 7E F1      [19]  559 	ld	a, -15 (ix)
+   0EA8 DD 77 F6      [19]  560 	ld	-10 (ix), a
+   0EAB DD 7E F2      [19]  561 	ld	a, -14 (ix)
+   0EAE DD 77 F7      [19]  562 	ld	-9 (ix), a
+   0EB1 DD 7E F1      [19]  563 	ld	a, -15 (ix)
+   0EB4 DD 77 E9      [19]  564 	ld	-23 (ix), a
+   0EB7 DD 7E F2      [19]  565 	ld	a, -14 (ix)
+   0EBA DD 77 EA      [19]  566 	ld	-22 (ix), a
+   0EBD DD 7E F1      [19]  567 	ld	a, -15 (ix)
+   0EC0 DD 77 E1      [19]  568 	ld	-31 (ix), a
+   0EC3 DD 7E F2      [19]  569 	ld	a, -14 (ix)
+   0EC6 DD 77 E2      [19]  570 	ld	-30 (ix), a
+   0EC9 DD 7E F1      [19]  571 	ld	a, -15 (ix)
+   0ECC DD 77 FE      [19]  572 	ld	-2 (ix), a
+   0ECF DD 7E F2      [19]  573 	ld	a, -14 (ix)
+   0ED2 DD 77 FF      [19]  574 	ld	-1 (ix), a
+   0ED5 DD 7E F1      [19]  575 	ld	a, -15 (ix)
+   0ED8 DD 77 E3      [19]  576 	ld	-29 (ix), a
+   0EDB DD 7E F2      [19]  577 	ld	a, -14 (ix)
+   0EDE DD 77 E4      [19]  578 	ld	-28 (ix), a
+   0EE1 DD 7E F1      [19]  579 	ld	a, -15 (ix)
+   0EE4 DD 77 E5      [19]  580 	ld	-27 (ix), a
+   0EE7 DD 7E F2      [19]  581 	ld	a, -14 (ix)
+   0EEA DD 77 E6      [19]  582 	ld	-26 (ix), a
+   0EED DD 7E F1      [19]  583 	ld	a, -15 (ix)
+   0EF0 DD 77 DF      [19]  584 	ld	-33 (ix), a
+   0EF3 DD 7E F2      [19]  585 	ld	a, -14 (ix)
+   0EF6 DD 77 E0      [19]  586 	ld	-32 (ix), a
+   0EF9 DD 7E F1      [19]  587 	ld	a, -15 (ix)
+   0EFC DD 77 EF      [19]  588 	ld	-17 (ix), a
+   0EFF DD 7E F2      [19]  589 	ld	a, -14 (ix)
+   0F02 DD 77 F0      [19]  590 	ld	-16 (ix), a
+   0F05 DD 7E 09      [19]  591 	ld	a, 9 (ix)
+   0F08 3D            [ 4]  592 	dec	a
+   0F09 20 04         [12]  593 	jr	NZ,00297$
+   0F0B 3E 01         [ 7]  594 	ld	a,#0x01
+   0F0D 18 01         [12]  595 	jr	00298$
+   0F0F                     596 00297$:
+   0F0F AF            [ 4]  597 	xor	a,a
+   0F10                     598 00298$:
+   0F10 DD 77 ED      [19]  599 	ld	-19 (ix), a
+   0F13 DD 7E 09      [19]  600 	ld	a, 9 (ix)
+   0F16 4F            [ 4]  601 	ld	c, a
+   0F17 87            [ 4]  602 	add	a, a
+   0F18 87            [ 4]  603 	add	a, a
+   0F19 87            [ 4]  604 	add	a, a
+   0F1A 81            [ 4]  605 	add	a, c
+   0F1B DD 77 F8      [19]  606 	ld	-8 (ix), a
+   0F1E DD 7E F1      [19]  607 	ld	a, -15 (ix)
+   0F21 DD 77 F4      [19]  608 	ld	-12 (ix), a
+   0F24 DD 7E F2      [19]  609 	ld	a, -14 (ix)
+   0F27 DD 77 F5      [19]  610 	ld	-11 (ix), a
+   0F2A DD 36 DA 00   [19]  611 	ld	-38 (ix), #0x00
+   0F2E                     612 00156$:
+   0F2E DD 7E EE      [19]  613 	ld	a, -18 (ix)
+   0F31 B7            [ 4]  614 	or	a, a
+   0F32 CA 0B 12      [10]  615 	jp	Z, 00161$
                             616 ;src/text/text.c:259: if ((character == 33) || ((character > 43) && (character < 47)) ||
-   4E72 DD 7E FD      [19]  617 	ld	a, -3 (ix)
-   4E75 D6 21         [ 7]  618 	sub	a, #0x21
-   4E77 20 04         [12]  619 	jr	NZ,00299$
-   4E79 3E 01         [ 7]  620 	ld	a,#0x01
-   4E7B 18 01         [12]  621 	jr	00300$
-   4E7D                     622 00299$:
-   4E7D AF            [ 4]  623 	xor	a,a
-   4E7E                     624 00300$:
-   4E7E 4F            [ 4]  625 	ld	c,a
-   4E7F B7            [ 4]  626 	or	a, a
-   4E80 20 2C         [12]  627 	jr	NZ,00148$
-   4E82 3E 2B         [ 7]  628 	ld	a, #0x2b
-   4E84 DD 96 FD      [19]  629 	sub	a, -3 (ix)
-   4E87 30 07         [12]  630 	jr	NC,00153$
-   4E89 DD 7E FD      [19]  631 	ld	a, -3 (ix)
-   4E8C D6 2F         [ 7]  632 	sub	a, #0x2f
-   4E8E 38 1E         [12]  633 	jr	C,00148$
-   4E90                     634 00153$:
+   0F35 DD 7E EE      [19]  617 	ld	a, -18 (ix)
+   0F38 D6 21         [ 7]  618 	sub	a, #0x21
+   0F3A 20 04         [12]  619 	jr	NZ,00299$
+   0F3C 3E 01         [ 7]  620 	ld	a,#0x01
+   0F3E 18 01         [12]  621 	jr	00300$
+   0F40                     622 00299$:
+   0F40 AF            [ 4]  623 	xor	a,a
+   0F41                     624 00300$:
+   0F41 4F            [ 4]  625 	ld	c,a
+   0F42 B7            [ 4]  626 	or	a, a
+   0F43 20 2C         [12]  627 	jr	NZ,00148$
+   0F45 3E 2B         [ 7]  628 	ld	a, #0x2b
+   0F47 DD 96 EE      [19]  629 	sub	a, -18 (ix)
+   0F4A 30 07         [12]  630 	jr	NC,00153$
+   0F4C DD 7E EE      [19]  631 	ld	a, -18 (ix)
+   0F4F D6 2F         [ 7]  632 	sub	a, #0x2f
+   0F51 38 1E         [12]  633 	jr	C,00148$
+   0F53                     634 00153$:
                             635 ;src/text/text.c:260: ((character > 47) && (character < 58)) || ((character > 62) && (character < 91)))
-   4E90 3E 2F         [ 7]  636 	ld	a, #0x2f
-   4E92 DD 96 FD      [19]  637 	sub	a, -3 (ix)
-   4E95 30 07         [12]  638 	jr	NC,00155$
-   4E97 DD 7E FD      [19]  639 	ld	a, -3 (ix)
-   4E9A D6 3A         [ 7]  640 	sub	a, #0x3a
-   4E9C 38 10         [12]  641 	jr	C,00148$
-   4E9E                     642 00155$:
-   4E9E 3E 3E         [ 7]  643 	ld	a, #0x3e
-   4EA0 DD 96 FD      [19]  644 	sub	a, -3 (ix)
-   4EA3 D2 2B 51      [10]  645 	jp	NC, 00149$
-   4EA6 DD 7E FD      [19]  646 	ld	a, -3 (ix)
-   4EA9 D6 5B         [ 7]  647 	sub	a, #0x5b
-   4EAB D2 2B 51      [10]  648 	jp	NC, 00149$
-   4EAE                     649 00148$:
+   0F53 3E 2F         [ 7]  636 	ld	a, #0x2f
+   0F55 DD 96 EE      [19]  637 	sub	a, -18 (ix)
+   0F58 30 07         [12]  638 	jr	NC,00155$
+   0F5A DD 7E EE      [19]  639 	ld	a, -18 (ix)
+   0F5D D6 3A         [ 7]  640 	sub	a, #0x3a
+   0F5F 38 10         [12]  641 	jr	C,00148$
+   0F61                     642 00155$:
+   0F61 3E 3E         [ 7]  643 	ld	a, #0x3e
+   0F63 DD 96 EE      [19]  644 	sub	a, -18 (ix)
+   0F66 D2 EE 11      [10]  645 	jp	NC, 00149$
+   0F69 DD 7E EE      [19]  646 	ld	a, -18 (ix)
+   0F6C D6 5B         [ 7]  647 	sub	a, #0x5b
+   0F6E D2 EE 11      [10]  648 	jp	NC, 00149$
+   0F71                     649 00148$:
                             650 ;src/text/text.c:264: switch (character)
-   4EAE 79            [ 4]  651 	ld	a, c
-   4EAF B7            [ 4]  652 	or	a, a
-   4EB0 20 5D         [12]  653 	jr	NZ,00101$
-   4EB2 DD 7E FD      [19]  654 	ld	a, -3 (ix)
-   4EB5 D6 2C         [ 7]  655 	sub	a, #0x2c
-   4EB7 28 5C         [12]  656 	jr	Z,00104$
-   4EB9 DD 7E FD      [19]  657 	ld	a, -3 (ix)
-   4EBC D6 2D         [ 7]  658 	sub	a, #0x2d
-   4EBE 28 55         [12]  659 	jr	Z,00104$
-   4EC0 DD 7E FD      [19]  660 	ld	a, -3 (ix)
-   4EC3 D6 2E         [ 7]  661 	sub	a, #0x2e
-   4EC5 28 4E         [12]  662 	jr	Z,00104$
-   4EC7 DD 7E FD      [19]  663 	ld	a, -3 (ix)
-   4ECA D6 30         [ 7]  664 	sub	a, #0x30
-   4ECC 28 51         [12]  665 	jr	Z,00114$
-   4ECE DD 7E FD      [19]  666 	ld	a, -3 (ix)
-   4ED1 D6 31         [ 7]  667 	sub	a, #0x31
-   4ED3 28 4A         [12]  668 	jr	Z,00114$
-   4ED5 DD 7E FD      [19]  669 	ld	a, -3 (ix)
-   4ED8 D6 32         [ 7]  670 	sub	a, #0x32
-   4EDA 28 43         [12]  671 	jr	Z,00114$
-   4EDC DD 7E FD      [19]  672 	ld	a, -3 (ix)
-   4EDF D6 33         [ 7]  673 	sub	a, #0x33
-   4EE1 28 3C         [12]  674 	jr	Z,00114$
-   4EE3 DD 7E FD      [19]  675 	ld	a, -3 (ix)
-   4EE6 D6 34         [ 7]  676 	sub	a, #0x34
-   4EE8 28 35         [12]  677 	jr	Z,00114$
-   4EEA DD 7E FD      [19]  678 	ld	a, -3 (ix)
-   4EED D6 35         [ 7]  679 	sub	a, #0x35
-   4EEF 28 2E         [12]  680 	jr	Z,00114$
-   4EF1 DD 7E FD      [19]  681 	ld	a, -3 (ix)
-   4EF4 D6 36         [ 7]  682 	sub	a, #0x36
-   4EF6 28 27         [12]  683 	jr	Z,00114$
-   4EF8 DD 7E FD      [19]  684 	ld	a, -3 (ix)
-   4EFB D6 37         [ 7]  685 	sub	a, #0x37
-   4EFD 28 20         [12]  686 	jr	Z,00114$
-   4EFF DD 7E FD      [19]  687 	ld	a, -3 (ix)
-   4F02 D6 38         [ 7]  688 	sub	a, #0x38
-   4F04 28 19         [12]  689 	jr	Z,00114$
-   4F06 DD 7E FD      [19]  690 	ld	a, -3 (ix)
-   4F09 D6 39         [ 7]  691 	sub	a, #0x39
-   4F0B 28 12         [12]  692 	jr	Z,00114$
-   4F0D 18 18         [12]  693 	jr	00115$
+   0F71 79            [ 4]  651 	ld	a, c
+   0F72 B7            [ 4]  652 	or	a, a
+   0F73 20 5D         [12]  653 	jr	NZ,00101$
+   0F75 DD 7E EE      [19]  654 	ld	a, -18 (ix)
+   0F78 D6 2C         [ 7]  655 	sub	a, #0x2c
+   0F7A 28 5C         [12]  656 	jr	Z,00104$
+   0F7C DD 7E EE      [19]  657 	ld	a, -18 (ix)
+   0F7F D6 2D         [ 7]  658 	sub	a, #0x2d
+   0F81 28 55         [12]  659 	jr	Z,00104$
+   0F83 DD 7E EE      [19]  660 	ld	a, -18 (ix)
+   0F86 D6 2E         [ 7]  661 	sub	a, #0x2e
+   0F88 28 4E         [12]  662 	jr	Z,00104$
+   0F8A DD 7E EE      [19]  663 	ld	a, -18 (ix)
+   0F8D D6 30         [ 7]  664 	sub	a, #0x30
+   0F8F 28 51         [12]  665 	jr	Z,00114$
+   0F91 DD 7E EE      [19]  666 	ld	a, -18 (ix)
+   0F94 D6 31         [ 7]  667 	sub	a, #0x31
+   0F96 28 4A         [12]  668 	jr	Z,00114$
+   0F98 DD 7E EE      [19]  669 	ld	a, -18 (ix)
+   0F9B D6 32         [ 7]  670 	sub	a, #0x32
+   0F9D 28 43         [12]  671 	jr	Z,00114$
+   0F9F DD 7E EE      [19]  672 	ld	a, -18 (ix)
+   0FA2 D6 33         [ 7]  673 	sub	a, #0x33
+   0FA4 28 3C         [12]  674 	jr	Z,00114$
+   0FA6 DD 7E EE      [19]  675 	ld	a, -18 (ix)
+   0FA9 D6 34         [ 7]  676 	sub	a, #0x34
+   0FAB 28 35         [12]  677 	jr	Z,00114$
+   0FAD DD 7E EE      [19]  678 	ld	a, -18 (ix)
+   0FB0 D6 35         [ 7]  679 	sub	a, #0x35
+   0FB2 28 2E         [12]  680 	jr	Z,00114$
+   0FB4 DD 7E EE      [19]  681 	ld	a, -18 (ix)
+   0FB7 D6 36         [ 7]  682 	sub	a, #0x36
+   0FB9 28 27         [12]  683 	jr	Z,00114$
+   0FBB DD 7E EE      [19]  684 	ld	a, -18 (ix)
+   0FBE D6 37         [ 7]  685 	sub	a, #0x37
+   0FC0 28 20         [12]  686 	jr	Z,00114$
+   0FC2 DD 7E EE      [19]  687 	ld	a, -18 (ix)
+   0FC5 D6 38         [ 7]  688 	sub	a, #0x38
+   0FC7 28 19         [12]  689 	jr	Z,00114$
+   0FC9 DD 7E EE      [19]  690 	ld	a, -18 (ix)
+   0FCC D6 39         [ 7]  691 	sub	a, #0x39
+   0FCE 28 12         [12]  692 	jr	Z,00114$
+   0FD0 18 18         [12]  693 	jr	00115$
                             694 ;src/text/text.c:267: case 33:
-   4F0F                     695 00101$:
+   0FD2                     695 00101$:
                             696 ;src/text/text.c:268: character = 49;
-   4F0F DD 36 FD 31   [19]  697 	ld	-3 (ix), #0x31
+   0FD2 DD 36 EE 31   [19]  697 	ld	-18 (ix), #0x31
                             698 ;src/text/text.c:269: break;
-   4F13 18 12         [12]  699 	jr	00115$
+   0FD6 18 12         [12]  699 	jr	00115$
                             700 ;src/text/text.c:274: case 46:
-   4F15                     701 00104$:
+   0FD8                     701 00104$:
                             702 ;src/text/text.c:275: character += 6;
-   4F15 DD 7E FD      [19]  703 	ld	a, -3 (ix)
-   4F18 C6 06         [ 7]  704 	add	a, #0x06
-   4F1A DD 77 FD      [19]  705 	ld	-3 (ix), a
+   0FD8 DD 7E EE      [19]  703 	ld	a, -18 (ix)
+   0FDB C6 06         [ 7]  704 	add	a, #0x06
+   0FDD DD 77 EE      [19]  705 	ld	-18 (ix), a
                             706 ;src/text/text.c:276: break;
-   4F1D 18 08         [12]  707 	jr	00115$
+   0FE0 18 08         [12]  707 	jr	00115$
                             708 ;src/text/text.c:288: case 57:
-   4F1F                     709 00114$:
+   0FE2                     709 00114$:
                             710 ;src/text/text.c:289: character += 5;
-   4F1F DD 7E FD      [19]  711 	ld	a, -3 (ix)
-   4F22 C6 05         [ 7]  712 	add	a, #0x05
-   4F24 DD 77 FD      [19]  713 	ld	-3 (ix), a
+   0FE2 DD 7E EE      [19]  711 	ld	a, -18 (ix)
+   0FE5 C6 05         [ 7]  712 	add	a, #0x05
+   0FE7 DD 77 EE      [19]  713 	ld	-18 (ix), a
                             714 ;src/text/text.c:291: }
-   4F27                     715 00115$:
+   0FEA                     715 00115$:
                             716 ;src/text/text.c:294: character -= 49;
-   4F27 DD 7E FD      [19]  717 	ld	a, -3 (ix)
-   4F2A C6 CF         [ 7]  718 	add	a, #0xcf
-   4F2C 4F            [ 4]  719 	ld	c, a
+   0FEA DD 7E EE      [19]  717 	ld	a, -18 (ix)
+   0FED C6 CF         [ 7]  718 	add	a, #0xcf
+   0FEF 4F            [ 4]  719 	ld	c, a
                             720 ;src/text/text.c:297: for (i = 0; i < 18; i++)
-   4F2D 06 00         [ 7]  721 	ld	b,#0x00
-   4F2F 69            [ 4]  722 	ld	l, c
-   4F30 60            [ 4]  723 	ld	h, b
-   4F31 29            [11]  724 	add	hl, hl
-   4F32 29            [11]  725 	add	hl, hl
-   4F33 29            [11]  726 	add	hl, hl
-   4F34 09            [11]  727 	add	hl, bc
-   4F35 29            [11]  728 	add	hl, hl
-   4F36 EB            [ 4]  729 	ex	de,hl
-   4F37 06 00         [ 7]  730 	ld	b, #0x00
-   4F39                     731 00159$:
+   0FF0 06 00         [ 7]  721 	ld	b,#0x00
+   0FF2 69            [ 4]  722 	ld	l, c
+   0FF3 60            [ 4]  723 	ld	h, b
+   0FF4 29            [11]  724 	add	hl, hl
+   0FF5 29            [11]  725 	add	hl, hl
+   0FF6 29            [11]  726 	add	hl, hl
+   0FF7 09            [11]  727 	add	hl, bc
+   0FF8 29            [11]  728 	add	hl, hl
+   0FF9 EB            [ 4]  729 	ex	de,hl
+   0FFA 06 00         [ 7]  730 	ld	b, #0x00
+   0FFC                     731 00159$:
                             732 ;src/text/text.c:299: pChar = (u8 *)s_fonts_0 + (character * 18) + i;
-   4F39 21 87 41      [10]  733 	ld	hl, #_s_fonts_0
-   4F3C 19            [11]  734 	add	hl, de
-   4F3D 7D            [ 4]  735 	ld	a, l
-   4F3E 80            [ 4]  736 	add	a, b
-   4F3F 6F            [ 4]  737 	ld	l, a
-   4F40 7C            [ 4]  738 	ld	a, h
-   4F41 CE 00         [ 7]  739 	adc	a, #0x00
-   4F43 67            [ 4]  740 	ld	h, a
+   0FFC 21 C7 01      [10]  733 	ld	hl, #_s_fonts_0
+   0FFF 19            [11]  734 	add	hl, de
+   1000 7D            [ 4]  735 	ld	a, l
+   1001 80            [ 4]  736 	add	a, b
+   1002 6F            [ 4]  737 	ld	l, a
+   1003 7C            [ 4]  738 	ld	a, h
+   1004 CE 00         [ 7]  739 	adc	a, #0x00
+   1006 67            [ 4]  740 	ld	h, a
                             741 ;src/text/text.c:304: if (*pChar == 0x55)
-   4F44 DD 75 DA      [19]  742 	ld	-38 (ix), l
-   4F47 DD 74 DB      [19]  743 	ld	-37 (ix), h
-   4F4A 7E            [ 7]  744 	ld	a, (hl)
-   4F4B DD 77 E4      [19]  745 	ld	-28 (ix), a
-   4F4E D6 55         [ 7]  746 	sub	a, #0x55
-   4F50 20 04         [12]  747 	jr	NZ,00314$
-   4F52 3E 01         [ 7]  748 	ld	a,#0x01
-   4F54 18 01         [12]  749 	jr	00315$
-   4F56                     750 00314$:
-   4F56 AF            [ 4]  751 	xor	a,a
-   4F57                     752 00315$:
-   4F57 DD 77 E3      [19]  753 	ld	-29 (ix), a
+   1007 DD 75 DB      [19]  742 	ld	-37 (ix), l
+   100A DD 74 DC      [19]  743 	ld	-36 (ix), h
+   100D 7E            [ 7]  744 	ld	a, (hl)
+   100E DD 77 F3      [19]  745 	ld	-13 (ix), a
+   1011 D6 55         [ 7]  746 	sub	a, #0x55
+   1013 20 04         [12]  747 	jr	NZ,00314$
+   1015 3E 01         [ 7]  748 	ld	a,#0x01
+   1017 18 01         [12]  749 	jr	00315$
+   1019                     750 00314$:
+   1019 AF            [ 4]  751 	xor	a,a
+   101A                     752 00315$:
+   101A DD 77 DE      [19]  753 	ld	-34 (ix), a
                             754 ;src/text/text.c:306: else if (*pChar == 0xee)
-   4F5A DD 7E E4      [19]  755 	ld	a, -28 (ix)
-   4F5D D6 EE         [ 7]  756 	sub	a, #0xee
-   4F5F 20 04         [12]  757 	jr	NZ,00316$
-   4F61 3E 01         [ 7]  758 	ld	a,#0x01
-   4F63 18 01         [12]  759 	jr	00317$
-   4F65                     760 00316$:
-   4F65 AF            [ 4]  761 	xor	a,a
-   4F66                     762 00317$:
-   4F66 DD 77 E2      [19]  763 	ld	-30 (ix), a
+   101D DD 7E F3      [19]  755 	ld	a, -13 (ix)
+   1020 D6 EE         [ 7]  756 	sub	a, #0xee
+   1022 20 04         [12]  757 	jr	NZ,00316$
+   1024 3E 01         [ 7]  758 	ld	a,#0x01
+   1026 18 01         [12]  759 	jr	00317$
+   1028                     760 00316$:
+   1028 AF            [ 4]  761 	xor	a,a
+   1029                     762 00317$:
+   1029 DD 77 DD      [19]  763 	ld	-35 (ix), a
                             764 ;src/text/text.c:308: else if (*pChar == 0xdd)
-   4F69 DD 7E E4      [19]  765 	ld	a, -28 (ix)
-   4F6C D6 DD         [ 7]  766 	sub	a, #0xdd
-   4F6E 20 04         [12]  767 	jr	NZ,00318$
-   4F70 3E 01         [ 7]  768 	ld	a,#0x01
-   4F72 18 01         [12]  769 	jr	00319$
-   4F74                     770 00318$:
-   4F74 AF            [ 4]  771 	xor	a,a
-   4F75                     772 00319$:
-   4F75 DD 77 E1      [19]  773 	ld	-31 (ix), a
+   102C DD 7E F3      [19]  765 	ld	a, -13 (ix)
+   102F D6 DD         [ 7]  766 	sub	a, #0xdd
+   1031 20 04         [12]  767 	jr	NZ,00318$
+   1033 3E 01         [ 7]  768 	ld	a,#0x01
+   1035 18 01         [12]  769 	jr	00319$
+   1037                     770 00318$:
+   1037 AF            [ 4]  771 	xor	a,a
+   1038                     772 00319$:
+   1038 DD 77 FD      [19]  773 	ld	-3 (ix), a
                             774 ;src/text/text.c:310: else if (*pChar == 0xff)
-   4F78 DD 7E E4      [19]  775 	ld	a, -28 (ix)
-   4F7B 3C            [ 4]  776 	inc	a
-   4F7C 20 04         [12]  777 	jr	NZ,00320$
-   4F7E 3E 01         [ 7]  778 	ld	a,#0x01
-   4F80 18 01         [12]  779 	jr	00321$
-   4F82                     780 00320$:
-   4F82 AF            [ 4]  781 	xor	a,a
-   4F83                     782 00321$:
-   4F83 DD 77 E0      [19]  783 	ld	-32 (ix), a
+   103B DD 7E F3      [19]  775 	ld	a, -13 (ix)
+   103E 3C            [ 4]  776 	inc	a
+   103F 20 04         [12]  777 	jr	NZ,00320$
+   1041 3E 01         [ 7]  778 	ld	a,#0x01
+   1043 18 01         [12]  779 	jr	00321$
+   1045                     780 00320$:
+   1045 AF            [ 4]  781 	xor	a,a
+   1046                     782 00321$:
+   1046 DD 77 FC      [19]  783 	ld	-4 (ix), a
                             784 ;src/text/text.c:301: if (size == 1)
-   4F86 DD 7E E8      [19]  785 	ld	a, -24 (ix)
-   4F89 B7            [ 4]  786 	or	a, a
-   4F8A 28 72         [12]  787 	jr	Z,00141$
+   1049 DD 7E ED      [19]  785 	ld	a, -19 (ix)
+   104C B7            [ 4]  786 	or	a, a
+   104D 28 72         [12]  787 	jr	Z,00141$
                             788 ;src/text/text.c:304: if (*pChar == 0x55)
-   4F8C DD 7E E3      [19]  789 	ld	a, -29 (ix)
-   4F8F B7            [ 4]  790 	or	a, a
-   4F90 28 12         [12]  791 	jr	Z,00126$
+   104F DD 7E DE      [19]  789 	ld	a, -34 (ix)
+   1052 B7            [ 4]  790 	or	a, a
+   1053 28 12         [12]  791 	jr	Z,00126$
                             792 ;src/text/text.c:305: colorchar[i] = color1;
-   4F92 DD 7E E9      [19]  793 	ld	a, -23 (ix)
-   4F95 80            [ 4]  794 	add	a, b
-   4F96 6F            [ 4]  795 	ld	l, a
-   4F97 DD 7E EA      [19]  796 	ld	a, -22 (ix)
-   4F9A CE 00         [ 7]  797 	adc	a, #0x00
-   4F9C 67            [ 4]  798 	ld	h, a
-   4F9D DD 7E D9      [19]  799 	ld	a, -39 (ix)
-   4FA0 77            [ 7]  800 	ld	(hl), a
-   4FA1 C3 ED 50      [10]  801 	jp	00160$
-   4FA4                     802 00126$:
+   1055 DD 7E EF      [19]  793 	ld	a, -17 (ix)
+   1058 80            [ 4]  794 	add	a, b
+   1059 6F            [ 4]  795 	ld	l, a
+   105A DD 7E F0      [19]  796 	ld	a, -16 (ix)
+   105D CE 00         [ 7]  797 	adc	a, #0x00
+   105F 67            [ 4]  798 	ld	h, a
+   1060 DD 7E D9      [19]  799 	ld	a, -39 (ix)
+   1063 77            [ 7]  800 	ld	(hl), a
+   1064 C3 B0 11      [10]  801 	jp	00160$
+   1067                     802 00126$:
                             803 ;src/text/text.c:306: else if (*pChar == 0xee)
-   4FA4 DD 7E E2      [19]  804 	ld	a, -30 (ix)
-   4FA7 B7            [ 4]  805 	or	a, a
-   4FA8 28 12         [12]  806 	jr	Z,00123$
+   1067 DD 7E DD      [19]  804 	ld	a, -35 (ix)
+   106A B7            [ 4]  805 	or	a, a
+   106B 28 12         [12]  806 	jr	Z,00123$
                             807 ;src/text/text.c:307: colorchar[i] = color2;
-   4FAA DD 7E EB      [19]  808 	ld	a, -21 (ix)
-   4FAD 80            [ 4]  809 	add	a, b
-   4FAE 6F            [ 4]  810 	ld	l, a
-   4FAF DD 7E EC      [19]  811 	ld	a, -20 (ix)
-   4FB2 CE 00         [ 7]  812 	adc	a, #0x00
-   4FB4 67            [ 4]  813 	ld	h, a
-   4FB5 DD 7E D8      [19]  814 	ld	a, -40 (ix)
-   4FB8 77            [ 7]  815 	ld	(hl), a
-   4FB9 C3 ED 50      [10]  816 	jp	00160$
-   4FBC                     817 00123$:
+   106D DD 7E DF      [19]  808 	ld	a, -33 (ix)
+   1070 80            [ 4]  809 	add	a, b
+   1071 6F            [ 4]  810 	ld	l, a
+   1072 DD 7E E0      [19]  811 	ld	a, -32 (ix)
+   1075 CE 00         [ 7]  812 	adc	a, #0x00
+   1077 67            [ 4]  813 	ld	h, a
+   1078 DD 7E D8      [19]  814 	ld	a, -40 (ix)
+   107B 77            [ 7]  815 	ld	(hl), a
+   107C C3 B0 11      [10]  816 	jp	00160$
+   107F                     817 00123$:
                             818 ;src/text/text.c:308: else if (*pChar == 0xdd)
-   4FBC DD 7E E1      [19]  819 	ld	a, -31 (ix)
-   4FBF B7            [ 4]  820 	or	a, a
-   4FC0 28 12         [12]  821 	jr	Z,00120$
+   107F DD 7E FD      [19]  819 	ld	a, -3 (ix)
+   1082 B7            [ 4]  820 	or	a, a
+   1083 28 12         [12]  821 	jr	Z,00120$
                             822 ;src/text/text.c:309: colorchar[i] = color3;
-   4FC2 DD 7E ED      [19]  823 	ld	a, -19 (ix)
-   4FC5 80            [ 4]  824 	add	a, b
-   4FC6 6F            [ 4]  825 	ld	l, a
-   4FC7 DD 7E EE      [19]  826 	ld	a, -18 (ix)
-   4FCA CE 00         [ 7]  827 	adc	a, #0x00
-   4FCC 67            [ 4]  828 	ld	h, a
-   4FCD DD 7E D7      [19]  829 	ld	a, -41 (ix)
-   4FD0 77            [ 7]  830 	ld	(hl), a
-   4FD1 C3 ED 50      [10]  831 	jp	00160$
-   4FD4                     832 00120$:
+   1085 DD 7E E5      [19]  823 	ld	a, -27 (ix)
+   1088 80            [ 4]  824 	add	a, b
+   1089 6F            [ 4]  825 	ld	l, a
+   108A DD 7E E6      [19]  826 	ld	a, -26 (ix)
+   108D CE 00         [ 7]  827 	adc	a, #0x00
+   108F 67            [ 4]  828 	ld	h, a
+   1090 DD 7E D7      [19]  829 	ld	a, -41 (ix)
+   1093 77            [ 7]  830 	ld	(hl), a
+   1094 C3 B0 11      [10]  831 	jp	00160$
+   1097                     832 00120$:
                             833 ;src/text/text.c:310: else if (*pChar == 0xff)
-   4FD4 DD 7E E0      [19]  834 	ld	a, -32 (ix)
-   4FD7 B7            [ 4]  835 	or	a, a
-   4FD8 28 12         [12]  836 	jr	Z,00117$
+   1097 DD 7E FC      [19]  834 	ld	a, -4 (ix)
+   109A B7            [ 4]  835 	or	a, a
+   109B 28 12         [12]  836 	jr	Z,00117$
                             837 ;src/text/text.c:311: colorchar[i] = color4;
-   4FDA DD 7E EF      [19]  838 	ld	a, -17 (ix)
-   4FDD 80            [ 4]  839 	add	a, b
-   4FDE 6F            [ 4]  840 	ld	l, a
-   4FDF DD 7E F0      [19]  841 	ld	a, -16 (ix)
-   4FE2 CE 00         [ 7]  842 	adc	a, #0x00
-   4FE4 67            [ 4]  843 	ld	h, a
-   4FE5 DD 7E D6      [19]  844 	ld	a, -42 (ix)
-   4FE8 77            [ 7]  845 	ld	(hl), a
-   4FE9 C3 ED 50      [10]  846 	jp	00160$
-   4FEC                     847 00117$:
+   109D DD 7E E3      [19]  838 	ld	a, -29 (ix)
+   10A0 80            [ 4]  839 	add	a, b
+   10A1 6F            [ 4]  840 	ld	l, a
+   10A2 DD 7E E4      [19]  841 	ld	a, -28 (ix)
+   10A5 CE 00         [ 7]  842 	adc	a, #0x00
+   10A7 67            [ 4]  843 	ld	h, a
+   10A8 DD 7E D6      [19]  844 	ld	a, -42 (ix)
+   10AB 77            [ 7]  845 	ld	(hl), a
+   10AC C3 B0 11      [10]  846 	jp	00160$
+   10AF                     847 00117$:
                             848 ;src/text/text.c:313: colorchar[i] = *pChar;
-   4FEC DD 7E F1      [19]  849 	ld	a, -15 (ix)
-   4FEF 80            [ 4]  850 	add	a, b
-   4FF0 6F            [ 4]  851 	ld	l, a
-   4FF1 DD 7E F2      [19]  852 	ld	a, -14 (ix)
-   4FF4 CE 00         [ 7]  853 	adc	a, #0x00
-   4FF6 67            [ 4]  854 	ld	h, a
-   4FF7 DD 7E E4      [19]  855 	ld	a, -28 (ix)
-   4FFA 77            [ 7]  856 	ld	(hl), a
-   4FFB C3 ED 50      [10]  857 	jp	00160$
-   4FFE                     858 00141$:
+   10AF DD 7E FE      [19]  849 	ld	a, -2 (ix)
+   10B2 80            [ 4]  850 	add	a, b
+   10B3 6F            [ 4]  851 	ld	l, a
+   10B4 DD 7E FF      [19]  852 	ld	a, -1 (ix)
+   10B7 CE 00         [ 7]  853 	adc	a, #0x00
+   10B9 67            [ 4]  854 	ld	h, a
+   10BA DD 7E F3      [19]  855 	ld	a, -13 (ix)
+   10BD 77            [ 7]  856 	ld	(hl), a
+   10BE C3 B0 11      [10]  857 	jp	00160$
+   10C1                     858 00141$:
                             859 ;src/text/text.c:319: pos = (i * size) - (i % FONT_0_W);
-   4FFE D5            [11]  860 	push	de
-   4FFF C5            [11]  861 	push	bc
-   5000 DD 5E 09      [19]  862 	ld	e, 9 (ix)
-   5003 60            [ 4]  863 	ld	h, b
-   5004 2E 00         [ 7]  864 	ld	l, #0x00
-   5006 55            [ 4]  865 	ld	d, l
-   5007 06 08         [ 7]  866 	ld	b, #0x08
-   5009                     867 00322$:
-   5009 29            [11]  868 	add	hl, hl
-   500A 30 01         [12]  869 	jr	NC,00323$
-   500C 19            [11]  870 	add	hl, de
-   500D                     871 00323$:
-   500D 10 FA         [13]  872 	djnz	00322$
-   500F C1            [10]  873 	pop	bc
-   5010 D1            [10]  874 	pop	de
-   5011 78            [ 4]  875 	ld	a, b
-   5012 E6 01         [ 7]  876 	and	a, #0x01
-   5014 67            [ 4]  877 	ld	h, a
-   5015 7D            [ 4]  878 	ld	a, l
-   5016 94            [ 4]  879 	sub	a, h
+   10C1 D5            [11]  860 	push	de
+   10C2 C5            [11]  861 	push	bc
+   10C3 DD 5E 09      [19]  862 	ld	e, 9 (ix)
+   10C6 60            [ 4]  863 	ld	h, b
+   10C7 2E 00         [ 7]  864 	ld	l, #0x00
+   10C9 55            [ 4]  865 	ld	d, l
+   10CA 06 08         [ 7]  866 	ld	b, #0x08
+   10CC                     867 00322$:
+   10CC 29            [11]  868 	add	hl, hl
+   10CD 30 01         [12]  869 	jr	NC,00323$
+   10CF 19            [11]  870 	add	hl, de
+   10D0                     871 00323$:
+   10D0 10 FA         [13]  872 	djnz	00322$
+   10D2 C1            [10]  873 	pop	bc
+   10D3 D1            [10]  874 	pop	de
+   10D4 78            [ 4]  875 	ld	a, b
+   10D5 E6 01         [ 7]  876 	and	a, #0x01
+   10D7 67            [ 4]  877 	ld	h, a
+   10D8 7D            [ 4]  878 	ld	a, l
+   10D9 94            [ 4]  879 	sub	a, h
                             880 ;src/text/text.c:324: colorchar[pos + FONT_0_W] = color1;
-   5017 6F            [ 4]  881 	ld	l,a
-   5018 C6 02         [ 7]  882 	add	a, #0x02
-   501A DD 77 DF      [19]  883 	ld	-33 (ix), a
+   10DA 6F            [ 4]  881 	ld	l,a
+   10DB C6 02         [ 7]  882 	add	a, #0x02
+   10DD DD 77 FB      [19]  883 	ld	-5 (ix), a
                             884 ;src/text/text.c:321: if (*pChar == 0x55)
-   501D DD 7E E3      [19]  885 	ld	a, -29 (ix)
-   5020 B7            [ 4]  886 	or	a, a
-   5021 28 23         [12]  887 	jr	Z,00138$
+   10E0 DD 7E DE      [19]  885 	ld	a, -34 (ix)
+   10E3 B7            [ 4]  886 	or	a, a
+   10E4 28 23         [12]  887 	jr	Z,00138$
                             888 ;src/text/text.c:323: colorchar[pos] = color1;
-   5023 DD 7E F3      [19]  889 	ld	a, -13 (ix)
-   5026 85            [ 4]  890 	add	a, l
-   5027 6F            [ 4]  891 	ld	l, a
-   5028 DD 7E F4      [19]  892 	ld	a, -12 (ix)
-   502B CE 00         [ 7]  893 	adc	a, #0x00
-   502D 67            [ 4]  894 	ld	h, a
-   502E DD 7E D9      [19]  895 	ld	a, -39 (ix)
-   5031 77            [ 7]  896 	ld	(hl), a
+   10E6 DD 7E E1      [19]  889 	ld	a, -31 (ix)
+   10E9 85            [ 4]  890 	add	a, l
+   10EA 6F            [ 4]  891 	ld	l, a
+   10EB DD 7E E2      [19]  892 	ld	a, -30 (ix)
+   10EE CE 00         [ 7]  893 	adc	a, #0x00
+   10F0 67            [ 4]  894 	ld	h, a
+   10F1 DD 7E D9      [19]  895 	ld	a, -39 (ix)
+   10F4 77            [ 7]  896 	ld	(hl), a
                             897 ;src/text/text.c:324: colorchar[pos + FONT_0_W] = color1;
-   5032 DD 7E F3      [19]  898 	ld	a, -13 (ix)
-   5035 DD 86 DF      [19]  899 	add	a, -33 (ix)
-   5038 6F            [ 4]  900 	ld	l, a
-   5039 DD 7E F4      [19]  901 	ld	a, -12 (ix)
-   503C CE 00         [ 7]  902 	adc	a, #0x00
-   503E 67            [ 4]  903 	ld	h, a
-   503F DD 7E D9      [19]  904 	ld	a, -39 (ix)
-   5042 77            [ 7]  905 	ld	(hl), a
-   5043 C3 ED 50      [10]  906 	jp	00160$
-   5046                     907 00138$:
+   10F5 DD 7E E1      [19]  898 	ld	a, -31 (ix)
+   10F8 DD 86 FB      [19]  899 	add	a, -5 (ix)
+   10FB 6F            [ 4]  900 	ld	l, a
+   10FC DD 7E E2      [19]  901 	ld	a, -30 (ix)
+   10FF CE 00         [ 7]  902 	adc	a, #0x00
+   1101 67            [ 4]  903 	ld	h, a
+   1102 DD 7E D9      [19]  904 	ld	a, -39 (ix)
+   1105 77            [ 7]  905 	ld	(hl), a
+   1106 C3 B0 11      [10]  906 	jp	00160$
+   1109                     907 00138$:
                             908 ;src/text/text.c:326: else if (*pChar == 0xee)
-   5046 DD 7E E2      [19]  909 	ld	a, -30 (ix)
-   5049 B7            [ 4]  910 	or	a, a
-   504A 28 23         [12]  911 	jr	Z,00135$
+   1109 DD 7E DD      [19]  909 	ld	a, -35 (ix)
+   110C B7            [ 4]  910 	or	a, a
+   110D 28 23         [12]  911 	jr	Z,00135$
                             912 ;src/text/text.c:328: colorchar[pos] = color2;
-   504C DD 7E F5      [19]  913 	ld	a, -11 (ix)
-   504F 85            [ 4]  914 	add	a, l
-   5050 6F            [ 4]  915 	ld	l, a
-   5051 DD 7E F6      [19]  916 	ld	a, -10 (ix)
-   5054 CE 00         [ 7]  917 	adc	a, #0x00
-   5056 67            [ 4]  918 	ld	h, a
-   5057 DD 7E D8      [19]  919 	ld	a, -40 (ix)
-   505A 77            [ 7]  920 	ld	(hl), a
+   110F DD 7E E9      [19]  913 	ld	a, -23 (ix)
+   1112 85            [ 4]  914 	add	a, l
+   1113 6F            [ 4]  915 	ld	l, a
+   1114 DD 7E EA      [19]  916 	ld	a, -22 (ix)
+   1117 CE 00         [ 7]  917 	adc	a, #0x00
+   1119 67            [ 4]  918 	ld	h, a
+   111A DD 7E D8      [19]  919 	ld	a, -40 (ix)
+   111D 77            [ 7]  920 	ld	(hl), a
                             921 ;src/text/text.c:329: colorchar[pos + FONT_0_W] = color2;
-   505B DD 7E F5      [19]  922 	ld	a, -11 (ix)
-   505E DD 86 DF      [19]  923 	add	a, -33 (ix)
-   5061 6F            [ 4]  924 	ld	l, a
-   5062 DD 7E F6      [19]  925 	ld	a, -10 (ix)
-   5065 CE 00         [ 7]  926 	adc	a, #0x00
-   5067 67            [ 4]  927 	ld	h, a
-   5068 DD 7E D8      [19]  928 	ld	a, -40 (ix)
-   506B 77            [ 7]  929 	ld	(hl), a
-   506C C3 ED 50      [10]  930 	jp	00160$
-   506F                     931 00135$:
+   111E DD 7E E9      [19]  922 	ld	a, -23 (ix)
+   1121 DD 86 FB      [19]  923 	add	a, -5 (ix)
+   1124 6F            [ 4]  924 	ld	l, a
+   1125 DD 7E EA      [19]  925 	ld	a, -22 (ix)
+   1128 CE 00         [ 7]  926 	adc	a, #0x00
+   112A 67            [ 4]  927 	ld	h, a
+   112B DD 7E D8      [19]  928 	ld	a, -40 (ix)
+   112E 77            [ 7]  929 	ld	(hl), a
+   112F C3 B0 11      [10]  930 	jp	00160$
+   1132                     931 00135$:
                             932 ;src/text/text.c:331: else if (*pChar == 0xdd)
-   506F DD 7E E1      [19]  933 	ld	a, -31 (ix)
-   5072 B7            [ 4]  934 	or	a, a
-   5073 28 22         [12]  935 	jr	Z,00132$
+   1132 DD 7E FD      [19]  933 	ld	a, -3 (ix)
+   1135 B7            [ 4]  934 	or	a, a
+   1136 28 22         [12]  935 	jr	Z,00132$
                             936 ;src/text/text.c:333: colorchar[pos] = color3;
-   5075 DD 7E F7      [19]  937 	ld	a, -9 (ix)
-   5078 85            [ 4]  938 	add	a, l
-   5079 6F            [ 4]  939 	ld	l, a
-   507A DD 7E F8      [19]  940 	ld	a, -8 (ix)
-   507D CE 00         [ 7]  941 	adc	a, #0x00
-   507F 67            [ 4]  942 	ld	h, a
-   5080 DD 7E D7      [19]  943 	ld	a, -41 (ix)
-   5083 77            [ 7]  944 	ld	(hl), a
+   1138 DD 7E F6      [19]  937 	ld	a, -10 (ix)
+   113B 85            [ 4]  938 	add	a, l
+   113C 6F            [ 4]  939 	ld	l, a
+   113D DD 7E F7      [19]  940 	ld	a, -9 (ix)
+   1140 CE 00         [ 7]  941 	adc	a, #0x00
+   1142 67            [ 4]  942 	ld	h, a
+   1143 DD 7E D7      [19]  943 	ld	a, -41 (ix)
+   1146 77            [ 7]  944 	ld	(hl), a
                             945 ;src/text/text.c:334: colorchar[pos + FONT_0_W] = color3;
-   5084 DD 7E F7      [19]  946 	ld	a, -9 (ix)
-   5087 DD 86 DF      [19]  947 	add	a, -33 (ix)
-   508A 6F            [ 4]  948 	ld	l, a
-   508B DD 7E F8      [19]  949 	ld	a, -8 (ix)
-   508E CE 00         [ 7]  950 	adc	a, #0x00
-   5090 67            [ 4]  951 	ld	h, a
-   5091 DD 7E D7      [19]  952 	ld	a, -41 (ix)
-   5094 77            [ 7]  953 	ld	(hl), a
-   5095 18 56         [12]  954 	jr	00160$
-   5097                     955 00132$:
+   1147 DD 7E F6      [19]  946 	ld	a, -10 (ix)
+   114A DD 86 FB      [19]  947 	add	a, -5 (ix)
+   114D 6F            [ 4]  948 	ld	l, a
+   114E DD 7E F7      [19]  949 	ld	a, -9 (ix)
+   1151 CE 00         [ 7]  950 	adc	a, #0x00
+   1153 67            [ 4]  951 	ld	h, a
+   1154 DD 7E D7      [19]  952 	ld	a, -41 (ix)
+   1157 77            [ 7]  953 	ld	(hl), a
+   1158 18 56         [12]  954 	jr	00160$
+   115A                     955 00132$:
                             956 ;src/text/text.c:336: else if (*pChar == 0xff)
-   5097 DD 7E E0      [19]  957 	ld	a, -32 (ix)
-   509A B7            [ 4]  958 	or	a, a
-   509B 28 22         [12]  959 	jr	Z,00129$
+   115A DD 7E FC      [19]  957 	ld	a, -4 (ix)
+   115D B7            [ 4]  958 	or	a, a
+   115E 28 22         [12]  959 	jr	Z,00129$
                             960 ;src/text/text.c:338: colorchar[pos] = color4;
-   509D DD 7E F9      [19]  961 	ld	a, -7 (ix)
-   50A0 85            [ 4]  962 	add	a, l
-   50A1 6F            [ 4]  963 	ld	l, a
-   50A2 DD 7E FA      [19]  964 	ld	a, -6 (ix)
-   50A5 CE 00         [ 7]  965 	adc	a, #0x00
-   50A7 67            [ 4]  966 	ld	h, a
-   50A8 DD 7E D6      [19]  967 	ld	a, -42 (ix)
-   50AB 77            [ 7]  968 	ld	(hl), a
+   1160 DD 7E E7      [19]  961 	ld	a, -25 (ix)
+   1163 85            [ 4]  962 	add	a, l
+   1164 6F            [ 4]  963 	ld	l, a
+   1165 DD 7E E8      [19]  964 	ld	a, -24 (ix)
+   1168 CE 00         [ 7]  965 	adc	a, #0x00
+   116A 67            [ 4]  966 	ld	h, a
+   116B DD 7E D6      [19]  967 	ld	a, -42 (ix)
+   116E 77            [ 7]  968 	ld	(hl), a
                             969 ;src/text/text.c:339: colorchar[pos + FONT_0_W] = color4;
-   50AC DD 7E F9      [19]  970 	ld	a, -7 (ix)
-   50AF DD 86 DF      [19]  971 	add	a, -33 (ix)
-   50B2 6F            [ 4]  972 	ld	l, a
-   50B3 DD 7E FA      [19]  973 	ld	a, -6 (ix)
-   50B6 CE 00         [ 7]  974 	adc	a, #0x00
-   50B8 67            [ 4]  975 	ld	h, a
-   50B9 DD 7E D6      [19]  976 	ld	a, -42 (ix)
-   50BC 77            [ 7]  977 	ld	(hl), a
-   50BD 18 2E         [12]  978 	jr	00160$
-   50BF                     979 00129$:
+   116F DD 7E E7      [19]  970 	ld	a, -25 (ix)
+   1172 DD 86 FB      [19]  971 	add	a, -5 (ix)
+   1175 6F            [ 4]  972 	ld	l, a
+   1176 DD 7E E8      [19]  973 	ld	a, -24 (ix)
+   1179 CE 00         [ 7]  974 	adc	a, #0x00
+   117B 67            [ 4]  975 	ld	h, a
+   117C DD 7E D6      [19]  976 	ld	a, -42 (ix)
+   117F 77            [ 7]  977 	ld	(hl), a
+   1180 18 2E         [12]  978 	jr	00160$
+   1182                     979 00129$:
                             980 ;src/text/text.c:343: colorchar[pos] = *pChar;
-   50BF DD 7E FB      [19]  981 	ld	a, -5 (ix)
-   50C2 85            [ 4]  982 	add	a, l
-   50C3 6F            [ 4]  983 	ld	l, a
-   50C4 DD 7E FC      [19]  984 	ld	a, -4 (ix)
-   50C7 CE 00         [ 7]  985 	adc	a, #0x00
-   50C9 67            [ 4]  986 	ld	h, a
-   50CA DD 7E E4      [19]  987 	ld	a, -28 (ix)
-   50CD 77            [ 7]  988 	ld	(hl), a
+   1182 DD 7E F1      [19]  981 	ld	a, -15 (ix)
+   1185 85            [ 4]  982 	add	a, l
+   1186 6F            [ 4]  983 	ld	l, a
+   1187 DD 7E F2      [19]  984 	ld	a, -14 (ix)
+   118A CE 00         [ 7]  985 	adc	a, #0x00
+   118C 67            [ 4]  986 	ld	h, a
+   118D DD 7E F3      [19]  987 	ld	a, -13 (ix)
+   1190 77            [ 7]  988 	ld	(hl), a
                             989 ;src/text/text.c:344: colorchar[pos + FONT_0_W] = *pChar;
-   50CE DD 7E FB      [19]  990 	ld	a, -5 (ix)
-   50D1 DD 86 DF      [19]  991 	add	a, -33 (ix)
-   50D4 DD 77 DD      [19]  992 	ld	-35 (ix), a
-   50D7 DD 7E FC      [19]  993 	ld	a, -4 (ix)
-   50DA CE 00         [ 7]  994 	adc	a, #0x00
-   50DC DD 77 DE      [19]  995 	ld	-34 (ix), a
-   50DF DD 6E DA      [19]  996 	ld	l,-38 (ix)
-   50E2 DD 66 DB      [19]  997 	ld	h,-37 (ix)
-   50E5 7E            [ 7]  998 	ld	a, (hl)
-   50E6 DD 6E DD      [19]  999 	ld	l,-35 (ix)
-   50E9 DD 66 DE      [19] 1000 	ld	h,-34 (ix)
-   50EC 77            [ 7] 1001 	ld	(hl), a
-   50ED                    1002 00160$:
+   1191 DD 7E F1      [19]  990 	ld	a, -15 (ix)
+   1194 DD 86 FB      [19]  991 	add	a, -5 (ix)
+   1197 DD 77 F9      [19]  992 	ld	-7 (ix), a
+   119A DD 7E F2      [19]  993 	ld	a, -14 (ix)
+   119D CE 00         [ 7]  994 	adc	a, #0x00
+   119F DD 77 FA      [19]  995 	ld	-6 (ix), a
+   11A2 DD 6E DB      [19]  996 	ld	l,-37 (ix)
+   11A5 DD 66 DC      [19]  997 	ld	h,-36 (ix)
+   11A8 7E            [ 7]  998 	ld	a, (hl)
+   11A9 DD 6E F9      [19]  999 	ld	l,-7 (ix)
+   11AC DD 66 FA      [19] 1000 	ld	h,-6 (ix)
+   11AF 77            [ 7] 1001 	ld	(hl), a
+   11B0                    1002 00160$:
                            1003 ;src/text/text.c:297: for (i = 0; i < 18; i++)
-   50ED 04            [ 4] 1004 	inc	b
-   50EE 78            [ 4] 1005 	ld	a, b
-   50EF D6 12         [ 7] 1006 	sub	a, #0x12
-   50F1 DA 39 4F      [10] 1007 	jp	C, 00159$
+   11B0 04            [ 4] 1004 	inc	b
+   11B1 78            [ 4] 1005 	ld	a, b
+   11B2 D6 12         [ 7] 1006 	sub	a, #0x12
+   11B4 DA FC 0F      [10] 1007 	jp	C, 00159$
                            1008 ;src/text/text.c:349: pvideo = cpct_getScreenPtr(CPCT_VMEM_START, xPos, yPos);
-   50F4 C5            [11] 1009 	push	bc
-   50F5 DD 66 07      [19] 1010 	ld	h, 7 (ix)
-   50F8 DD 6E 06      [19] 1011 	ld	l, 6 (ix)
-   50FB E5            [11] 1012 	push	hl
-   50FC 21 00 C0      [10] 1013 	ld	hl, #0xc000
-   50FF E5            [11] 1014 	push	hl
-   5100 CD D6 53      [17] 1015 	call	_cpct_getScreenPtr
-   5103 C1            [10] 1016 	pop	bc
+   11B7 C5            [11] 1009 	push	bc
+   11B8 DD 66 07      [19] 1010 	ld	h, 7 (ix)
+   11BB DD 6E 06      [19] 1011 	ld	l, 6 (ix)
+   11BE E5            [11] 1012 	push	hl
+   11BF 21 00 C0      [10] 1013 	ld	hl, #0xc000
+   11C2 E5            [11] 1014 	push	hl
+   11C3 CD 16 15      [17] 1015 	call	_cpct_getScreenPtr
+   11C6 C1            [10] 1016 	pop	bc
                            1017 ;src/text/text.c:353: cpct_drawSprite(colorchar, pvideo, FONT_0_W, FONT_H * size);
-   5104 E5            [11] 1018 	push	hl
-   5105 FD E1         [14] 1019 	pop	iy
-   5107 DD 5E E5      [19] 1020 	ld	e,-27 (ix)
-   510A DD 56 E6      [19] 1021 	ld	d,-26 (ix)
-   510D C5            [11] 1022 	push	bc
-   510E DD 46 E7      [19] 1023 	ld	b, -25 (ix)
-   5111 0E 02         [ 7] 1024 	ld	c,#0x02
-   5113 C5            [11] 1025 	push	bc
-   5114 FD E5         [15] 1026 	push	iy
-   5116 D5            [11] 1027 	push	de
-   5117 CD 7C 51      [17] 1028 	call	_cpct_drawSprite
-   511A C1            [10] 1029 	pop	bc
+   11C7 E5            [11] 1018 	push	hl
+   11C8 FD E1         [14] 1019 	pop	iy
+   11CA DD 5E F4      [19] 1020 	ld	e,-12 (ix)
+   11CD DD 56 F5      [19] 1021 	ld	d,-11 (ix)
+   11D0 C5            [11] 1022 	push	bc
+   11D1 DD 46 F8      [19] 1023 	ld	b, -8 (ix)
+   11D4 0E 02         [ 7] 1024 	ld	c,#0x02
+   11D6 C5            [11] 1025 	push	bc
+   11D7 FD E5         [15] 1026 	push	iy
+   11D9 D5            [11] 1027 	push	de
+   11DA CD 3F 12      [17] 1028 	call	_cpct_drawSprite
+   11DD C1            [10] 1029 	pop	bc
                            1030 ;src/text/text.c:356: if (character == 48 || character == 60 || character == 57)
-   511B 79            [ 4] 1031 	ld	a,c
-   511C FE 30         [ 7] 1032 	cp	a,#0x30
-   511E 28 08         [12] 1033 	jr	Z,00144$
-   5120 FE 3C         [ 7] 1034 	cp	a,#0x3c
-   5122 28 04         [12] 1035 	jr	Z,00144$
-   5124 D6 39         [ 7] 1036 	sub	a, #0x39
-   5126 20 03         [12] 1037 	jr	NZ,00149$
-   5128                    1038 00144$:
+   11DE 79            [ 4] 1031 	ld	a,c
+   11DF FE 30         [ 7] 1032 	cp	a,#0x30
+   11E1 28 08         [12] 1033 	jr	Z,00144$
+   11E3 FE 3C         [ 7] 1034 	cp	a,#0x3c
+   11E5 28 04         [12] 1035 	jr	Z,00144$
+   11E7 D6 39         [ 7] 1036 	sub	a, #0x39
+   11E9 20 03         [12] 1037 	jr	NZ,00149$
+   11EB                    1038 00144$:
                            1039 ;src/text/text.c:357: xPos--;
-   5128 DD 35 06      [23] 1040 	dec	6 (ix)
-   512B                    1041 00149$:
+   11EB DD 35 06      [23] 1040 	dec	6 (ix)
+   11EE                    1041 00149$:
                            1042 ;src/text/text.c:359: character = text[++x];
-   512B DD 34 DC      [23] 1043 	inc	-36 (ix)
-   512E DD 7E FE      [19] 1044 	ld	a, -2 (ix)
-   5131 DD 86 DC      [19] 1045 	add	a, -36 (ix)
-   5134 6F            [ 4] 1046 	ld	l, a
-   5135 DD 7E FF      [19] 1047 	ld	a, -1 (ix)
-   5138 CE 00         [ 7] 1048 	adc	a, #0x00
-   513A 67            [ 4] 1049 	ld	h, a
-   513B 7E            [ 7] 1050 	ld	a, (hl)
-   513C DD 77 FD      [19] 1051 	ld	-3 (ix), a
+   11EE DD 34 DA      [23] 1043 	inc	-38 (ix)
+   11F1 DD 7E EB      [19] 1044 	ld	a, -21 (ix)
+   11F4 DD 86 DA      [19] 1045 	add	a, -38 (ix)
+   11F7 6F            [ 4] 1046 	ld	l, a
+   11F8 DD 7E EC      [19] 1047 	ld	a, -20 (ix)
+   11FB CE 00         [ 7] 1048 	adc	a, #0x00
+   11FD 67            [ 4] 1049 	ld	h, a
+   11FE 7E            [ 7] 1050 	ld	a, (hl)
+   11FF DD 77 EE      [19] 1051 	ld	-18 (ix), a
                            1052 ;src/text/text.c:360: xPos += FONT_0_W;
-   513F DD 34 06      [23] 1053 	inc	6 (ix)
-   5142 DD 34 06      [23] 1054 	inc	6 (ix)
-   5145 C3 6B 4E      [10] 1055 	jp	00156$
-   5148                    1056 00161$:
-   5148 DD F9         [10] 1057 	ld	sp, ix
-   514A DD E1         [14] 1058 	pop	ix
-   514C C9            [10] 1059 	ret
+   1202 DD 34 06      [23] 1053 	inc	6 (ix)
+   1205 DD 34 06      [23] 1054 	inc	6 (ix)
+   1208 C3 2E 0F      [10] 1055 	jp	00156$
+   120B                    1056 00161$:
+   120B DD F9         [10] 1057 	ld	sp, ix
+   120D DD E1         [14] 1058 	pop	ix
+   120F C9            [10] 1059 	ret
                            1060 	.area _CODE
                            1061 	.area _INITIALIZER
                            1062 	.area _CABS (ABS)

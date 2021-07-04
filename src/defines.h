@@ -68,4 +68,6 @@
 #define NUMBER 2
 #define TEMPORAL 3
 
+#define MAX_CARDS_IN_HAND 10
+
 #endif

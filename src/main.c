@@ -30,8 +30,7 @@ u32 i_time;
 u8 *pvmem;           // Pointer to video memory
 u8 aux_txt[50];      // String
 u8 selected_card, previous_card;
-u8 const max_cards_in_hand = 10;
-u8 cards[max_cards_in_hand];
+u8 cards[MAX_CARDS_IN_HAND];
 u8 num_cards;
 u8 moved;
 u8 *const card_sprite[2] = {s_cards_0, s_cards_1}; // Cards sprites
@@ -58,15 +57,25 @@ void myInterruptHandler(){
    if (g_nInterrupt == 1){
       cpct_setVideoMode(0);
       cpct_setPalette(g_palette0, 16);
-   }
+      cpct_setBorder(HW_BLACK);
+   } else 
+   if (g_nInterrupt == 2){
+      cpct_setBorder(HW_BLUE);
+   } else
+   if (g_nInterrupt == 3){
+      cpct_setBorder(HW_RED);
+   } else
+   if (g_nInterrupt == 4){
+      cpct_setBorder(HW_YELLOW);
+   }else
    if (g_nInterrupt == 5){
       cpct_setVideoMode(1);
       cpct_setPalette(g_palette1, 4);
-   }
-   if (g_nInterrupt == 6)
-   {
+      cpct_setBorder(HW_MAGENTA);
+   }else if (g_nInterrupt == 6){
       cpct_scanKeyboard();
       g_nInterrupt = 0;
+      cpct_setBorder(HW_BRIGHT_BLUE);
     }
 }
 
