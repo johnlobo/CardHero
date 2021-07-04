@@ -1,0 +1,172 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           
+     00000000  l__CABS                         
+     00000000  l__DABS                         
+     00000000  l__GSFINAL                      
+     00000000  l__HOME                         
+     00000000  l__INITIALIZED                  
+     00000000  l__INITIALIZER                  
+     00000000  s__CABS                         
+     00000000  s__DABS                         
+     00000008  l__GSINIT                       
+     0000003C  l__DATA                         
+     00001FA0  l__CODE                         
+     00004000  s__CODE                         
+     00005FA0  s__DATA                         
+     00005FDC  s__GSINIT                       
+     00005FDC  s__HOME                         
+     00005FDC  s__INITIALIZED                  
+     00005FE4  s__GSFINAL                      
+     00005FE4  s__INITIALIZER                  
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00004000    00001FA0 =        8096. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00004000  _s_fonts_1                         font_chars_1
+     00004183  _g_palette1                        g_palette1
+     00004187  _s_fonts_0                         font_chars_0
+     0000447B  _s_cards_0                         cards
+     000045C3  _s_cards_1                         cards
+     0000470B  _g_palette0                        g_palette0
+     0000471B  _myInterruptHandler                main
+     00004773  _card_sprite                       main
+     00004777  _card_description                  main
+     000047DB  _initCPC                           main
+     00004814  _check_keyboard                    main
+     0000485B  _draw_cards                        main
+     00004A6C  _main                              main
+     00004AD2  _strLength                         text
+     00004AE8  _swapColors                        text
+     00004B00  _strCopy                           text
+     00004B29  _strCmp                            text
+     00004B6C  _drawTextM1                        text
+     00004D7E  _drawText                          text
+     0000514D  _cpct_setPalette                   cpct_video
+     00005164  _cpct_isKeyPressed                 cpct_keyboard
+     00005164  cpct_isKeyPressed_asm              cpct_keyboard
+     00005170  _cpct_setPALColour                 cpct_video
+     0000517C  _cpct_drawSprite                   cpct_sprites
+     00005221  _cpct_keyboardStatusBuffer         cpct_keyboard
+     0000522B  _cpct_waitHalts                    cpct_memutils
+     00005230  _cpct_memset_f64                   cpct_memutils
+     0000529B  _vsprintf                          sprintf
+     000052D0  _sprintf                           sprintf
+     00005305  _cpct_waitVSYNC                    cpct_video
+     00005305  cpct_waitVSYNC_asm                 cpct_video
+     0000530D  _cpct_setVideoMode                 cpct_video
+     0000531B  _cpct_disableFirmware              cpct_firmware
+     0000531B  _cpct_removeInterruptHandler       cpct_firmware
+     0000531B  cpct_disableFirmware_asm           cpct_firmware
+     0000531B  cpct_removeInterruptHandler_asm    cpct_firmware
+     0000532B  _cpct_drawSolidBox                 cpct_sprites
+     000053D5  _cpct_mode_rom_status              cpct_firmware
+     000053D6  _cpct_getScreenPtr                 cpct_video
+     000053F6  _cpct_scanKeyboard                 cpct_keyboard
+     000053F6  cpct_scanKeyboard_asm              cpct_keyboard
+     00005427  _cpct_setInterruptHandler          cpct_firmware
+     00005427  cpct_setInterruptHandler_asm       cpct_firmware
+     00005438  cpct_safeInterruptHandlerHook      cpct_firmware
+     0000554E  __print_format                     printf_large
+     00005F90  ___sdcc_call_hl                    
+     00005F91  _strlen                            
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_DATA                               00005FA0    0000003C =          60. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00005FA0  _i_time                            main
+     00005FA4  _pvmem                             main
+     00005FA6  _aux_txt                           main
+     00005FD8  _selected_card                     main
+     00005FD9  _previous_card                     main
+     00005FDA  _moved                             main
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_GSINIT                             00005FDC    00000008 =           8. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+
+Files Linked                              [ module(s) ]
+
+obj/sprites/font_chars_1.rel              [ font_chars_1 ]
+obj/sprites/g_palette1.rel                [ g_palette1 ]
+obj/sprites/font_chars_0.rel              [ font_chars_0 ]
+obj/sprites/cards.rel                     [ cards ]
+obj/sprites/g_palette0.rel                [ g_palette0 ]
+obj/main.rel                              [ main ]
+obj/text/text.rel                         [ text ]
+
+
+Libraries Linked                          [ object file ]
+
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setPalette_cbindings.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_isKeyPressed.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setPALColour_cbindings.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawSprite_cbindings.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ keyboard.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_waitHalts_cbindings.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_memset_f64_cbinding.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ sprintf.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_waitVSYNC.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setVideoMode_cbindings.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_removeInterruptHandler.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawSolidBox_cbindings.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpc_mode_rom_status.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_getScreenPtr_cbindings.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_scanKeyboard.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setInterruptHandler.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ printf_large.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ __sdcc_call_hl.rel ]
+/Users/david/Documents/retro/proyectos/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ strlen.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+
+User Base Address Definitions
+
+_CODE = 0x4000
+_DATA = 0x0000
+
+

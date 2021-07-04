@@ -1,0 +1,667 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.6.8 #9946 (Mac OS X x86_64)
+                              4 ;--------------------------------------------------------
+                              5 	.module main
+                              6 	.optsdcc -mz80
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _main
+                             12 	.globl _draw_cards
+                             13 	.globl _check_keyboard
+                             14 	.globl _initCPC
+                             15 	.globl _myInterruptHandler
+                             16 	.globl _drawTextM1
+                             17 	.globl _sprintf
+                             18 	.globl _cpct_getScreenPtr
+                             19 	.globl _cpct_setPALColour
+                             20 	.globl _cpct_setPalette
+                             21 	.globl _cpct_waitVSYNC
+                             22 	.globl _cpct_setVideoMode
+                             23 	.globl _cpct_drawSprite
+                             24 	.globl _cpct_drawSolidBox
+                             25 	.globl _cpct_isKeyPressed
+                             26 	.globl _cpct_scanKeyboard
+                             27 	.globl _cpct_waitHalts
+                             28 	.globl _cpct_memset_f64
+                             29 	.globl _cpct_setInterruptHandler
+                             30 	.globl _cpct_disableFirmware
+                             31 	.globl _moved
+                             32 	.globl _previous_card
+                             33 	.globl _selected_card
+                             34 	.globl _aux_txt
+                             35 	.globl _pvmem
+                             36 	.globl _i_time
+                             37 	.globl _card_description
+                             38 	.globl _card_sprite
+                             39 ;--------------------------------------------------------
+                             40 ; special function registers
+                             41 ;--------------------------------------------------------
+                             42 ;--------------------------------------------------------
+                             43 ; ram data
+                             44 ;--------------------------------------------------------
+                             45 	.area _DATA
+   0000                      46 _i_time::
+   0000                      47 	.ds 4
+   0004                      48 _pvmem::
+   0004                      49 	.ds 2
+   0006                      50 _aux_txt::
+   0006                      51 	.ds 50
+   0038                      52 _selected_card::
+   0038                      53 	.ds 1
+   0039                      54 _previous_card::
+   0039                      55 	.ds 1
+   003A                      56 _moved::
+   003A                      57 	.ds 1
+   003B                      58 _myInterruptHandler_g_nInterrupt_1_124:
+   003B                      59 	.ds 1
+                             60 ;--------------------------------------------------------
+                             61 ; ram data
+                             62 ;--------------------------------------------------------
+                             63 	.area _INITIALIZED
+                             64 ;--------------------------------------------------------
+                             65 ; absolute external ram data
+                             66 ;--------------------------------------------------------
+                             67 	.area _DABS (ABS)
+                             68 ;--------------------------------------------------------
+                             69 ; global & static initialisations
+                             70 ;--------------------------------------------------------
+                             71 	.area _HOME
+                             72 	.area _GSINIT
+                             73 	.area _GSFINAL
+                             74 	.area _GSINIT
+                             75 ;src/main.c:51: static u8 g_nInterrupt = 0; // Manage Interrupt
+   0000 FD 21r3Br00   [14]   76 	ld	iy, #_myInterruptHandler_g_nInterrupt_1_124
+   0004 FD 36 00 00   [19]   77 	ld	0 (iy), #0x00
+                             78 ;--------------------------------------------------------
+                             79 ; Home
+                             80 ;--------------------------------------------------------
+                             81 	.area _HOME
+                             82 	.area _HOME
+                             83 ;--------------------------------------------------------
+                             84 ; code
+                             85 ;--------------------------------------------------------
+                             86 	.area _CODE
+                             87 ;src/main.c:50: void myInterruptHandler(){
+                             88 ;	---------------------------------
+                             89 ; Function myInterruptHandler
+                             90 ; ---------------------------------
+   0000                      91 _myInterruptHandler::
+                             92 ;src/main.c:53: i_time++;
+   0000 FD 21r00r00   [14]   93 	ld	iy, #_i_time
+   0004 FD 34 00      [23]   94 	inc	0 (iy)
+   0007 20 0D         [12]   95 	jr	NZ,00121$
+   0009 FD 34 01      [23]   96 	inc	1 (iy)
+   000C 20 08         [12]   97 	jr	NZ,00121$
+   000E FD 34 02      [23]   98 	inc	2 (iy)
+   0011 20 03         [12]   99 	jr	NZ,00121$
+   0013 FD 34 03      [23]  100 	inc	3 (iy)
+   0016                     101 00121$:
+                            102 ;src/main.c:54: g_nInterrupt++;
+   0016 FD 21r3Br00   [14]  103 	ld	iy, #_myInterruptHandler_g_nInterrupt_1_124
+   001A FD 34 00      [23]  104 	inc	0 (iy)
+                            105 ;src/main.c:55: if (g_nInterrupt == 1){
+   001D FD 7E 00      [19]  106 	ld	a, 0 (iy)
+                            107 ;src/main.c:56: cpct_setVideoMode(0);
+   0020 3D            [ 4]  108 	dec	a
+   0021 20 0F         [12]  109 	jr	NZ,00102$
+   0023 6F            [ 4]  110 	ld	l,a
+   0024 CDr00r00      [17]  111 	call	_cpct_setVideoMode
+                            112 ;src/main.c:57: cpct_setPalette(g_palette0, 16);
+   0027 21 10 00      [10]  113 	ld	hl, #0x0010
+   002A E5            [11]  114 	push	hl
+   002B 21r00r00      [10]  115 	ld	hl, #_g_palette0
+   002E E5            [11]  116 	push	hl
+   002F CDr00r00      [17]  117 	call	_cpct_setPalette
+   0032                     118 00102$:
+                            119 ;src/main.c:59: if (g_nInterrupt == 5){
+   0032 3Ar3Br00      [13]  120 	ld	a,(#_myInterruptHandler_g_nInterrupt_1_124 + 0)
+   0035 D6 05         [ 7]  121 	sub	a, #0x05
+   0037 20 10         [12]  122 	jr	NZ,00104$
+                            123 ;src/main.c:60: cpct_setVideoMode(1);
+   0039 2E 01         [ 7]  124 	ld	l, #0x01
+   003B CDr00r00      [17]  125 	call	_cpct_setVideoMode
+                            126 ;src/main.c:61: cpct_setPalette(g_palette1, 4);
+   003E 21 04 00      [10]  127 	ld	hl, #0x0004
+   0041 E5            [11]  128 	push	hl
+   0042 21r00r00      [10]  129 	ld	hl, #_g_palette1
+   0045 E5            [11]  130 	push	hl
+   0046 CDr00r00      [17]  131 	call	_cpct_setPalette
+   0049                     132 00104$:
+                            133 ;src/main.c:63: if (g_nInterrupt == 6)
+   0049 3Ar3Br00      [13]  134 	ld	a,(#_myInterruptHandler_g_nInterrupt_1_124 + 0)
+   004C D6 06         [ 7]  135 	sub	a, #0x06
+   004E C0            [11]  136 	ret	NZ
+                            137 ;src/main.c:65: cpct_scanKeyboard();
+   004F CDr00r00      [17]  138 	call	_cpct_scanKeyboard
+                            139 ;src/main.c:66: g_nInterrupt = 0;
+   0052 21r3Br00      [10]  140 	ld	hl,#_myInterruptHandler_g_nInterrupt_1_124 + 0
+   0055 36 00         [10]  141 	ld	(hl), #0x00
+   0057 C9            [10]  142 	ret
+   0058                     143 _card_sprite:
+   0058r00r00               144 	.dw _s_cards_0
+   005Ar00r00               145 	.dw _s_cards_1
+   005C                     146 _card_description:
+   005C 53 57 4F 52 44 3A   147 	.ascii "SWORD:PRODUCES DIRECT DAMAGE TO THE ENEMY"
+        50 52 4F 44 55 43
+        45 53 20 44 49 52
+        45 43 54 20 44 41
+        4D 41 47 45 20 54
+        4F 20 54 48 45 20
+        45 4E 45 4D 59
+   0085 00                  148 	.db 0x00
+   0086 00                  149 	.db 0x00
+   0087 00                  150 	.db 0x00
+   0088 00                  151 	.db 0x00
+   0089 00                  152 	.db 0x00
+   008A 00                  153 	.db 0x00
+   008B 00                  154 	.db 0x00
+   008C 00                  155 	.db 0x00
+   008D 00                  156 	.db 0x00
+   008E 53 48 49 45 4C 44   157 	.ascii "SHIELD:PROTECTS SOME DAMAGE"
+        3A 50 52 4F 54 45
+        43 54 53 20 53 4F
+        4D 45 20 44 41 4D
+        41 47 45
+   00A9 00                  158 	.db 0x00
+   00AA 00                  159 	.db 0x00
+   00AB 00                  160 	.db 0x00
+   00AC 00                  161 	.db 0x00
+   00AD 00                  162 	.db 0x00
+   00AE 00                  163 	.db 0x00
+   00AF 00                  164 	.db 0x00
+   00B0 00                  165 	.db 0x00
+   00B1 00                  166 	.db 0x00
+   00B2 00                  167 	.db 0x00
+   00B3 00                  168 	.db 0x00
+   00B4 00                  169 	.db 0x00
+   00B5 00                  170 	.db 0x00
+   00B6 00                  171 	.db 0x00
+   00B7 00                  172 	.db 0x00
+   00B8 00                  173 	.db 0x00
+   00B9 00                  174 	.db 0x00
+   00BA 00                  175 	.db 0x00
+   00BB 00                  176 	.db 0x00
+   00BC 00                  177 	.db 0x00
+   00BD 00                  178 	.db 0x00
+   00BE 00                  179 	.db 0x00
+   00BF 00                  180 	.db 0x00
+                            181 ;src/main.c:70: void initCPC() {
+                            182 ;	---------------------------------
+                            183 ; Function initCPC
+                            184 ; ---------------------------------
+   00C0                     185 _initCPC::
+                            186 ;src/main.c:71: cpct_disableFirmware();
+   00C0 CDr00r00      [17]  187 	call	_cpct_disableFirmware
+                            188 ;src/main.c:72: cpct_clearScreen_f64(0x0000);      // with black.
+   00C3 21 00 40      [10]  189 	ld	hl, #0x4000
+   00C6 E5            [11]  190 	push	hl
+   00C7 26 00         [ 7]  191 	ld	h, #0x00
+   00C9 E5            [11]  192 	push	hl
+   00CA 26 C0         [ 7]  193 	ld	h, #0xc0
+   00CC E5            [11]  194 	push	hl
+   00CD CDr00r00      [17]  195 	call	_cpct_memset_f64
+                            196 ;src/main.c:73: cpct_setPalette(g_palette0, 16);
+   00D0 21 10 00      [10]  197 	ld	hl, #0x0010
+   00D3 E5            [11]  198 	push	hl
+   00D4 21r00r00      [10]  199 	ld	hl, #_g_palette0
+   00D7 E5            [11]  200 	push	hl
+   00D8 CDr00r00      [17]  201 	call	_cpct_setPalette
+                            202 ;src/main.c:74: cpct_setVideoMode(0);
+   00DB 2E 00         [ 7]  203 	ld	l, #0x00
+   00DD CDr00r00      [17]  204 	call	_cpct_setVideoMode
+                            205 ;src/main.c:75: cpct_setBorder(HW_WHITE);
+   00E0 21 10 00      [10]  206 	ld	hl, #0x0010
+   00E3 E5            [11]  207 	push	hl
+   00E4 CDr00r00      [17]  208 	call	_cpct_setPALColour
+                            209 ;src/main.c:78: cpct_waitVSYNC();
+   00E7 CDr00r00      [17]  210 	call	_cpct_waitVSYNC
+                            211 ;src/main.c:79: cpct_waitHalts(2);
+   00EA 2E 02         [ 7]  212 	ld	l, #0x02
+   00EC CDr00r00      [17]  213 	call	_cpct_waitHalts
+                            214 ;src/main.c:80: cpct_waitVSYNC();
+   00EF CDr00r00      [17]  215 	call	_cpct_waitVSYNC
+                            216 ;src/main.c:81: cpct_setInterruptHandler(myInterruptHandler);
+   00F2 21r00r00      [10]  217 	ld	hl, #_myInterruptHandler
+   00F5 CDr00r00      [17]  218 	call	_cpct_setInterruptHandler
+   00F8 C9            [10]  219 	ret
+                            220 ;src/main.c:85: void check_keyboard(){
+                            221 ;	---------------------------------
+                            222 ; Function check_keyboard
+                            223 ; ---------------------------------
+   00F9                     224 _check_keyboard::
+                            225 ;src/main.c:86: if (cpct_isKeyPressed(Key_CursorLeft) && (selected_card>0)){
+   00F9 21 01 01      [10]  226 	ld	hl, #0x0101
+   00FC CDr00r00      [17]  227 	call	_cpct_isKeyPressed
+   00FF 7D            [ 4]  228 	ld	a, l
+   0100 B7            [ 4]  229 	or	a, a
+   0101 28 1A         [12]  230 	jr	Z,00105$
+   0103 FD 21r38r00   [14]  231 	ld	iy, #_selected_card
+   0107 FD 7E 00      [19]  232 	ld	a, 0 (iy)
+   010A B7            [ 4]  233 	or	a, a
+   010B 28 10         [12]  234 	jr	Z,00105$
+                            235 ;src/main.c:87: previous_card = selected_card;
+   010D FD 7E 00      [19]  236 	ld	a, 0 (iy)
+   0110 32r39r00      [13]  237 	ld	(#_previous_card + 0),a
+                            238 ;src/main.c:88: selected_card--;
+   0113 21r38r00      [10]  239 	ld	hl, #_selected_card+0
+   0116 35            [11]  240 	dec	(hl)
+                            241 ;src/main.c:89: moved = YES;
+   0117 21r3Ar00      [10]  242 	ld	hl,#_moved + 0
+   011A 36 01         [10]  243 	ld	(hl), #0x01
+   011C C9            [10]  244 	ret
+   011D                     245 00105$:
+                            246 ;src/main.c:90: } else if (cpct_isKeyPressed(Key_CursorRight) && (selected_card<9)){
+   011D 21 00 02      [10]  247 	ld	hl, #0x0200
+   0120 CDr00r00      [17]  248 	call	_cpct_isKeyPressed
+   0123 7D            [ 4]  249 	ld	a, l
+   0124 B7            [ 4]  250 	or	a, a
+   0125 C8            [11]  251 	ret	Z
+   0126 FD 21r38r00   [14]  252 	ld	iy, #_selected_card
+   012A FD 7E 00      [19]  253 	ld	a, 0 (iy)
+   012D D6 09         [ 7]  254 	sub	a, #0x09
+   012F D0            [11]  255 	ret	NC
+                            256 ;src/main.c:91: previous_card = selected_card;
+   0130 FD 7E 00      [19]  257 	ld	a, 0 (iy)
+   0133 32r39r00      [13]  258 	ld	(#_previous_card + 0),a
+                            259 ;src/main.c:92: selected_card++;
+   0136 21r38r00      [10]  260 	ld	hl, #_selected_card+0
+   0139 34            [11]  261 	inc	(hl)
+                            262 ;src/main.c:93: moved = YES;
+   013A 21r3Ar00      [10]  263 	ld	hl,#_moved + 0
+   013D 36 01         [10]  264 	ld	(hl), #0x01
+   013F C9            [10]  265 	ret
+                            266 ;src/main.c:97: void draw_cards(){
+                            267 ;	---------------------------------
+                            268 ; Function draw_cards
+                            269 ; ---------------------------------
+   0140                     270 _draw_cards::
+   0140 DD E5         [15]  271 	push	ix
+   0142 DD 21 00 00   [14]  272 	ld	ix,#0
+   0146 DD 39         [15]  273 	add	ix,sp
+   0148 21 F2 FF      [10]  274 	ld	hl, #-14
+   014B 39            [11]  275 	add	hl, sp
+   014C F9            [ 6]  276 	ld	sp, hl
+                            277 ;src/main.c:99: u8 cards[10] = {1,0,1,1,0,1,0,1,0,1};
+   014D 21 00 00      [10]  278 	ld	hl, #0x0000
+   0150 39            [11]  279 	add	hl, sp
+   0151 4D            [ 4]  280 	ld	c,l
+   0152 44            [ 4]  281 	ld	b,h
+   0153 36 01         [10]  282 	ld	(hl),#0x01
+   0155 59            [ 4]  283 	ld	e, c
+   0156 50            [ 4]  284 	ld	d, b
+   0157 13            [ 6]  285 	inc	de
+   0158 AF            [ 4]  286 	xor	a, a
+   0159 12            [ 7]  287 	ld	(de), a
+   015A 69            [ 4]  288 	ld	l, c
+   015B 60            [ 4]  289 	ld	h, b
+   015C 23            [ 6]  290 	inc	hl
+   015D 23            [ 6]  291 	inc	hl
+   015E 36 01         [10]  292 	ld	(hl), #0x01
+   0160 69            [ 4]  293 	ld	l, c
+   0161 60            [ 4]  294 	ld	h, b
+   0162 23            [ 6]  295 	inc	hl
+   0163 23            [ 6]  296 	inc	hl
+   0164 23            [ 6]  297 	inc	hl
+   0165 36 01         [10]  298 	ld	(hl), #0x01
+   0167 21 04 00      [10]  299 	ld	hl, #0x0004
+   016A 09            [11]  300 	add	hl, bc
+   016B 36 00         [10]  301 	ld	(hl), #0x00
+   016D 21 05 00      [10]  302 	ld	hl, #0x0005
+   0170 09            [11]  303 	add	hl, bc
+   0171 36 01         [10]  304 	ld	(hl), #0x01
+   0173 21 06 00      [10]  305 	ld	hl, #0x0006
+   0176 09            [11]  306 	add	hl, bc
+   0177 36 00         [10]  307 	ld	(hl), #0x00
+   0179 21 07 00      [10]  308 	ld	hl, #0x0007
+   017C 09            [11]  309 	add	hl, bc
+   017D 36 01         [10]  310 	ld	(hl), #0x01
+   017F 21 08 00      [10]  311 	ld	hl, #0x0008
+   0182 09            [11]  312 	add	hl, bc
+   0183 36 00         [10]  313 	ld	(hl), #0x00
+   0185 21 09 00      [10]  314 	ld	hl, #0x0009
+   0188 09            [11]  315 	add	hl, bc
+   0189 36 01         [10]  316 	ld	(hl), #0x01
+                            317 ;src/main.c:102: cpct_waitVSYNC();
+   018B C5            [11]  318 	push	bc
+   018C CDr00r00      [17]  319 	call	_cpct_waitVSYNC
+   018F 2E 14         [ 7]  320 	ld	l, #0x14
+   0191 CDr00r00      [17]  321 	call	_cpct_waitHalts
+   0194 C1            [10]  322 	pop	bc
+                            323 ;src/main.c:106: pvmem = cpct_getScreenPtr((u8*) 0xC000, (previous_card*(S_CARDS_0_W-3))-2, 95);
+   0195 3Ar39r00      [13]  324 	ld	a,(#_previous_card + 0)
+   0198 5F            [ 4]  325 	ld	e, a
+   0199 87            [ 4]  326 	add	a, a
+   019A 87            [ 4]  327 	add	a, a
+   019B 83            [ 4]  328 	add	a, e
+   019C 57            [ 4]  329 	ld	d, a
+   019D 15            [ 4]  330 	dec	d
+   019E 15            [ 4]  331 	dec	d
+   019F C5            [11]  332 	push	bc
+   01A0 3E 5F         [ 7]  333 	ld	a, #0x5f
+   01A2 F5            [11]  334 	push	af
+   01A3 33            [ 6]  335 	inc	sp
+   01A4 D5            [11]  336 	push	de
+   01A5 33            [ 6]  337 	inc	sp
+   01A6 21 00 C0      [10]  338 	ld	hl, #0xc000
+   01A9 E5            [11]  339 	push	hl
+   01AA CDr00r00      [17]  340 	call	_cpct_getScreenPtr
+   01AD C1            [10]  341 	pop	bc
+   01AE 22r04r00      [16]  342 	ld	(_pvmem), hl
+                            343 ;src/main.c:107: cpct_drawSolidBox(pvmem, 0x33, S_CARDS_0_W+4, S_CARDS_0_H+4);
+   01B1 2Ar04r00      [16]  344 	ld	hl, (_pvmem)
+   01B4 C5            [11]  345 	push	bc
+   01B5 11 0C 2D      [10]  346 	ld	de, #0x2d0c
+   01B8 D5            [11]  347 	push	de
+   01B9 11 33 00      [10]  348 	ld	de, #0x0033
+   01BC D5            [11]  349 	push	de
+   01BD E5            [11]  350 	push	hl
+   01BE CDr00r00      [17]  351 	call	_cpct_drawSolidBox
+   01C1 2E 14         [ 7]  352 	ld	l, #0x14
+   01C3 CDr00r00      [17]  353 	call	_cpct_waitHalts
+   01C6 21 0A 96      [10]  354 	ld	hl, #0x960a
+   01C9 E5            [11]  355 	push	hl
+   01CA 21 00 C0      [10]  356 	ld	hl, #0xc000
+   01CD E5            [11]  357 	push	hl
+   01CE CDr00r00      [17]  358 	call	_cpct_getScreenPtr
+   01D1 C1            [10]  359 	pop	bc
+   01D2 22r04r00      [16]  360 	ld	(_pvmem), hl
+                            361 ;src/main.c:112: cpct_drawSolidBox(pvmem, 0x00, 50, 9);
+   01D5 2Ar04r00      [16]  362 	ld	hl, (_pvmem)
+   01D8 C5            [11]  363 	push	bc
+   01D9 11 32 09      [10]  364 	ld	de, #0x0932
+   01DC D5            [11]  365 	push	de
+   01DD 11 00 00      [10]  366 	ld	de, #0x0000
+   01E0 D5            [11]  367 	push	de
+   01E1 E5            [11]  368 	push	hl
+   01E2 CDr00r00      [17]  369 	call	_cpct_drawSolidBox
+   01E5 2E 14         [ 7]  370 	ld	l, #0x14
+   01E7 CDr00r00      [17]  371 	call	_cpct_waitHalts
+   01EA C1            [10]  372 	pop	bc
+                            373 ;src/main.c:116: for (i=0;i<selected_card;i++){
+   01EB DD 36 FC 00   [19]  374 	ld	-4 (ix), #0x00
+   01EF                     375 00104$:
+   01EF 21r38r00      [10]  376 	ld	hl, #_selected_card
+   01F2 DD 7E FC      [19]  377 	ld	a, -4 (ix)
+   01F5 96            [ 7]  378 	sub	a, (hl)
+   01F6 30 4A         [12]  379 	jr	NC,00101$
+                            380 ;src/main.c:117: pvmem = cpct_getScreenPtr((u8*) 0xC000, 2+(i*(S_CARDS_0_W-3)), 99);
+   01F8 DD 6E FC      [19]  381 	ld	l, -4 (ix)
+   01FB 5D            [ 4]  382 	ld	e, l
+   01FC 29            [11]  383 	add	hl, hl
+   01FD 29            [11]  384 	add	hl, hl
+   01FE 19            [11]  385 	add	hl, de
+   01FF 55            [ 4]  386 	ld	d, l
+   0200 14            [ 4]  387 	inc	d
+   0201 14            [ 4]  388 	inc	d
+   0202 C5            [11]  389 	push	bc
+   0203 3E 63         [ 7]  390 	ld	a, #0x63
+   0205 F5            [11]  391 	push	af
+   0206 33            [ 6]  392 	inc	sp
+   0207 D5            [11]  393 	push	de
+   0208 33            [ 6]  394 	inc	sp
+   0209 21 00 C0      [10]  395 	ld	hl, #0xc000
+   020C E5            [11]  396 	push	hl
+   020D CDr00r00      [17]  397 	call	_cpct_getScreenPtr
+   0210 C1            [10]  398 	pop	bc
+   0211 22r04r00      [16]  399 	ld	(_pvmem), hl
+                            400 ;src/main.c:118: cpct_drawSprite(card_sprite[cards[i]], pvmem, S_CARDS_0_W, S_CARDS_0_H);
+   0214 ED 5Br04r00   [20]  401 	ld	de, (_pvmem)
+   0218 DD 6E FC      [19]  402 	ld	l,-4 (ix)
+   021B 26 00         [ 7]  403 	ld	h,#0x00
+   021D 09            [11]  404 	add	hl, bc
+   021E 6E            [ 7]  405 	ld	l, (hl)
+   021F 26 00         [ 7]  406 	ld	h, #0x00
+   0221 29            [11]  407 	add	hl, hl
+   0222 3Er58         [ 7]  408 	ld	a, #<(_card_sprite)
+   0224 85            [ 4]  409 	add	a, l
+   0225 6F            [ 4]  410 	ld	l, a
+   0226 3Es00         [ 7]  411 	ld	a, #>(_card_sprite)
+   0228 8C            [ 4]  412 	adc	a, h
+   0229 67            [ 4]  413 	ld	h, a
+   022A 7E            [ 7]  414 	ld	a, (hl)
+   022B 23            [ 6]  415 	inc	hl
+   022C 66            [ 7]  416 	ld	h, (hl)
+   022D 6F            [ 4]  417 	ld	l, a
+   022E E5            [11]  418 	push	hl
+   022F FD E1         [14]  419 	pop	iy
+   0231 C5            [11]  420 	push	bc
+   0232 21 08 29      [10]  421 	ld	hl, #0x2908
+   0235 E5            [11]  422 	push	hl
+   0236 D5            [11]  423 	push	de
+   0237 FD E5         [15]  424 	push	iy
+   0239 CDr00r00      [17]  425 	call	_cpct_drawSprite
+   023C C1            [10]  426 	pop	bc
+                            427 ;src/main.c:116: for (i=0;i<selected_card;i++){
+   023D DD 34 FC      [23]  428 	inc	-4 (ix)
+   0240 18 AD         [12]  429 	jr	00104$
+   0242                     430 00101$:
+                            431 ;src/main.c:121: cpct_waitHalts(20);
+   0242 C5            [11]  432 	push	bc
+   0243 2E 14         [ 7]  433 	ld	l, #0x14
+   0245 CDr00r00      [17]  434 	call	_cpct_waitHalts
+   0248 C1            [10]  435 	pop	bc
+                            436 ;src/main.c:123: for (i=selected_card+1;i<10;i++){
+   0249 3Ar38r00      [13]  437 	ld	a,(#_selected_card + 0)
+   024C 3C            [ 4]  438 	inc	a
+   024D DD 77 FF      [19]  439 	ld	-1 (ix), a
+   0250                     440 00107$:
+   0250 DD 7E FF      [19]  441 	ld	a, -1 (ix)
+   0253 D6 0A         [ 7]  442 	sub	a, #0x0a
+   0255 30 44         [12]  443 	jr	NC,00102$
+                            444 ;src/main.c:124: pvmem = cpct_getScreenPtr((u8*) 0xC000, 4+(i*(S_CARDS_0_W-3)), 99);
+   0257 DD 7E FF      [19]  445 	ld	a, -1 (ix)
+   025A 5F            [ 4]  446 	ld	e, a
+   025B 87            [ 4]  447 	add	a, a
+   025C 87            [ 4]  448 	add	a, a
+   025D 83            [ 4]  449 	add	a, e
+   025E 57            [ 4]  450 	ld	d, a
+   025F 14            [ 4]  451 	inc	d
+   0260 14            [ 4]  452 	inc	d
+   0261 14            [ 4]  453 	inc	d
+   0262 14            [ 4]  454 	inc	d
+   0263 C5            [11]  455 	push	bc
+   0264 3E 63         [ 7]  456 	ld	a, #0x63
+   0266 F5            [11]  457 	push	af
+   0267 33            [ 6]  458 	inc	sp
+   0268 D5            [11]  459 	push	de
+   0269 33            [ 6]  460 	inc	sp
+   026A 21 00 C0      [10]  461 	ld	hl, #0xc000
+   026D E5            [11]  462 	push	hl
+   026E CDr00r00      [17]  463 	call	_cpct_getScreenPtr
+   0271 C1            [10]  464 	pop	bc
+   0272 22r04r00      [16]  465 	ld	(_pvmem), hl
+                            466 ;src/main.c:125: cpct_drawSprite(card_sprite[cards[i]], pvmem, S_CARDS_0_W, S_CARDS_0_H);
+   0275 FD 2Ar04r00   [20]  467 	ld	iy, (_pvmem)
+   0279 DD 6E FF      [19]  468 	ld	l,-1 (ix)
+   027C 26 00         [ 7]  469 	ld	h,#0x00
+   027E 09            [11]  470 	add	hl, bc
+   027F 6E            [ 7]  471 	ld	l, (hl)
+   0280 26 00         [ 7]  472 	ld	h, #0x00
+   0282 29            [11]  473 	add	hl, hl
+   0283 11r58r00      [10]  474 	ld	de, #_card_sprite
+   0286 19            [11]  475 	add	hl, de
+   0287 5E            [ 7]  476 	ld	e, (hl)
+   0288 23            [ 6]  477 	inc	hl
+   0289 56            [ 7]  478 	ld	d, (hl)
+   028A C5            [11]  479 	push	bc
+   028B 21 08 29      [10]  480 	ld	hl, #0x2908
+   028E E5            [11]  481 	push	hl
+   028F FD E5         [15]  482 	push	iy
+   0291 D5            [11]  483 	push	de
+   0292 CDr00r00      [17]  484 	call	_cpct_drawSprite
+   0295 C1            [10]  485 	pop	bc
+                            486 ;src/main.c:123: for (i=selected_card+1;i<10;i++){
+   0296 DD 34 FF      [23]  487 	inc	-1 (ix)
+   0299 18 B5         [12]  488 	jr	00107$
+   029B                     489 00102$:
+                            490 ;src/main.c:128: cpct_waitHalts(20);
+   029B C5            [11]  491 	push	bc
+   029C 2E 14         [ 7]  492 	ld	l, #0x14
+   029E CDr00r00      [17]  493 	call	_cpct_waitHalts
+   02A1 C1            [10]  494 	pop	bc
+                            495 ;src/main.c:130: pvmem = cpct_getScreenPtr((u8*) 0xC000, 3+(selected_card*(S_CARDS_0_W-3)), 95);
+   02A2 3Ar38r00      [13]  496 	ld	a,(#_selected_card + 0)
+   02A5 5F            [ 4]  497 	ld	e, a
+   02A6 87            [ 4]  498 	add	a, a
+   02A7 87            [ 4]  499 	add	a, a
+   02A8 83            [ 4]  500 	add	a, e
+   02A9 57            [ 4]  501 	ld	d, a
+   02AA 14            [ 4]  502 	inc	d
+   02AB 14            [ 4]  503 	inc	d
+   02AC 14            [ 4]  504 	inc	d
+   02AD C5            [11]  505 	push	bc
+   02AE 3E 5F         [ 7]  506 	ld	a, #0x5f
+   02B0 F5            [11]  507 	push	af
+   02B1 33            [ 6]  508 	inc	sp
+   02B2 D5            [11]  509 	push	de
+   02B3 33            [ 6]  510 	inc	sp
+   02B4 21 00 C0      [10]  511 	ld	hl, #0xc000
+   02B7 E5            [11]  512 	push	hl
+   02B8 CDr00r00      [17]  513 	call	_cpct_getScreenPtr
+   02BB C1            [10]  514 	pop	bc
+   02BC 22r04r00      [16]  515 	ld	(_pvmem), hl
+                            516 ;src/main.c:131: cpct_drawSprite(card_sprite[cards[selected_card]], pvmem, S_CARDS_0_W, S_CARDS_0_H);
+   02BF 2Ar04r00      [16]  517 	ld	hl, (_pvmem)
+   02C2 DD 75 FD      [19]  518 	ld	-3 (ix), l
+   02C5 DD 74 FE      [19]  519 	ld	-2 (ix), h
+   02C8 2Ar38r00      [16]  520 	ld	hl, (_selected_card)
+   02CB 26 00         [ 7]  521 	ld	h, #0x00
+   02CD 09            [11]  522 	add	hl, bc
+   02CE 6E            [ 7]  523 	ld	l, (hl)
+   02CF 26 00         [ 7]  524 	ld	h, #0x00
+   02D1 29            [11]  525 	add	hl, hl
+   02D2 11r58r00      [10]  526 	ld	de, #_card_sprite
+   02D5 19            [11]  527 	add	hl, de
+   02D6 5E            [ 7]  528 	ld	e, (hl)
+   02D7 23            [ 6]  529 	inc	hl
+   02D8 56            [ 7]  530 	ld	d, (hl)
+   02D9 C5            [11]  531 	push	bc
+   02DA 21 08 29      [10]  532 	ld	hl, #0x2908
+   02DD E5            [11]  533 	push	hl
+   02DE DD 6E FD      [19]  534 	ld	l,-3 (ix)
+   02E1 DD 66 FE      [19]  535 	ld	h,-2 (ix)
+   02E4 E5            [11]  536 	push	hl
+   02E5 D5            [11]  537 	push	de
+   02E6 CDr00r00      [17]  538 	call	_cpct_drawSprite
+   02E9 2E 14         [ 7]  539 	ld	l, #0x14
+   02EB CDr00r00      [17]  540 	call	_cpct_waitHalts
+   02EE C1            [10]  541 	pop	bc
+                            542 ;src/main.c:134: drawTextM1(card_description[cards[selected_card]],10,150,NORMALHEIGHT);
+   02EF 2Ar38r00      [16]  543 	ld	hl, (_selected_card)
+   02F2 26 00         [ 7]  544 	ld	h, #0x00
+   02F4 09            [11]  545 	add	hl, bc
+   02F5 4E            [ 7]  546 	ld	c, (hl)
+   02F6 06 00         [ 7]  547 	ld	b,#0x00
+   02F8 69            [ 4]  548 	ld	l, c
+   02F9 60            [ 4]  549 	ld	h, b
+   02FA 29            [11]  550 	add	hl, hl
+   02FB 09            [11]  551 	add	hl, bc
+   02FC 29            [11]  552 	add	hl, hl
+   02FD 29            [11]  553 	add	hl, hl
+   02FE 29            [11]  554 	add	hl, hl
+   02FF 09            [11]  555 	add	hl, bc
+   0300 29            [11]  556 	add	hl, hl
+   0301 11r5Cr00      [10]  557 	ld	de, #_card_description
+   0304 19            [11]  558 	add	hl, de
+   0305 01 96 01      [10]  559 	ld	bc, #0x0196
+   0308 C5            [11]  560 	push	bc
+   0309 3E 0A         [ 7]  561 	ld	a, #0x0a
+   030B F5            [11]  562 	push	af
+   030C 33            [ 6]  563 	inc	sp
+   030D E5            [11]  564 	push	hl
+   030E CDr00r00      [17]  565 	call	_drawTextM1
+   0311 F1            [10]  566 	pop	af
+   0312 F1            [10]  567 	pop	af
+   0313 33            [ 6]  568 	inc	sp
+                            569 ;src/main.c:136: cpct_waitHalts(20);
+   0314 2E 14         [ 7]  570 	ld	l, #0x14
+   0316 CDr00r00      [17]  571 	call	_cpct_waitHalts
+                            572 ;src/main.c:137: sprintf(aux_txt, "SELECTED:%1d", selected_card);
+   0319 21r38r00      [10]  573 	ld	hl,#_selected_card + 0
+   031C 4E            [ 7]  574 	ld	c, (hl)
+   031D 06 00         [ 7]  575 	ld	b, #0x00
+   031F C5            [11]  576 	push	bc
+   0320 21r44r03      [10]  577 	ld	hl, #___str_2
+   0323 E5            [11]  578 	push	hl
+   0324 21r06r00      [10]  579 	ld	hl, #_aux_txt
+   0327 E5            [11]  580 	push	hl
+   0328 CDr00r00      [17]  581 	call	_sprintf
+   032B 21 06 00      [10]  582 	ld	hl, #6
+   032E 39            [11]  583 	add	hl, sp
+   032F F9            [ 6]  584 	ld	sp, hl
+                            585 ;src/main.c:138: drawTextM1(aux_txt,10,160,NORMALHEIGHT);
+   0330 21 A0 01      [10]  586 	ld	hl, #0x01a0
+   0333 E5            [11]  587 	push	hl
+   0334 3E 0A         [ 7]  588 	ld	a, #0x0a
+   0336 F5            [11]  589 	push	af
+   0337 33            [ 6]  590 	inc	sp
+   0338 21r06r00      [10]  591 	ld	hl, #_aux_txt
+   033B E5            [11]  592 	push	hl
+   033C CDr00r00      [17]  593 	call	_drawTextM1
+   033F DD F9         [10]  594 	ld	sp,ix
+   0341 DD E1         [14]  595 	pop	ix
+   0343 C9            [10]  596 	ret
+   0344                     597 ___str_2:
+   0344 53 45 4C 45 43 54   598 	.ascii "SELECTED:%1d"
+        45 44 3A 25 31 64
+   0350 00                  599 	.db 0x00
+                            600 ;src/main.c:142: void main(void) {
+                            601 ;	---------------------------------
+                            602 ; Function main
+                            603 ; ---------------------------------
+   0351                     604 _main::
+                            605 ;src/main.c:144: initCPC();
+   0351 CDrC0r00      [17]  606 	call	_initCPC
+                            607 ;src/main.c:146: selected_card = 4;
+   0354 21r38r00      [10]  608 	ld	hl,#_selected_card + 0
+   0357 36 04         [10]  609 	ld	(hl), #0x04
+                            610 ;src/main.c:147: previous_card = 4;
+   0359 21r39r00      [10]  611 	ld	hl,#_previous_card + 0
+   035C 36 04         [10]  612 	ld	(hl), #0x04
+                            613 ;src/main.c:148: moved = NO;
+   035E 21r3Ar00      [10]  614 	ld	hl,#_moved + 0
+   0361 36 00         [10]  615 	ld	(hl), #0x00
+                            616 ;src/main.c:150: draw_cards();
+   0363 CDr40r01      [17]  617 	call	_draw_cards
+                            618 ;src/main.c:152: drawTextM1("!,-.0123456789:?@ABCDEFGHIJKLMNOPQRSTUVWXYZ",10,190,NORMALHEIGHT);
+   0366 21 BE 01      [10]  619 	ld	hl, #0x01be
+   0369 E5            [11]  620 	push	hl
+   036A 3E 0A         [ 7]  621 	ld	a, #0x0a
+   036C F5            [11]  622 	push	af
+   036D 33            [ 6]  623 	inc	sp
+   036E 21r8Br03      [10]  624 	ld	hl, #___str_3
+   0371 E5            [11]  625 	push	hl
+   0372 CDr00r00      [17]  626 	call	_drawTextM1
+   0375 F1            [10]  627 	pop	af
+   0376 F1            [10]  628 	pop	af
+   0377 33            [ 6]  629 	inc	sp
+                            630 ;src/main.c:155: while (1){
+   0378                     631 00104$:
+                            632 ;src/main.c:156: check_keyboard();
+   0378 CDrF9r00      [17]  633 	call	_check_keyboard
+                            634 ;src/main.c:157: if (moved){
+   037B 3Ar3Ar00      [13]  635 	ld	a,(#_moved + 0)
+   037E B7            [ 4]  636 	or	a, a
+   037F 28 F7         [12]  637 	jr	Z,00104$
+                            638 ;src/main.c:158: draw_cards();
+   0381 CDr40r01      [17]  639 	call	_draw_cards
+                            640 ;src/main.c:159: moved = NO;
+   0384 21r3Ar00      [10]  641 	ld	hl,#_moved + 0
+   0387 36 00         [10]  642 	ld	(hl), #0x00
+   0389 18 ED         [12]  643 	jr	00104$
+   038B                     644 ___str_3:
+   038B 21 2C 2D 2E 30 31   645 	.ascii "!,-.0123456789:?@ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        32 33 34 35 36 37
+        38 39 3A 3F 40 41
+        42 43 44 45 46 47
+        48 49 4A 4B 4C 4D
+        4E 4F 50 51 52 53
+        54 55 56 57 58 59
+        5A
+   03B6 00                  646 	.db 0x00
+                            647 	.area _CODE
+                            648 	.area _INITIALIZER
+                            649 	.area _CABS (ABS)

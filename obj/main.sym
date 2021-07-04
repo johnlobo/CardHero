@@ -1,0 +1,60 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  0 ___str_2                                                       0344 R
+  0 ___str_3                                                       038B R
+  1 _aux_txt                                                       0006 GR
+  0 _card_description                                              005C GR
+  0 _card_sprite                                                   0058 GR
+  0 _check_keyboard                                                00F9 GR
+    _cpct_disableFirmware                                          **** GX
+    _cpct_drawSolidBox                                             **** GX
+    _cpct_drawSprite                                               **** GX
+    _cpct_getScreenPtr                                             **** GX
+    _cpct_isKeyPressed                                             **** GX
+    _cpct_memset_f64                                               **** GX
+    _cpct_scanKeyboard                                             **** GX
+    _cpct_setInterruptHandler                                      **** GX
+    _cpct_setPALColour                                             **** GX
+    _cpct_setPalette                                               **** GX
+    _cpct_setVideoMode                                             **** GX
+    _cpct_waitHalts                                                **** GX
+    _cpct_waitVSYNC                                                **** GX
+    _drawTextM1                                                    **** GX
+  0 _draw_cards                                                    0140 GR
+    _g_palette0                                                    **** GX
+    _g_palette1                                                    **** GX
+  1 _i_time                                                        0000 GR
+  0 _initCPC                                                       00C0 GR
+  0 _main                                                          0351 GR
+  1 _moved                                                         003A GR
+  0 _myInterruptHandler                                            0000 GR
+  1 _myInterruptHandler_g_nInterrupt_1_124                         003B R
+  1 _previous_card                                                 0039 GR
+  1 _pvmem                                                         0004 GR
+    _s_cards_0                                                     **** GX
+    _s_cards_1                                                     **** GX
+  1 _selected_card                                                 0038 GR
+    _sprintf                                                       **** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size  3B7   flags    0
+   1 _DATA                                      size   3C   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size    0   flags    0
+   5 _GSINIT                                    size    8   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+
