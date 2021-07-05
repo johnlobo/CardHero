@@ -202,7 +202,7 @@ void drawTextM1(u8 *text, u8 xPos, u8 yPos, u8 size)
                 }
             }
 
-            pvideo = cpct_getScreenPtr(CPCT_VMEM_START, xPos, yPos);
+            pvideo = cpct_getScreenPtr((u8*)VM_START, xPos, yPos);
             //if(transparent)
             //    cpct_drawSpriteMaskedAlignedTable(colorchar, pvideo, FONT2_W, FONT2_H*size, g_tablatrans);
             //else
@@ -346,7 +346,7 @@ void drawText(u8 *text, u8 xPos, u8 yPos, u8 color, u8 size)
                 }
             }
 
-            pvideo = cpct_getScreenPtr(CPCT_VMEM_START, xPos, yPos);
+            pvideo = cpct_getScreenPtr((u8*)VM_START, xPos, yPos);
             //if(transparent)
             //    cpct_drawSpriteMaskedAlignedTable(colorchar, pvideo, FONT2_W, FONT2_H*size, g_tablatrans);
             //else

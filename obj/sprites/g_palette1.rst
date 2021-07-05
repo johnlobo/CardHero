@@ -43,8 +43,8 @@
                              43 	.area _CODE
    01C3                      44 _g_palette1:
    01C3 54                   45 	.db #0x54	; 84	'T'
-   01C4 4D                   46 	.db #0x4d	; 77	'M'
+   01C4 4B                   46 	.db #0x4b	; 75	'K'
    01C5 40                   47 	.db #0x40	; 64
-   01C6 5C                   48 	.db #0x5c	; 92
+   01C6 4D                   48 	.db #0x4d	; 77	'M'
                              49 	.area _INITIALIZER
                              50 	.area _CABS (ABS)

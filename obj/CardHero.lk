@@ -1,5 +1,5 @@
 -mjwx
--i obj/sly.ihx
+-i obj/CardHero.ihx
 -b _CODE = 0x0040
 -b _DATA = 0x0000
 -u

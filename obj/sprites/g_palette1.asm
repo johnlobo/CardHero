@@ -43,8 +43,8 @@
 	.area _CODE
 _g_palette1:
 	.db #0x54	; 84	'T'
-	.db #0x4d	; 77	'M'
+	.db #0x4b	; 75	'K'
 	.db #0x40	; 64
-	.db #0x5c	; 92
+	.db #0x4d	; 77	'M'
 	.area _INITIALIZER
 	.area _CABS (ABS)

@@ -9,7 +9,7 @@ Symbol Table
     .__.H$L.                                                    =  0000 L
     _cpct_drawSprite                                               **** GX
     _cpct_getScreenPtr                                             **** GX
-  0 _drawText                                                      02AC GR
+  0 _drawText                                                      02A6 GR
   0 _drawTextM1                                                    009A GR
     _s_fonts_0                                                     **** GX
     _s_fonts_1                                                     **** GX
@@ -24,7 +24,7 @@ Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size  67B   flags    0
+   0 _CODE                                      size  675   flags    0
    1 _DATA                                      size    0   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8

@@ -7,55 +7,63 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
-  0 ___str_2                                                       0318 R
-  0 ___str_3                                                       040E R
+  0 ___str_2                                                       04CF R
+  0 ___str_3                                                       04D3 R
+  0 ___str_4                                                       04E0 R
+  0 ___str_5                                                       05E5 R
     __moduchar                                                     **** GX
   1 _aux_txt                                                       0006 GR
-  0 _card_description                                              00A0 GR
-  0 _card_sprite                                                   009C GR
+  0 _card_description                                              010E GR
+  0 _card_sprite                                                   010A GR
+  0 _card_types                                                    00A0 GR
   1 _cards                                                         003A GR
-  0 _check_keyboard                                                013D GR
+  0 _check_keyboard                                                01B4 GR
     _cpct_disableFirmware                                          **** GX
     _cpct_drawSolidBox                                             **** GX
     _cpct_drawSprite                                               **** GX
     _cpct_getRandom_mxor_u8                                        **** GX
     _cpct_getScreenPtr                                             **** GX
     _cpct_isKeyPressed                                             **** GX
-    _cpct_memset_f64                                               **** GX
+    _cpct_memset                                                   **** GX
     _cpct_scanKeyboard                                             **** GX
+    _cpct_setCRTCReg                                               **** GX
     _cpct_setInterruptHandler                                      **** GX
     _cpct_setPALColour                                             **** GX
     _cpct_setPalette                                               **** GX
+    _cpct_setStackLocation                                         **** GX
+    _cpct_setVideoMemoryPage                                       **** GX
     _cpct_setVideoMode                                             **** GX
     _cpct_waitHalts                                                **** GX
     _cpct_waitVSYNC                                                **** GX
+    _drawText                                                      **** GX
     _drawTextM1                                                    **** GX
-  0 _draw_cards                                                    0184 GR
+  0 _draw_cards                                                    0206 GR
     _g_palette0                                                    **** GX
     _g_palette1                                                    **** GX
   1 _i_time                                                        0000 GR
-  0 _initCPC                                                       0104 GR
-  0 _init_cards                                                    039F GR
-  0 _main                                                          03D4 GR
-  1 _moved                                                         0045 GR
+  0 _initCPC                                                       0172 GR
+  0 _init_cards                                                    0568 GR
+  0 _main                                                          059F GR
+  1 _moved                                                         004F GR
   0 _myInterruptHandler                                            0000 GR
-  1 _myInterruptHandler_g_nInterrupt_1_124                         0046 R
-  1 _num_cards                                                     0044 GR
+  1 _myInterruptHandler_g_nInterrupt_1_125                         0050 R
+  1 _num_cards                                                     004E GR
   1 _previous_card                                                 0039 GR
   1 _pvmem                                                         0004 GR
     _s_cards_0                                                     **** GX
     _s_cards_1                                                     **** GX
   1 _selected_card                                                 0038 GR
     _sprintf                                                       **** GX
-  0 _update_selected_card                                          0325 GR
+  0 _update_selected_card                                          04ED GR
+
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
 Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size  43A   flags    0
-   1 _DATA                                      size   47   flags    0
+   0 _CODE                                      size  604   flags    0
+   1 _DATA                                      size   51   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8
    4 _HOME                                      size    0   flags    0
