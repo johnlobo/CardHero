@@ -7,17 +7,18 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
-  0 ___str_2                                                       04CF R
-  0 ___str_3                                                       04D3 R
-  0 ___str_4                                                       04E0 R
-  0 ___str_5                                                       05E5 R
+  0 ___str_2                                                       04F5 R
+  0 ___str_3                                                       0502 R
+  0 ___str_4                                                       0618 R
+  0 ___str_5                                                       0637 R
     __moduchar                                                     **** GX
   1 _aux_txt                                                       0006 GR
-  0 _card_description                                              010E GR
-  0 _card_sprite                                                   010A GR
-  0 _card_types                                                    00A0 GR
+  0 _card_description                                              0129 GR
+  0 _card_sprite                                                   0125 GR
+  0 _card_types                                                    00BB GR
   1 _cards                                                         003A GR
-  0 _check_keyboard                                                01B4 GR
+  0 _check_keyboard                                                01CF GR
+  0 _cost_sprite                                                   018D GR
     _cpct_disableFirmware                                          **** GX
     _cpct_drawSolidBox                                             **** GX
     _cpct_drawSprite                                               **** GX
@@ -31,38 +32,46 @@ Symbol Table
     _cpct_setPALColour                                             **** GX
     _cpct_setPalette                                               **** GX
     _cpct_setStackLocation                                         **** GX
-    _cpct_setVideoMemoryPage                                       **** GX
     _cpct_setVideoMode                                             **** GX
     _cpct_waitHalts                                                **** GX
     _cpct_waitVSYNC                                                **** GX
-    _drawText                                                      **** GX
     _drawTextM1                                                    **** GX
-  0 _draw_cards                                                    0206 GR
+  0 _draw_cards                                                    0221 GR
     _g_palette0                                                    **** GX
     _g_palette1                                                    **** GX
   1 _i_time                                                        0000 GR
-  0 _initCPC                                                       0172 GR
-  0 _init_cards                                                    0568 GR
-  0 _main                                                          059F GR
+  0 _initCPC                                                       0199 GR
+  0 _init_cards                                                    058A GR
+  0 _main                                                          05C1 GR
   1 _moved                                                         004F GR
   0 _myInterruptHandler                                            0000 GR
-  1 _myInterruptHandler_g_nInterrupt_1_125                         0050 R
+  1 _myInterruptHandler_g_nInterrupt_1_124                         0050 R
   1 _num_cards                                                     004E GR
   1 _previous_card                                                 0039 GR
   1 _pvmem                                                         0004 GR
     _s_cards_0                                                     **** GX
     _s_cards_1                                                     **** GX
+    _s_costs_0                                                     **** GX
+    _s_costs_1                                                     **** GX
+    _s_costs_2                                                     **** GX
+    _s_costs_3                                                     **** GX
+    _s_costs_4                                                     **** GX
+    _s_costs_5                                                     **** GX
   1 _selected_card                                                 0038 GR
-    _sprintf                                                       **** GX
-  0 _update_selected_card                                          04ED GR
-
-
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    _sprintf                                                       **** GX
+  0 _update_selected_card                                          050F GR
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
 Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size  604   flags    0
+   0 _CODE                                      size  651   flags    0
    1 _DATA                                      size   51   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8

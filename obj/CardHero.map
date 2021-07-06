@@ -19,124 +19,128 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000008  l__GSINIT                       
      00000040  s__CODE                         
      00000051  l__DATA                         
-     00002269  l__CODE                         
-     000022A9  s__DATA                         
-     000022FA  s__GSINIT                       
-     000022FA  s__HOME                         
-     000022FA  s__INITIALIZED                  
-     00002302  s__GSFINAL                      
-     00002302  s__INITIALIZER                  
+     000022FB  l__CODE                         
+     0000233B  s__DATA                         
+     0000238C  s__GSINIT                       
+     0000238C  s__HOME                         
+     0000238C  s__INITIALIZED                  
+     00002394  s__GSFINAL                      
+     00002394  s__INITIALIZER                  
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00000040    00002269 =        8809. bytes (REL,CON)
+_CODE                               00000040    000022FB =        8955. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
      00000040  _s_fonts_1                         font_chars_1
      000001C3  _g_palette1                        g_palette1
-     000001C7  _s_fonts_0                         font_chars_0
-     000004BB  _s_cards_0                         cards
-     00000603  _s_cards_1                         cards
-     0000074B  _g_palette0                        g_palette0
-     0000075B  _myInterruptHandler                main
-     000007FB  _card_types                        main
-     00000865  _card_sprite                       main
-     00000869  _card_description                  main
-     000008CD  _initCPC                           main
-     0000090F  _check_keyboard                    main
-     00000961  _draw_cards                        main
-     00000C48  _update_selected_card              main
-     00000CC3  _init_cards                        main
-     00000CFA  _main                              main
-     00000D5F  _strLength                         text
-     00000D75  _swapColors                        text
-     00000D8D  _strCopy                           text
-     00000DB6  _strCmp                            text
-     00000DF9  _drawTextM1                        text
-     00001005  _drawText                          text
-     000013D4  _cpct_setPalette                   cpct_video
-     000013EB  _cpct_isKeyPressed                 cpct_keyboard
-     000013EB  cpct_isKeyPressed_asm              cpct_keyboard
-     000013F7  _cpct_setPALColour                 cpct_video
-     00001403  _cpct_drawSprite                   cpct_sprites
-     000014A8  __moduchar                         
-     000014B4  __moduint                          
-     000014BF  _cpct_keyboardStatusBuffer         cpct_keyboard
-     000014C9  _cpct_waitHalts                    cpct_memutils
-     000014CE  __divuint                          
-     000014D6  __divuchar                         
-     000014DD  __divu8                            
-     000014E0  __divu16                           
-     0000150F  _cpct_setVideoMemoryPage           cpct_video
-     0000150F  cpct_setVideoMemoryPage_asm        cpct_video
-     00001518  _cpct_setStackLocation             cpct_memutils
-     00001518  cpct_setStackLocation_asm          cpct_memutils
-     0000153C  _vsprintf                          sprintf
-     00001571  _sprintf                           sprintf
-     000015A6  _cpct_waitVSYNC                    cpct_video
-     000015A6  cpct_waitVSYNC_asm                 cpct_video
-     000015AE  _cpct_setVideoMode                 cpct_video
-     000015BC  _cpct_memset                       cpct_memutils
-     000015CA  _cpct_disableFirmware              cpct_firmware
-     000015CA  _cpct_removeInterruptHandler       cpct_firmware
-     000015CA  cpct_disableFirmware_asm           cpct_firmware
-     000015CA  cpct_removeInterruptHandler_asm    cpct_firmware
-     000015DA  _cpct_getRandom_mxor_u8            cpct_random
+     000001C7  _s_costs_0                         costs
+     000001D3  _s_costs_1                         costs
+     000001DF  _s_costs_2                         costs
+     000001EB  _s_costs_3                         costs
+     000001F7  _s_costs_4                         costs
+     00000203  _s_costs_5                         costs
+     0000020F  _s_fonts_0                         font_chars_0
+     00000503  _s_cards_0                         cards
+     0000064B  _s_cards_1                         cards
+     00000793  _g_palette0                        g_palette0
+     000007A3  _myInterruptHandler                main
+     0000085E  _card_types                        main
+     000008C8  _card_sprite                       main
+     000008CC  _card_description                  main
+     00000930  _cost_sprite                       main
+     0000093C  _initCPC                           main
+     00000972  _check_keyboard                    main
+     000009C4  _draw_cards                        main
+     00000CB2  _update_selected_card              main
+     00000D2D  _init_cards                        main
+     00000D64  _main                              main
+     00000DF4  _strLength                         text
+     00000E0A  _swapColors                        text
+     00000E22  _strCopy                           text
+     00000E4B  _strCmp                            text
+     00000E8E  _drawTextM1                        text
+     000010A0  _drawText                          text
+     0000146F  _cpct_setPalette                   cpct_video
+     00001486  _cpct_isKeyPressed                 cpct_keyboard
+     00001486  cpct_isKeyPressed_asm              cpct_keyboard
+     00001492  _cpct_setPALColour                 cpct_video
+     0000149E  _cpct_drawSprite                   cpct_sprites
+     00001543  __moduchar                         
+     0000154F  __moduint                          
+     0000155A  _cpct_keyboardStatusBuffer         cpct_keyboard
+     00001564  _cpct_waitHalts                    cpct_memutils
+     00001569  __divuint                          
+     00001571  __divuchar                         
+     00001578  __divu8                            
+     0000157B  __divu16                           
+     000015AA  _cpct_setStackLocation             cpct_memutils
+     000015AA  cpct_setStackLocation_asm          cpct_memutils
+     000015CE  _vsprintf                          sprintf
+     00001603  _sprintf                           sprintf
+     00001638  _cpct_waitVSYNC                    cpct_video
+     00001638  cpct_waitVSYNC_asm                 cpct_video
+     00001640  _cpct_setVideoMode                 cpct_video
+     0000164E  _cpct_memset                       cpct_memutils
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00000040    00002269 =        8809. bytes (REL,CON)
+_CODE                               00000040    000022FB =        8955. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000015DA  cpct_getRandom_mxor_u8_asm         cpct_random
-     000015DB  cpct_randomIdx_mxor_u8             cpct_random
-     000015FF  _cpct_drawSolidBox                 cpct_sprites
-     000016A9  _cpct_mode_rom_status              cpct_firmware
-     000016AA  _cpct_setCRTCReg                   cpct_video
-     000016B8  _cpct_getScreenPtr                 cpct_video
-     000016D8  _cpct_scanKeyboard                 cpct_keyboard
-     000016D8  cpct_scanKeyboard_asm              cpct_keyboard
-     00001709  _cpct_setInterruptHandler          cpct_firmware
-     00001709  cpct_setInterruptHandler_asm       cpct_firmware
-     0000171A  cpct_safeInterruptHandlerHook      cpct_firmware
-     00001731  _cpct_mxor32_seed                  cpct_random
-     00001834  __print_format                     printf_large
-     00002276  _cpct_nextRandom_mxor_u32          cpct_random
-     00002276  cpct_nextRandom_mxor_u32_asm       cpct_random
-     00002299  ___sdcc_call_hl                    
-     0000229A  _strlen                            
-
+     0000165C  _cpct_disableFirmware              cpct_firmware
+     0000165C  _cpct_removeInterruptHandler       cpct_firmware
+     0000165C  cpct_disableFirmware_asm           cpct_firmware
+     0000165C  cpct_removeInterruptHandler_asm    cpct_firmware
+     0000166C  _cpct_getRandom_mxor_u8            cpct_random
+     0000166C  cpct_getRandom_mxor_u8_asm         cpct_random
+     0000166D  cpct_randomIdx_mxor_u8             cpct_random
+     00001691  _cpct_drawSolidBox                 cpct_sprites
+     0000173B  _cpct_mode_rom_status              cpct_firmware
+     0000173C  _cpct_setCRTCReg                   cpct_video
+     0000174A  _cpct_getScreenPtr                 cpct_video
+     0000176A  _cpct_scanKeyboard                 cpct_keyboard
+     0000176A  cpct_scanKeyboard_asm              cpct_keyboard
+     0000179B  _cpct_setInterruptHandler          cpct_firmware
+     0000179B  cpct_setInterruptHandler_asm       cpct_firmware
+     000017AC  cpct_safeInterruptHandlerHook      cpct_firmware
+     000017C3  _cpct_mxor32_seed                  cpct_random
+     000018C6  __print_format                     printf_large
+     00002308  _cpct_nextRandom_mxor_u32          cpct_random
+     00002308  cpct_nextRandom_mxor_u32_asm       cpct_random
+     0000232B  ___sdcc_call_hl                    
+     0000232C  _strlen                            
 ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_DATA                               000022A9    00000051 =          81. bytes (REL,CON)
+_DATA                               0000233B    00000051 =          81. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000022A9  _i_time                            main
-     000022AD  _pvmem                             main
-     000022AF  _aux_txt                           main
-     000022E1  _selected_card                     main
-     000022E2  _previous_card                     main
-     000022E3  _cards                             main
-     000022F7  _num_cards                         main
-     000022F8  _moved                             main
+     0000233B  _i_time                            main
+     0000233F  _pvmem                             main
+     00002341  _aux_txt                           main
+     00002373  _selected_card                     main
+     00002374  _previous_card                     main
+     00002375  _cards                             main
+     00002389  _num_cards                         main
+     0000238A  _moved                             main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_GSINIT                             000022FA    00000008 =           8. bytes (REL,CON)
+_GSINIT                             0000238C    00000008 =           8. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -146,6 +150,7 @@ Files Linked                              [ module(s) ]
 
 obj/sprites/font_chars_1.rel              [ font_chars_1 ]
 obj/sprites/g_palette1.rel                [ g_palette1 ]
+obj/sprites/costs.rel                     [ costs ]
 obj/sprites/font_chars_0.rel              [ font_chars_0 ]
 obj/sprites/cards.rel                     [ cards ]
 obj/sprites/g_palette0.rel                [ g_palette0 ]
@@ -171,8 +176,6 @@ Libraries Linked                          [ object file ]
                                           [ cpct_waitHalts_cbindings.rel ]
 /mnt/c/sources/retro/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
                                           [ divunsigned.rel ]
-/mnt/c/sources/retro/cpctelera/cpctelera/cpctelera.lib
-                                          [ cpct_setVideoMemoryPage.rel ]
 /mnt/c/sources/retro/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_setStackLocation.rel ]
 /mnt/c/sources/retro/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib

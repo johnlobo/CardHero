@@ -52,9 +52,10 @@ $(eval $(call IMG2SP, SET_PALETTE_FW  , $(PALETTE0)         ))
 $(eval $(call IMG2SP, CONVERT_PALETTE , $(PALETTE0), g_palette0 ))
 $(eval $(call IMG2SP, CONVERT         , assets/cards.png , 16, 41, s_cards, ,))
 $(eval $(call IMG2SP, CONVERT         , assets/font_chars_0.png , 4, 675, s_fonts_0, ,))
+$(eval $(call IMG2SP, CONVERT         , assets/costs.png , 4, 6, s_costs, ,))
+$(eval $(call IMG2SP, SET_MODE        , 1                  ))
 $(eval $(call IMG2SP, SET_PALETTE_FW  , $(PALETTE1)         ))
 $(eval $(call IMG2SP, CONVERT_PALETTE , $(PALETTE1), g_palette1 ))
-$(eval $(call IMG2SP, SET_MODE        , 1                  ))
 $(eval $(call IMG2SP, CONVERT         , assets/font_chars_1.png , 4, 675, s_fonts_1, ,))
 
 ##

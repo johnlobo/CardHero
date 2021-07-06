@@ -1,0 +1,44 @@
+XL2
+H 9 areas 7 global symbols
+M costs
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 48 flags 0 addr 0
+S _s_costs_0 Def0000
+S _s_costs_1 Def000C
+S _s_costs_2 Def0018
+S _s_costs_3 Def0024
+S _s_costs_4 Def0030
+S _s_costs_5 Def003C
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 F5 F0 F5 F0 F5 F0 F5 F0 F5 F0 F5 F0
+R 00 00 00 00
+T 0C 00
+R 00 00 00 00
+T 0C 00 FF FA F0 FA FF FA FA F0 FA F0 FF FA
+R 00 00 00 00
+T 18 00
+R 00 00 00 00
+T 18 00 FF FA F0 FA F0 FA F5 FA F0 FA FF FA
+R 00 00 00 00
+T 24 00
+R 00 00 00 00
+T 24 00 FA FA FA FA FA FA FF FA F0 FA F0 FA
+R 00 00 00 00
+T 30 00
+R 00 00 00 00
+T 30 00 FF FA FA F0 FF FA F0 FA F0 FA FF FA
+R 00 00 00 00
+T 3C 00
+R 00 00 00 00
+T 3C 00 FF FA FA F0 FF FA FA FA FA FA FF FA
+R 00 00 00 00

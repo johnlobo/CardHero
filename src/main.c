@@ -20,9 +20,10 @@
 #include <stdio.h>
 #include "defines.h"
 #include "text/text.h"
-#include "sprites/cards.h"
 #include "sprites/g_palette0.h"
 #include "sprites/g_palette1.h"
+#include "sprites/cards.h"
+#include "sprites/costs.h"
 #include "entities/card.h"
 
 //Global Variables
@@ -46,6 +47,7 @@ u8 const card_description[2][50] = {
    {"SWORD:PRODUCES DIRECT DAMAGE TO THE ENEMY\0"},
    {"SHIELD:PROTECTS SOME DAMAGE\0"}
    };
+u8 *const cost_sprite[6] = {s_costs_0, s_costs_1, s_costs_2, s_costs_3, s_costs_4, s_costs_5};  // Cost sprite
 
 // ********************************************************************************
 /// <summary>
@@ -59,6 +61,7 @@ u8 const card_description[2][50] = {
 // ********************************************************************************
 void myInterruptHandler(){
    static u8 g_nInterrupt = 0; // Manage Interrupt
+   u16 i;
 
    i_time++;
    g_nInterrupt++;
@@ -67,10 +70,11 @@ void myInterruptHandler(){
          cpct_setBorder(HW_LIME);
          break;
       case 2:
-         //i=210;
-         //while (i>0){
-         //   i--;
-         //}
+         cpct_setBorder(HW_BRIGHT_MAGENTA);
+         i=270;
+         while (i>0){
+            i--;
+         }
          cpct_setBorder(HW_CYAN);
          cpct_setVideoMode(0);
          cpct_setPalette(g_palette0, 16);
@@ -82,18 +86,17 @@ void myInterruptHandler(){
          cpct_setBorder(HW_YELLOW);
          break;
       case 5:
-         cpct_setBorder(HW_BLACK);
-         //i=450;
-         //while (i>0){
-         //   i--;
-         //}
-
          cpct_setBorder(HW_MAGENTA);
+         i=330;
+         while (i>0){
+            i--;
+         }
+         cpct_setBorder(HW_BRIGHT_CYAN);
+         cpct_setVideoMode(1);
+         cpct_setPalette(g_palette1, 4);
          break;
       default:
          cpct_setBorder(HW_BRIGHT_BLUE);
-         cpct_setVideoMode(1);
-         cpct_setPalette(g_palette1, 4);
          cpct_scanKeyboard();
          g_nInterrupt = 0;
          break;
@@ -110,9 +113,10 @@ void initCPC() {
    cpct_memset((u8*)0x8000,0,0x8000);
    
    //Vertical overscan
-   cpct_setCRTCReg(6, 34);
-   cpct_setCRTCReg(7, 35);
-   cpct_setVideoMemoryPage(cpct_page80);
+   //cpct_setCRTCReg(6, 34);
+   //cpct_setCRTCReg(7, 35);
+   cpct_setCRTCReg(12, 0x2c);
+
 
    //Interrupts Syncronization
    cpct_waitVSYNC();
@@ -141,54 +145,54 @@ void draw_cards(){
    cpct_waitVSYNC();
 
    // Erase previous card
-   pvmem = cpct_getScreenPtr((u8*) VM_START, (previous_card*(S_CARDS_0_W-3))-2, 160);
+   pvmem = cpct_getScreenPtr((u8*) VM_START, (previous_card*(S_CARDS_0_W-3))-2, 136);
    cpct_drawSolidBox(pvmem, 0x33, S_CARDS_0_W+4, S_CARDS_0_H+4);  
 
    // Draw first part of cards
    for (i=0;i<selected_card;i++){
-      pvmem = cpct_getScreenPtr((u8*) VM_START, 2+(i*(S_CARDS_0_W-3)), 164);
+      pvmem = cpct_getScreenPtr((u8*) VM_START, 2+(i*(S_CARDS_0_W-3)), 140);
       cpct_drawSprite(card_types[cards[i].type].sprite, pvmem, S_CARDS_0_W, S_CARDS_0_H);
-      sprintf(aux_txt,"%1d", card_types[cards[i].type].cost);   
-      drawText(aux_txt, 3+(i*(S_CARDS_0_W-3)),165, COLORTXT_WHITE ,NORMALHEIGHT);
+      pvmem = cpct_getScreenPtr((u8*) VM_START, 3+(i*(S_CARDS_0_W-3)), 141);
+      cpct_drawSprite(cost_sprite[card_types[cards[i].type].cost - 1], pvmem, S_COSTS_0_W, S_COSTS_0_H);
    }
    
    // Draw second part of cards
    for (i=selected_card+1;i<num_cards;i++){
-      pvmem = cpct_getScreenPtr((u8*) VM_START, 4+(i*(S_CARDS_0_W-3)), 164);
+      pvmem = cpct_getScreenPtr((u8*) VM_START, 4+(i*(S_CARDS_0_W-3)), 140);
       cpct_drawSprite(card_types[cards[i].type].sprite, pvmem, S_CARDS_0_W, S_CARDS_0_H);
-      sprintf(aux_txt,"%1d", card_types[cards[i].type].cost);   
-      drawText(aux_txt, 5+(i*(S_CARDS_0_W-3)),165, COLORTXT_WHITE ,NORMALHEIGHT);
+      pvmem = cpct_getScreenPtr((u8*) VM_START, 5+(i*(S_CARDS_0_W-3)), 141);
+      cpct_drawSprite(cost_sprite[card_types[cards[i].type].cost - 1], pvmem, S_COSTS_0_W, S_COSTS_0_H);
    }
 
    // Draw selected card
-   pvmem = cpct_getScreenPtr((u8*) VM_START, 3+(selected_card*(S_CARDS_0_W-3)), 160);
+   pvmem = cpct_getScreenPtr((u8*) VM_START, 3+(selected_card*(S_CARDS_0_W-3)), 136);
    cpct_drawSprite(card_types[cards[selected_card].type].sprite, pvmem, S_CARDS_0_W, S_CARDS_0_H);
-   sprintf(aux_txt,"%1d", card_types[cards[selected_card].type].cost);   
-      drawText(aux_txt, 4+(selected_card*(S_CARDS_0_W-3)), 161, COLORTXT_WHITE ,NORMALHEIGHT);
+   pvmem = cpct_getScreenPtr((u8*) VM_START, 4+(selected_card*(S_CARDS_0_W-3)), 137);
+   cpct_drawSprite(cost_sprite[card_types[cards[selected_card].type].cost - 1], pvmem, S_COSTS_0_W, S_COSTS_0_H);
 
    //MESSAGES
    // Erase previous message
-   pvmem = cpct_getScreenPtr((u8*) VM_START, 10, 234);
+   pvmem = cpct_getScreenPtr((u8*) VM_START, 10, 190);
    cpct_drawSolidBox(pvmem, 0x00, 50, 9);
    // Print Message
-   drawTextM1(card_types[cards[selected_card].type].description,10,234,NORMALHEIGHT);
+   drawTextM1(card_types[cards[selected_card].type].description,2,190,NORMALHEIGHT);
    
    //cpct_waitHalts(20);
    sprintf(aux_txt, "PREVIOUS:%1d", previous_card);
-   drawTextM1(aux_txt,10,244,NORMALHEIGHT);
+   drawTextM1(aux_txt,40,190,NORMALHEIGHT);
    sprintf(aux_txt, "SELECTED:%1d", selected_card);
-   drawTextM1(aux_txt,10,254,NORMALHEIGHT);
+   drawTextM1(aux_txt,60,190,NORMALHEIGHT);
 
 }
 
 void update_selected_card(){
    // Erase previous card
    if (selected_card>0){
-      pvmem = cpct_getScreenPtr((u8*) VM_START, (previous_card*(S_CARDS_0_W))-2, 160);
+      pvmem = cpct_getScreenPtr((u8*) VM_START, (previous_card*(S_CARDS_0_W))-2, 140);
       cpct_drawSolidBox(pvmem, 0x33, S_CARDS_0_W, 5);
    }
 
-   pvmem = cpct_getScreenPtr((u8*) VM_START, 2+(selected_card*(S_CARDS_0_W-3)), 164);
+   pvmem = cpct_getScreenPtr((u8*) VM_START, 2+(selected_card*(S_CARDS_0_W-3)), 144);
    cpct_drawSprite(card_types[cards[selected_card].type].sprite, pvmem, S_CARDS_0_W, S_CARDS_0_H);
 }
 
@@ -214,6 +218,7 @@ void main(void) {
    moved = NO;
 
    drawTextM1("CARD HERO - DECK BUILDING GAME",10,0,NORMALHEIGHT);
+   drawTextM1("SECOND LINE, JUST IN CASE",10,10,NORMALHEIGHT);
 
    init_cards();
 

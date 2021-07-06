@@ -9,6 +9,7 @@
 -l z80
 obj/sprites/font_chars_1.rel
 obj/sprites/g_palette1.rel
+obj/sprites/costs.rel
 obj/sprites/font_chars_0.rel
 obj/sprites/cards.rel
 obj/sprites/g_palette0.rel
