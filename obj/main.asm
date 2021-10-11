@@ -68,7 +68,7 @@ _num_cards::
 	.ds 1
 _moved::
 	.ds 1
-_myInterruptHandler_g_nInterrupt_1_124:
+_myInterruptHandler_g_nInterrupt_1_125:
 	.ds 1
 ;--------------------------------------------------------
 ; ram data
@@ -86,7 +86,7 @@ _myInterruptHandler_g_nInterrupt_1_124:
 	.area _GSFINAL
 	.area _GSINIT
 ;src/main.c:63: static u8 g_nInterrupt = 0; // Manage Interrupt
-	ld	iy, #_myInterruptHandler_g_nInterrupt_1_124
+	ld	iy, #_myInterruptHandler_g_nInterrupt_1_125
 	ld	0 (iy), #0x00
 ;--------------------------------------------------------
 ; Home
@@ -113,7 +113,7 @@ _myInterruptHandler::
 	inc	3 (iy)
 00154$:
 ;src/main.c:67: g_nInterrupt++;
-	ld	iy, #_myInterruptHandler_g_nInterrupt_1_124
+	ld	iy, #_myInterruptHandler_g_nInterrupt_1_125
 	inc	0 (iy)
 ;src/main.c:68: switch (g_nInterrupt){
 	ld	a, 0 (iy)
@@ -227,7 +227,7 @@ _myInterruptHandler::
 ;src/main.c:100: cpct_scanKeyboard();
 	call	_cpct_scanKeyboard
 ;src/main.c:101: g_nInterrupt = 0;
-	ld	hl,#_myInterruptHandler_g_nInterrupt_1_124 + 0
+	ld	hl,#_myInterruptHandler_g_nInterrupt_1_125 + 0
 	ld	(hl), #0x00
 ;src/main.c:103: }
 	ret
@@ -459,7 +459,7 @@ _draw_cards::
 	add	a, a
 	add	a, a
 	add	a, c
-	ld	-1 (ix), a
+	ld	-3 (ix), a
 	ld	b, a
 	inc	b
 	inc	b
@@ -474,8 +474,8 @@ _draw_cards::
 	ld	(_pvmem), hl
 ;src/main.c:154: cpct_drawSprite(card_types[cards[i].type].sprite, pvmem, S_CARDS_0_W, S_CARDS_0_H);
 	ld	hl, (_pvmem)
-	ld	-3 (ix), l
-	ld	-2 (ix), h
+	ld	-2 (ix), l
+	ld	-1 (ix), h
 	ld	l, -4 (ix)
 	ld	h, #0x00
 	add	hl, hl
@@ -505,14 +505,14 @@ _draw_cards::
 	push	bc
 	ld	hl, #0x2908
 	push	hl
-	ld	l,-3 (ix)
-	ld	h,-2 (ix)
+	ld	l,-2 (ix)
+	ld	h,-1 (ix)
 	push	hl
 	push	de
 	call	_cpct_drawSprite
 	pop	bc
 ;src/main.c:155: pvmem = cpct_getScreenPtr((u8*) VM_START, 3+(i*(S_CARDS_0_W-3)), 141);
-	ld	d, -1 (ix)
+	ld	d, -3 (ix)
 	inc	d
 	inc	d
 	inc	d
@@ -565,19 +565,19 @@ _draw_cards::
 ;src/main.c:160: for (i=selected_card+1;i<num_cards;i++){
 	ld	a,(#_selected_card + 0)
 	inc	a
-	ld	-3 (ix), a
+	ld	-2 (ix), a
 00107$:
 	ld	hl, #_num_cards
-	ld	a, -3 (ix)
+	ld	a, -2 (ix)
 	sub	a, (hl)
 	jp	NC, 00102$
 ;src/main.c:161: pvmem = cpct_getScreenPtr((u8*) VM_START, 4+(i*(S_CARDS_0_W-3)), 140);
-	ld	a, -3 (ix)
+	ld	a, -2 (ix)
 	ld	c, a
 	add	a, a
 	add	a, a
 	add	a, c
-	ld	-1 (ix), a
+	ld	-3 (ix), a
 	ld	b, a
 	inc	b
 	inc	b
@@ -594,7 +594,7 @@ _draw_cards::
 	ld	(_pvmem), hl
 ;src/main.c:162: cpct_drawSprite(card_types[cards[i].type].sprite, pvmem, S_CARDS_0_W, S_CARDS_0_H);
 	ld	iy, (_pvmem)
-	ld	l, -3 (ix)
+	ld	l, -2 (ix)
 	ld	h, #0x00
 	add	hl, hl
 	ld	bc,#_cards
@@ -628,7 +628,7 @@ _draw_cards::
 	call	_cpct_drawSprite
 	pop	bc
 ;src/main.c:163: pvmem = cpct_getScreenPtr((u8*) VM_START, 5+(i*(S_CARDS_0_W-3)), 141);
-	ld	a, -1 (ix)
+	ld	a, -3 (ix)
 	add	a, #0x05
 	ld	d, a
 	push	bc
@@ -674,7 +674,7 @@ _draw_cards::
 	push	bc
 	call	_cpct_drawSprite
 ;src/main.c:160: for (i=selected_card+1;i<num_cards;i++){
-	inc	-3 (ix)
+	inc	-2 (ix)
 	jp	00107$
 00102$:
 ;src/main.c:168: pvmem = cpct_getScreenPtr((u8*) VM_START, 3+(selected_card*(S_CARDS_0_W-3)), 136);

@@ -68,7 +68,7 @@
    2389                      68 	.ds 1
    238A                      69 _moved::
    238A                      70 	.ds 1
-   238B                      71 _myInterruptHandler_g_nInterrupt_1_124:
+   238B                      71 _myInterruptHandler_g_nInterrupt_1_125:
    238B                      72 	.ds 1
                              73 ;--------------------------------------------------------
                              74 ; ram data
@@ -86,7 +86,7 @@
                              86 	.area _GSFINAL
                              87 	.area _GSINIT
                              88 ;src/main.c:63: static u8 g_nInterrupt = 0; // Manage Interrupt
-   238C FD 21 8B 23   [14]   89 	ld	iy, #_myInterruptHandler_g_nInterrupt_1_124
+   238C FD 21 8B 23   [14]   89 	ld	iy, #_myInterruptHandler_g_nInterrupt_1_125
    2390 FD 36 00 00   [19]   90 	ld	0 (iy), #0x00
                              91 ;--------------------------------------------------------
                              92 ; Home
@@ -113,7 +113,7 @@
    07B6 FD 34 03      [23]  113 	inc	3 (iy)
    07B9                     114 00154$:
                             115 ;src/main.c:67: g_nInterrupt++;
-   07B9 FD 21 8B 23   [14]  116 	ld	iy, #_myInterruptHandler_g_nInterrupt_1_124
+   07B9 FD 21 8B 23   [14]  116 	ld	iy, #_myInterruptHandler_g_nInterrupt_1_125
    07BD FD 34 00      [23]  117 	inc	0 (iy)
                             118 ;src/main.c:68: switch (g_nInterrupt){
    07C0 FD 7E 00      [19]  119 	ld	a, 0 (iy)
@@ -227,7 +227,7 @@
                             227 ;src/main.c:100: cpct_scanKeyboard();
    0855 CD 6A 17      [17]  228 	call	_cpct_scanKeyboard
                             229 ;src/main.c:101: g_nInterrupt = 0;
-   0858 21 8B 23      [10]  230 	ld	hl,#_myInterruptHandler_g_nInterrupt_1_124 + 0
+   0858 21 8B 23      [10]  230 	ld	hl,#_myInterruptHandler_g_nInterrupt_1_125 + 0
    085B 36 00         [10]  231 	ld	(hl), #0x00
                             232 ;src/main.c:103: }
    085D C9            [10]  233 	ret
@@ -479,7 +479,7 @@
    0A0C 87            [ 4]  459 	add	a, a
    0A0D 87            [ 4]  460 	add	a, a
    0A0E 81            [ 4]  461 	add	a, c
-   0A0F DD 77 FF      [19]  462 	ld	-1 (ix), a
+   0A0F DD 77 FD      [19]  462 	ld	-3 (ix), a
    0A12 47            [ 4]  463 	ld	b, a
    0A13 04            [ 4]  464 	inc	b
    0A14 04            [ 4]  465 	inc	b
@@ -494,8 +494,8 @@
    0A22 22 3F 23      [16]  474 	ld	(_pvmem), hl
                             475 ;src/main.c:154: cpct_drawSprite(card_types[cards[i].type].sprite, pvmem, S_CARDS_0_W, S_CARDS_0_H);
    0A25 2A 3F 23      [16]  476 	ld	hl, (_pvmem)
-   0A28 DD 75 FD      [19]  477 	ld	-3 (ix), l
-   0A2B DD 74 FE      [19]  478 	ld	-2 (ix), h
+   0A28 DD 75 FE      [19]  477 	ld	-2 (ix), l
+   0A2B DD 74 FF      [19]  478 	ld	-1 (ix), h
    0A2E DD 6E FC      [19]  479 	ld	l, -4 (ix)
    0A31 26 00         [ 7]  480 	ld	h, #0x00
    0A33 29            [11]  481 	add	hl, hl
@@ -525,14 +525,14 @@
    0A50 C5            [11]  505 	push	bc
    0A51 21 08 29      [10]  506 	ld	hl, #0x2908
    0A54 E5            [11]  507 	push	hl
-   0A55 DD 6E FD      [19]  508 	ld	l,-3 (ix)
-   0A58 DD 66 FE      [19]  509 	ld	h,-2 (ix)
+   0A55 DD 6E FE      [19]  508 	ld	l,-2 (ix)
+   0A58 DD 66 FF      [19]  509 	ld	h,-1 (ix)
    0A5B E5            [11]  510 	push	hl
    0A5C D5            [11]  511 	push	de
    0A5D CD 9E 14      [17]  512 	call	_cpct_drawSprite
    0A60 C1            [10]  513 	pop	bc
                             514 ;src/main.c:155: pvmem = cpct_getScreenPtr((u8*) VM_START, 3+(i*(S_CARDS_0_W-3)), 141);
-   0A61 DD 56 FF      [19]  515 	ld	d, -1 (ix)
+   0A61 DD 56 FD      [19]  515 	ld	d, -3 (ix)
    0A64 14            [ 4]  516 	inc	d
    0A65 14            [ 4]  517 	inc	d
    0A66 14            [ 4]  518 	inc	d
@@ -585,19 +585,19 @@
                             565 ;src/main.c:160: for (i=selected_card+1;i<num_cards;i++){
    0AAA 3A 73 23      [13]  566 	ld	a,(#_selected_card + 0)
    0AAD 3C            [ 4]  567 	inc	a
-   0AAE DD 77 FD      [19]  568 	ld	-3 (ix), a
+   0AAE DD 77 FE      [19]  568 	ld	-2 (ix), a
    0AB1                     569 00107$:
    0AB1 21 89 23      [10]  570 	ld	hl, #_num_cards
-   0AB4 DD 7E FD      [19]  571 	ld	a, -3 (ix)
+   0AB4 DD 7E FE      [19]  571 	ld	a, -2 (ix)
    0AB7 96            [ 7]  572 	sub	a, (hl)
    0AB8 D2 55 0B      [10]  573 	jp	NC, 00102$
                             574 ;src/main.c:161: pvmem = cpct_getScreenPtr((u8*) VM_START, 4+(i*(S_CARDS_0_W-3)), 140);
-   0ABB DD 7E FD      [19]  575 	ld	a, -3 (ix)
+   0ABB DD 7E FE      [19]  575 	ld	a, -2 (ix)
    0ABE 4F            [ 4]  576 	ld	c, a
    0ABF 87            [ 4]  577 	add	a, a
    0AC0 87            [ 4]  578 	add	a, a
    0AC1 81            [ 4]  579 	add	a, c
-   0AC2 DD 77 FF      [19]  580 	ld	-1 (ix), a
+   0AC2 DD 77 FD      [19]  580 	ld	-3 (ix), a
    0AC5 47            [ 4]  581 	ld	b, a
    0AC6 04            [ 4]  582 	inc	b
    0AC7 04            [ 4]  583 	inc	b
@@ -614,7 +614,7 @@
    0AD7 22 3F 23      [16]  594 	ld	(_pvmem), hl
                             595 ;src/main.c:162: cpct_drawSprite(card_types[cards[i].type].sprite, pvmem, S_CARDS_0_W, S_CARDS_0_H);
    0ADA FD 2A 3F 23   [20]  596 	ld	iy, (_pvmem)
-   0ADE DD 6E FD      [19]  597 	ld	l, -3 (ix)
+   0ADE DD 6E FE      [19]  597 	ld	l, -2 (ix)
    0AE1 26 00         [ 7]  598 	ld	h, #0x00
    0AE3 29            [11]  599 	add	hl, hl
    0AE4 01 75 23      [10]  600 	ld	bc,#_cards
@@ -648,7 +648,7 @@
    0B08 CD 9E 14      [17]  628 	call	_cpct_drawSprite
    0B0B C1            [10]  629 	pop	bc
                             630 ;src/main.c:163: pvmem = cpct_getScreenPtr((u8*) VM_START, 5+(i*(S_CARDS_0_W-3)), 141);
-   0B0C DD 7E FF      [19]  631 	ld	a, -1 (ix)
+   0B0C DD 7E FD      [19]  631 	ld	a, -3 (ix)
    0B0F C6 05         [ 7]  632 	add	a, #0x05
    0B11 57            [ 4]  633 	ld	d, a
    0B12 C5            [11]  634 	push	bc
@@ -694,7 +694,7 @@
    0B4B C5            [11]  674 	push	bc
    0B4C CD 9E 14      [17]  675 	call	_cpct_drawSprite
                             676 ;src/main.c:160: for (i=selected_card+1;i<num_cards;i++){
-   0B4F DD 34 FD      [23]  677 	inc	-3 (ix)
+   0B4F DD 34 FE      [23]  677 	inc	-2 (ix)
    0B52 C3 B1 0A      [10]  678 	jp	00107$
    0B55                     679 00102$:
                             680 ;src/main.c:168: pvmem = cpct_getScreenPtr((u8*) VM_START, 3+(selected_card*(S_CARDS_0_W-3)), 136);

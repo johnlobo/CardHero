@@ -45,7 +45,7 @@ Symbol Table
   0 _main                                                          05C1 GR
   1 _moved                                                         004F GR
   0 _myInterruptHandler                                            0000 GR
-  1 _myInterruptHandler_g_nInterrupt_1_124                         0050 R
+  1 _myInterruptHandler_g_nInterrupt_1_125                         0050 R
   1 _num_cards                                                     004E GR
   1 _previous_card                                                 0039 GR
   1 _pvmem                                                         0004 GR
